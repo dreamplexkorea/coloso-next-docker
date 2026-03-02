@@ -1,0 +1,192 @@
+import type { CourseDetail } from "@/lib/types";
+
+const courseDetail: CourseDetail = {
+    slug: "barista-experience",
+    title: "바리스타 직업체험: 커피 한 잔에 담긴 과학과 예술",
+    subtitle:
+        "원두의 과학부터 라떼아트까지, 프로 바리스타의 세계를 직접 체험하는 프리미엄 진로 프로그램",
+    heroImageSrc: "/images/products/barista-experience/hero.png",
+    heroEyebrow: "DREAMPLEX · 요리/식품 진로직업체험",
+    heroHeadline: "한 잔의 커피가 하나의 작품이 되는 순간",
+    heroSubcopy:
+        "현직 스페셜티 바리스타가 학교로 직접 찾아가, 커피의 과학과 예술을 동시에 전하는 감각 수업을 운영합니다.",
+    heroChips: ["초등 대상", "학교 방문형", "실습 중심"],
+    heroProofStats: [
+        { label: "운영 학교", value: "120+" },
+        { label: "참여 학생", value: "8,500+" },
+        { label: "평균 만족도", value: "4.8 / 5.0" },
+    ],
+    heroTheme: "cinematic-dark",
+    tags: ["진로직업체험", "바리스타", "요리식품", "초등"],
+    status: "학교 출강 운영중",
+    instructor: {
+        name: "DREAMPLEX BARISTA",
+        role: "SCA 인증 스페셜티 바리스타 & 교육 설계팀",
+        avatarSrc: "",
+        bio: "세계 바리스타 챔피언십 경력의 현직 바리스타가 학생 눈높이에 맞춘 커피 과학 교육을 진행합니다.",
+        career: [
+            "SCA(Specialty Coffee Association) 공인 바리스타 자격",
+            "전국 커피 대회 다수 수상 경력",
+            "초등학생 대상 식품과학 교육 프로그램 200회+ 운영",
+            "카페 창업 컨설팅 및 메뉴 개발 전문",
+        ],
+        quote:
+            "커피 한 잔에는 화학, 물리학, 그리고 예술이 담겨있습니다. 학생들이 이 세 가지를 동시에 발견하는 순간이 가장 보람찹니다.",
+        interview: [
+            {
+                question: "초등학생이 바리스타 체험을 한다고요? 카페인은 괜찮나요?",
+                answer:
+                    "물론 카페인이 없는 대체 음료로 진행합니다! 디카페인 원두와 과일 베이스 음료를 사용해 라떼아트를 실습합니다. 중요한 건 '커피'가 아니라 그 안에 담긴 과학 원리와 창작 활동이니까요.",
+            },
+            {
+                question: "단순히 음료 만들기 체험과 뭐가 다른가요?",
+                answer:
+                    "우리 프로그램은 '왜 우유를 데우면 거품이 나는지(단백질 변성)', '왜 원두 색깔이 변하는지(마이야르 반응)' 같은 과학 원리를 먼저 알려줍니다. 원리를 이해한 학생은 레시피를 외우는 게 아니라 스스로 창작할 수 있게 됩니다.",
+            },
+            {
+                question: "수업 후 학생들에게 남는 것은 무엇인가요?",
+                answer:
+                    "자신이 직접 만든 라떼아트 사진, 나만의 시그니처 음료 레시피 카드, 그리고 '식품과학자'라는 새로운 진로 가능성입니다. 많은 학생이 이 체험 후 식품공학에 흥미를 갖게 됩니다.",
+            },
+        ],
+    },
+    meta: {
+        level: "초등학생 (체험형)",
+        totalLessons: 2,
+        totalDuration: "90분",
+        language: "한국어",
+        hasResources: true,
+    },
+    price: {
+        original: 35000,
+        discounted: 28000,
+        currency: "원",
+    },
+    programHighlights: [
+        { label: "대상 학년", value: "초등학생", icon: "users" },
+        { label: "운영 차시", value: "2차시", icon: "book" },
+        { label: "운영 방식", value: "학교 방문형", icon: "school" },
+        { label: "소요 시간", value: "90분", icon: "clock" },
+    ],
+    targetAudience: [
+        {
+            grade: "초등학교 3~6학년",
+            description: "오감을 활용한 체험 활동으로 식품과학에 대한 흥미를 키웁니다",
+            tags: ["식품과학", "창의체험", "오감활용"],
+        },
+    ],
+    expectedOutcomes: [
+        {
+            title: "식품과학 기초 이해",
+            description: "마이야르 반응, 단백질 변성 등 일상 속 과학 원리를 체험으로 학습",
+            iconType: "scale",
+        },
+        {
+            title: "창작 음료 레시피 설계",
+            description: "직접 재료를 조합하여 나만의 시그니처 음료를 기획하고 제작",
+            iconType: "sparkle",
+        },
+        {
+            title: "라떼아트 실습 경험",
+            description: "우유 스티밍과 아트 기법을 배워 작품을 완성하는 성취감",
+            iconType: "users",
+        },
+        {
+            title: "식품 관련 진로 탐색",
+            description: "바리스타, 식품공학자, 셰프 등 다양한 진로 가능성을 발견",
+            iconType: "briefcase",
+        },
+    ],
+    curriculum: [
+        {
+            id: "ch-1",
+            title: "Chapter 01. 커피의 과학: 원두에서 한 잔까지",
+            learningPoint: "원두 로스팅의 화학 반응과 추출 원리를 시각적으로 이해합니다",
+            lessons: [
+                { id: "l-1-1", title: "원두의 여행: 산지에서 컵까지의 과학 이야기", duration: "20분" },
+                { id: "l-1-2", title: "맛의 비밀: 산미·단맛·쓴맛의 화학적 원리", duration: "25분" },
+            ],
+        },
+        {
+            id: "ch-2",
+            title: "Chapter 02. 나만의 아트 음료 창작",
+            learningPoint: "우유 스티밍 기술과 라떼아트 기법을 실습하며 창작 음료를 완성합니다",
+            lessons: [
+                { id: "l-2-1", title: "우유 거품의 물리학과 라떼아트 실습", duration: "25분" },
+                { id: "l-2-2", title: "나만의 시그니처 음료 레시피 설계 & 시음", duration: "20분" },
+            ],
+        },
+    ],
+    introSections: [
+        {
+            subtitle: "CLASS INTRO",
+            title: "커피는 과학이고, 라떼아트는 예술입니다",
+            description:
+                "단순히 음료를 만드는 체험이 아닙니다. 원두가 볶아지는 화학 반응부터 우유 거품의 물리학까지, 한 잔의 음료 속에 숨겨진 STEM 원리를 체험합니다.",
+            imageSrc: "",
+        },
+        {
+            subtitle: "EXPERIENCE",
+            title: "프로의 도구로, 프로처럼",
+            description:
+                "실제 카페에서 사용하는 전문 장비를 학교에 세팅합니다. 에스프레소 머신, 그라인더, 스팀 피처까지 — 학생들은 진짜 바리스타의 하루를 경험합니다.",
+            imageSrc: "",
+        },
+        {
+            subtitle: "TRANSFORMATION",
+            title: "체험 전후, 확실한 시야의 변화",
+            description:
+                "체험 전: '바리스타는 커피 타는 사람' → 체험 후: '바리스타는 화학·물리·예술을 다루는 전문가'. 식품 분야의 숨겨진 과학을 발견하고 진로의 시야을 넓힙니다.",
+            imageSrc: "",
+        },
+    ],
+    requiredTools: [
+        { name: "전문 바리스타 장비", description: "에스프레소 머신, 그라인더 등 (강사 세팅)", iconSrc: "" },
+        { name: "실습 재료", description: "디카페인 원두, 우유, 시럽 등 (드림플렉스 제공)", iconSrc: "" },
+    ],
+    notice: {
+        operationGuide: [
+            "전국 초등학교 어디든 전문 강사진이 장비와 함께 직접 방문합니다.",
+            "학급 단위(25~30명) 운영이 기본이며, 학년 단위 특강도 가능합니다.",
+            "모든 식재료는 유통기한과 알레르기 정보를 사전 안내합니다.",
+        ],
+        learningPolicy: [
+            "카페인이 없는 대체 재료(디카페인, 과일 베이스)로 실습합니다.",
+            "모든 실습 재료와 도구는 일회용 또는 개인별로 제공됩니다.",
+            "위생 관리를 위해 실습 전 손 세정 및 앞치마 착용을 진행합니다.",
+        ],
+        deviceLimit: [
+            "별도의 디지털 기기는 필요하지 않습니다.",
+            "일반 교실 또는 과학실에서 운영 가능합니다.",
+        ],
+        intellectualProperty: [
+            "학생 창작 레시피의 저작권은 학생 본인에게 귀속됩니다.",
+        ],
+        coachingInfo: [
+            "수업 후 가정에서 따라할 수 있는 간편 레시피 카드를 제공합니다.",
+        ],
+    },
+    reviews: [
+        {
+            id: "rev-1",
+            rating: 5,
+            title: "라떼아트가 진짜 예쁘게 됐어요!",
+            content: "우유로 하트 모양을 만들었는데 너무 예뻐서 친구들이 다 부러워했어요. 바리스타가 되고 싶어졌어요!",
+            authorName: "정*현 학생",
+            authorGrade: "초등학교 5학년",
+            characterId: 1,
+        },
+        {
+            id: "rev-2",
+            rating: 5,
+            title: "과학 시간보다 재미있는 과학 수업",
+            content: "커피콩이 갈색으로 변하는 이유가 화학 반응이라는 걸 처음 알았어요. 맛있는 과학 수업이었습니다!",
+            authorName: "김*은 학생",
+            authorGrade: "초등학교 4학년",
+            characterId: 2,
+        },
+    ],
+    relatedCourses: [],
+};
+
+export default courseDetail;
