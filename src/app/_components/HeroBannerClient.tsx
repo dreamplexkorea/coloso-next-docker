@@ -198,23 +198,26 @@ function HeroSlideOverlay({
         <div className="hero-overlay-focus" />
       </div>
 
-      <div className="absolute inset-0 flex items-center justify-center px-[18px] pb-[104px] pt-[72px] sm:px-[28px] sm:pb-[120px]">
+      {/* 텍스트 좌하단 정렬 — 이미지와 하나의 비주얼로 연결 */}
+      <div className="absolute inset-x-0 bottom-0 px-[24px] pb-[100px] sm:px-[40px] sm:pb-[112px] lg:px-[60px] lg:pb-[120px]">
         <div
-          className={`home-hero-focus-card w-full max-w-[740px] text-center transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${isActive ? "home-hero-focus-card-active" : ""}`}
+          className={`home-hero-focus-card transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${isActive ? "home-hero-focus-card-active" : ""}`}
         >
           {slide.eyebrow && (
-            <p className="hero-slide-eyebrow mb-[12px] text-[1.05rem] font-semibold tracking-[0.22em] text-white/74 sm:text-[1.2rem]">
+            <p className="hero-slide-eyebrow mb-[10px] text-[1.05rem] font-semibold tracking-[0.22em] text-[#4AADE6] sm:text-[1.15rem]">
               {slide.eyebrow}
             </p>
           )}
-          <h2 className="hero-slide-title home-hero-title mx-auto max-w-[12ch] text-[2.9rem] font-bold leading-[1.08] tracking-[-0.03em] text-white sm:text-[4.1rem] lg:text-[5.7rem]">
+          {/* 액센트 라인 */}
+          <div className="mb-[14px] h-[3px] w-[48px] rounded-full bg-[#4AADE6]" />
+          <h2 className="hero-slide-title home-hero-title text-[2.8rem] font-black leading-[1.06] tracking-[-0.035em] text-white sm:text-[3.8rem] lg:text-[5.2rem]">
             {slide.title}
           </h2>
-          <p className="hero-slide-subtitle home-hero-subtitle mx-auto mt-[18px] max-w-[42ch] text-[1.36rem] font-medium leading-[1.62] tracking-[0.01em] text-white/80 sm:text-[1.58rem] lg:text-[1.86rem]">
+          <p className="hero-slide-subtitle home-hero-subtitle mt-[14px] max-w-[44ch] text-[1.32rem] font-medium leading-[1.65] tracking-[0.01em] text-white/82 sm:text-[1.5rem] lg:text-[1.72rem]">
             {slide.subtitle}
           </p>
           {slide.ctaLabel && (
-            <span className="hero-slide-cta mt-[24px] inline-flex items-center gap-[8px] text-[1.28rem] font-semibold tracking-[0.05em] text-white sm:text-[1.46rem]">
+            <span className="hero-slide-cta mt-[22px] inline-flex items-center gap-[8px] text-[1.26rem] font-semibold tracking-[0.05em] text-white sm:text-[1.42rem]">
               {slide.ctaLabel}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
                 <path d="M8 6L14 12L8 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

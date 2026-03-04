@@ -1,0 +1,195 @@
+import type { CourseDetail } from "@/lib/types";
+
+const pastryChefData: CourseDetail = {
+    slug: "pastry-chef",
+    title: "Pastry Chef",
+    subtitle: "진로직업체험 | 중학생 대상 | 2차시",
+    heroImageSrc: "/images/products/pastry-chef/hero.webp",
+    heroEyebrow: "DREAMPLEX · 진로직업체험 진로직업체험",
+    heroHeadline: "달콤한 꿈을 현실로 만드는 파티시에 체험",
+    heroSubcopy: "베이킹의 기본부터 창의적인 디저트 제작까지 직접 경험해보세요\n실습 중심으로 진행되는 진로직업체험 프로그램입니다",
+    heroChips: ["중학생", "학교 방문형", "실습 중심"],
+    heroProofStats: [
+        { label: "운영 학교", value: "50+" },
+        { label: "참여 학생", value: "3,000+" },
+        { label: "평균 만족도", value: "4.8 / 5.0" },
+    ],
+    heroTheme: "cinematic-dark",
+    tags: ["진로직업체험", "파티시에", "요리·제과", "중학생"],
+    status: "학교 출강 운영중",
+    instructor: {
+        name: "DREAMPLEX PASTRY CHEF",
+        role: "전문 제과기능사",
+        avatarSrc: "",
+        bio: "경력 10년 이상의 전문 파티시에가 직접 진행하며 베이킹의 기초부터 창의적인 응용까지 지도합니다. 학생 맞춤형 수업으로 높은 만족도를 자랑합니다.",
+        career: [
+            "국내 유명 호텔 제과팀 근무",
+            "여러 베이킹 경진대회 수상 경력 보유",
+            "다수의 진로체험 교육 프로그램 강사 경험",
+        ],
+        quote: "베이킹은 과학이자 예술입니다. 학생들이 직접 만들며 성취감을 느끼길 바랍니다.",
+        interview: [
+            {
+                question: "학생들이 이 프로그램에서 무엇을 얻을 수 있나요?",
+                answer: "베이킹의 기본 원리와 기술을 익히고, 창의적인 디저트 제작 경험을 통해 진로에 대한 관심과 자신감을 높일 수 있습니다.",
+            },
+            {
+                question: "준비물이 따로 필요한가요?",
+                answer: "모든 재료와 도구는 저희가 제공하므로 별도의 준비물은 필요하지 않습니다. 편안한 복장만 착용해주시면 됩니다.",
+            },
+        ],
+    },
+    meta: {
+        level: "중학생 (체험형)",
+        totalLessons: 2,
+        totalDuration: "90분",
+        language: "한국어",
+        hasResources: true,
+    },
+    price: {
+        original: 35000,
+        discounted: 28000,
+        currency: "원",
+    },
+    programHighlights: [
+        { label: "대상 학년", value: "중학생", icon: "users" },
+        { label: "운영 차시", value: "2차시", icon: "book" },
+        { label: "운영 방식", value: "학교 방문형", icon: "school" },
+        { label: "소요 시간", value: "90분", icon: "clock" },
+    ],
+    targetAudience: [
+        {
+            grade: "중학생",
+            description: "베이킹과 요리에 관심이 있고, 진로 탐색을 원하는 학생들에게 적합합니다.",
+            tags: ["베이킹", "요리", "진로탐색"],
+        },
+    ],
+    expectedOutcomes: [
+        {
+            title: "베이킹 기본기 습득",
+            description: "재료 계량과 반죽, 굽기 등 베이킹의 기본 과정을 이해하고 직접 실습합니다.",
+            iconType: "scale",
+        },
+        {
+            title: "창의적 디저트 제작",
+            description: "기본 기술을 바탕으로 자신만의 디저트를 디자인하고 완성하는 경험을 제공합니다.",
+            iconType: "sparkle",
+        },
+        {
+            title: "진로 이해도 향상",
+            description: "파티시에 직업에 대한 실제 업무와 필요 역량을 배우며 진로 목표를 구체화합니다.",
+            iconType: "users",
+        },
+        {
+            title: "팀워크와 문제해결 능력 강화",
+            description: "조별 실습을 통해 협력과 의사소통 능력을 기릅니다.",
+            iconType: "briefcase",
+        },
+    ],
+    curriculum: [
+        {
+            id: "ch-1",
+            title: "Chapter 01. 베이킹의 기초 이해하기",
+            learningPoint: "제과의 기본 재료와 도구 사용법을 배우고, 간단한 반죽 만들기 실습",
+            carouselImages: [],
+            lessons: [
+                { id: "l-1-1", title: "베이킹 재료와 도구 소개", duration: "20분" },
+                { id: "l-1-2", title: "반죽 만들기 실습", duration: "25분" },
+                { id: "l-1-3", title: "기초 제과 기술 익히기", duration: "20분" },
+            ],
+        },
+        {
+            id: "ch-2",
+            title: "Chapter 02. 창의적인 디저트 완성하기",
+            learningPoint: "다양한 토핑과 장식을 활용해 자신만의 디저트를 디자인하고 완성",
+            carouselImages: [],
+            lessons: [
+                { id: "l-2-1", title: "디저트 디자인 아이디어 구상", duration: "25분" },
+                { id: "l-2-2", title: "장식 및 토핑 실습", duration: "25분" },
+                { id: "l-2-3", title: "완성품 평가 및 공유", duration: "20분" },
+            ],
+        },
+    ],
+    introSections: [
+        {
+            subtitle: "CLASS INTRO",
+            title: "베이킹과 파티시에의 세계에 오신 것을 환영합니다",
+            description: "본 프로그램은 파티시에 직업을 이해하고, 직접 베이킹을 경험하며 창의성을 키우는 수업입니다.",
+            imageSrc: "/images/products/pastry-chef/class-1.webp",
+        },
+        {
+            subtitle: "EXPERIENCE",
+            title: "실습 중심의 체험으로 배우는 즐거움",
+            description: "학생들은 직접 반죽을 만들고, 다양한 재료를 활용해 자신만의 디저트를 완성합니다.",
+            imageSrc: "/images/products/pastry-chef/class-2.webp",
+        },
+        {
+            subtitle: "TRANSFORMATION",
+            title: "진로 탐색과 자신감 향상",
+            description: "이 과정을 통해 학생들은 진로에 대한 관심을 높이고, 실습을 통한 성취감을 경험합니다.",
+            imageSrc: "/images/products/pastry-chef/class-3.webp",
+        },
+    ],
+    requiredTools: [
+        { name: "편안한 복장", description: "활동하기 편한 옷차림을 권장합니다", iconSrc: "" },
+        { name: "개인 위생용품", description: "손 씻기 및 위생을 위한 개인 물품을 준비해주세요", iconSrc: "" },
+    ],
+    notice: {
+        operationGuide: [
+            "전국 학교 어디든 전문 강사진이 직접 방문합니다.",
+            "학급 단위(25~35명) 운영이 기본입니다.",
+            "모든 재료와 도구는 드림플렉스에서 제공합니다.",
+        ],
+        learningPolicy: [
+            "별도 준비물 없음 (모든 재료 제공)",
+            "편안한 복장 착용 권장",
+        ],
+        deviceLimit: [
+            "별도의 디지털 기기는 필요하지 않습니다.",
+        ],
+        intellectualProperty: [
+            "학생 창작물의 저작권은 학생 본인에게 귀속됩니다.",
+        ],
+        coachingInfo: [
+            "수업 후 활동 자료를 제공합니다.",
+        ],
+    },
+    reviews: [
+        {
+            id: "rev-1",
+            rating: 5,
+            title: "베이킹이 이렇게 재미있을 줄 몰랐어요!",
+            content: "처음엔 조금 어려웠지만, 선생님이 친절하게 알려주셔서 재미있게 배울 수 있었습니다.",
+            authorName: "서울중학교",
+            authorGrade: "학생",
+            characterId: 1,
+        },
+        {
+            id: "rev-2",
+            rating: 5,
+            title: "진로에 대해 더 많이 알게 되었어요",
+            content: "파티시에라는 직업에 대해 자세히 알게 되고, 앞으로도 계속 배우고 싶다는 생각이 들었어요.",
+            authorName: "부산고등학교",
+            authorGrade: "학생",
+            characterId: 2,
+        },
+        {
+            id: "rev-3",
+            rating: 5,
+            title: "친구들과 협력하며 즐거운 시간",
+            content: "조별 활동으로 친구들과 협력해서 디저트를 만들면서 소통하는 법도 배웠어요.",
+            authorName: "대전중학교",
+            authorGrade: "학생",
+            characterId: 3,
+        },
+    ],
+    curriculumLinks: [
+        "창체 진로탐색 활동",
+        "자유학기제",
+        "2022 개정 교육과정",
+        "창의적 체험활동",
+    ],
+    relatedCourses: [],
+};
+
+export default pastryChefData;

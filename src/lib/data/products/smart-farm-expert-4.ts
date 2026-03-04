@@ -1,0 +1,195 @@
+import type { CourseDetail } from "@/lib/types";
+
+const smartFarmExpert4Data: CourseDetail = {
+    slug: "smart-farm-expert-4",
+    title: "Smart Farm Expert 4",
+    subtitle: "진로직업체험 | 초등 5~6학년 | 2차시",
+    heroImageSrc: "/images/products/smart-farm-expert-4/hero.webp",
+    heroEyebrow: "DREAMPLEX · 진로직업체험",
+    heroHeadline: "미래 농업의 혁신가가 되어보는 스마트팜 전문가 체험",
+    heroSubcopy: "최첨단 농업기술을 직접 경험하며 미래 농업의 가치를 이해합니다.\n실습 중심의 교육으로 창의적 문제해결 능력을 키워드립니다.",
+    heroChips: ["초등 5~6학년", "학교 방문형", "실습 중심"],
+    heroProofStats: [
+        { label: "운영 학교", value: "50+" },
+        { label: "참여 학생", value: "3,000+" },
+        { label: "평균 만족도", value: "4.8 / 5.0" },
+    ],
+    heroTheme: "cinematic-dark",
+    tags: ["진로직업체험", "스마트팜 전문가", "농업", "초등 5~6학년"],
+    status: "학교 출강 운영중",
+    instructor: {
+        name: "DREAMPLEX SMART FARM EXPERT",
+        role: "스마트팜 전문강사",
+        avatarSrc: "",
+        bio: "스마트 농업 분야에서 10년 이상의 현장 경험과 교육 경력을 가진 전문가입니다. 학생들에게 최신 농업 기술과 지속 가능한 미래 농업의 비전을 전합니다.",
+        career: [
+            "국내 대형 스마트팜 설계 및 운영 경험",
+            "초중등 대상 농업기술 교육 강사 활동",
+            "농업기술 관련 다수의 워크숍 및 세미나 강연",
+        ],
+        quote: "미래 농업은 기술과 자연의 조화입니다. 학생들이 직접 체험하며 그 가치를 깨닫길 바랍니다.",
+        interview: [
+            {
+                question: "스마트팜 체험이 학생들에게 어떤 도움이 되나요?",
+                answer: "학생들은 최첨단 농업 기술을 직접 경험하며 농업의 중요성과 미래 가능성을 이해하게 됩니다. 이를 통해 진로에 대한 관심과 창의적 문제 해결 능력이 향상됩니다.",
+            },
+            {
+                question: "수업 중 가장 강조하는 부분은 무엇인가요?",
+                answer: "실습과 체험을 통해 학생들이 농업의 과학적 원리와 최신 기술을 직접 느끼고, 환경과 지속 가능성에 대해 고민할 수 있도록 돕는 점입니다.",
+            },
+        ],
+    },
+    meta: {
+        level: "초등 5~6학년 (체험형)",
+        totalLessons: 2,
+        totalDuration: "90분",
+        language: "한국어",
+        hasResources: true,
+    },
+    price: {
+        original: 35000,
+        discounted: 28000,
+        currency: "원",
+    },
+    programHighlights: [
+        { label: "대상 학년", value: "초등 5~6학년", icon: "users" },
+        { label: "운영 차시", value: "2차시", icon: "book" },
+        { label: "운영 방식", value: "학교 방문형", icon: "school" },
+        { label: "소요 시간", value: "90분", icon: "clock" },
+    ],
+    targetAudience: [
+        {
+            grade: "초등 5~6학년",
+            description: "미래 농업과 과학기술에 관심있는 학생, 실습을 통해 진로 탐색을 원하는 학생에게 적합합니다.",
+            tags: ["창의적 사고", "과학기술 관심", "진로탐색"],
+        },
+    ],
+    expectedOutcomes: [
+        {
+            title: "스마트팜 기술 이해",
+            description: "최신 농업 자동화 및 IoT 기술의 원리를 배우고 체험합니다.",
+            iconType: "scale",
+        },
+        {
+            title: "문제 해결 능력 향상",
+            description: "농업 현장의 문제 상황을 직접 해결하며 창의적 사고를 개발합니다.",
+            iconType: "sparkle",
+        },
+        {
+            title: "협업과 소통 경험",
+            description: "팀 단위 실습을 통해 협력과 의사소통의 중요성을 체득합니다.",
+            iconType: "users",
+        },
+        {
+            title: "진로 탐색 동기 부여",
+            description: "농업 및 과학기술 분야에 대한 이해를 넓혀 미래 진로에 대한 관심을 높입니다.",
+            iconType: "briefcase",
+        },
+    ],
+    curriculum: [
+        {
+            id: "ch-1",
+            title: "Chapter 01. 스마트팜의 이해와 기술 소개",
+            learningPoint: "스마트팜 개념과 주요 기술을 이해하고 현장 적용 사례를 학습합니다.",
+            carouselImages: [],
+            lessons: [
+                { id: "l-1-1", title: "스마트팜이란?", duration: "20분" },
+                { id: "l-1-2", title: "센서와 자동화 기술 체험", duration: "25분" },
+                { id: "l-1-3", title: "스마트팜 운영 원리 실습", duration: "20분" },
+            ],
+        },
+        {
+            id: "ch-2",
+            title: "Chapter 02. 실습을 통한 스마트팜 구축 체험",
+            learningPoint: "직접 스마트팜 모델을 구축하고 문제 상황을 해결하는 실습을 진행합니다.",
+            carouselImages: [],
+            lessons: [
+                { id: "l-2-1", title: "스마트팜 모델 조립 및 세팅", duration: "25분" },
+                { id: "l-2-2", title: "환경 제어 및 데이터 분석 실습", duration: "25분" },
+                { id: "l-2-3", title: "실습 결과 발표 및 피드백", duration: "20분" },
+            ],
+        },
+    ],
+    introSections: [
+        {
+            subtitle: "CLASS INTRO",
+            title: "스마트팜 전문가가 되어보는 미래 농업 체험",
+            description: "학생들은 첨단 농업기술을 배우고 직접 적용해보며, 미래의 농업 현장을 경험할 수 있습니다. 최신 센서와 자동화 기술을 통해 농업이 어떻게 변화하고 있는지 이해합니다.",
+            imageSrc: "/images/products/smart-farm-expert-4/class-1.webp",
+        },
+        {
+            subtitle: "EXPERIENCE",
+            title: "직접 체험하는 스마트팜 구축과 운영",
+            description: "작은 스마트팜 모델을 직접 만들어 보고 환경 제어 시스템을 실습하며, 농작물 생장에 필요한 요소들을 관리하는 방법을 배웁니다.",
+            imageSrc: "/images/products/smart-farm-expert-4/class-2.webp",
+        },
+        {
+            subtitle: "TRANSFORMATION",
+            title: "창의적 문제 해결과 진로 탐색의 기회",
+            description: "실습 중 발생하는 문제를 팀과 함께 해결하며 협업 능력을 키우고, 농업과 과학기술 분야에 대한 진로 관심을 높입니다.",
+            imageSrc: "/images/products/smart-farm-expert-4/class-3.webp",
+        },
+    ],
+    requiredTools: [
+        { name: "노트북 또는 태블릿", description: "데이터 분석 및 실습 자료 활용", iconSrc: "" },
+        { name: "편안한 복장", description: "실습에 적합한 편안한 옷차림 권장", iconSrc: "" },
+    ],
+    notice: {
+        operationGuide: [
+            "전국 학교 어디든 전문 강사진이 직접 방문합니다.",
+            "학급 단위(25~35명) 운영이 기본입니다.",
+            "모든 재료와 도구는 드림플렉스에서 제공합니다.",
+        ],
+        learningPolicy: [
+            "별도 준비물 없음 (모든 재료 제공)",
+            "편안한 복장 착용 권장",
+        ],
+        deviceLimit: [
+            "별도의 디지털 기기는 필요하지 않습니다.",
+        ],
+        intellectualProperty: [
+            "학생 창작물의 저작권은 학생 본인에게 귀속됩니다.",
+        ],
+        coachingInfo: [
+            "수업 후 활동 자료를 제공합니다.",
+        ],
+    },
+    reviews: [
+        {
+            id: "rev-1",
+            rating: 5,
+            title: "미래 농업에 대해 잘 알게 되었어요",
+            content: "스마트팜이 어떻게 작동하는지 직접 배우고 체험할 수 있어서 너무 좋았어요. 농업이 더 재미있게 느껴졌습니다.",
+            authorName: "서울초등학교",
+            authorGrade: "학생",
+            characterId: 1,
+        },
+        {
+            id: "rev-2",
+            rating: 5,
+            title: "실습이 재미있고 유익했어요",
+            content: "친구들과 함께 팀으로 스마트팜 모델을 만들어 보면서 협력하는 법과 과학 원리를 배웠습니다.",
+            authorName: "부산초등학교",
+            authorGrade: "학생",
+            characterId: 2,
+        },
+        {
+            id: "rev-3",
+            rating: 5,
+            title: "진로에 대해 생각해볼 수 있는 좋은 기회",
+            content: "평소 관심 없던 농업 분야에 대해 흥미를 갖게 되었고, 앞으로도 비슷한 수업이 있었으면 좋겠습니다.",
+            authorName: "대전초등학교",
+            authorGrade: "학생",
+            characterId: 3,
+        },
+    ],
+    curriculumLinks: [
+        "창체 진로탐색 활동",
+        "자유학기제",
+        "2022 개정 교육과정",
+        "창의적 체험활동",
+    ],
+    relatedCourses: [],
+};
+
+export default smartFarmExpert4Data;

@@ -1,0 +1,195 @@
+import type { CourseDetail } from "@/lib/types";
+
+const crimeSceneInvestigationData: CourseDetail = {
+    slug: "crime-scene-investigation",
+    title: "Crime Scene Investigation",
+    subtitle: "진로직업체험 | 중학생 | 2차시",
+    heroImageSrc: "/images/products/crime-scene-investigation/hero.webp",
+    heroEyebrow: "DREAMPLEX · 진로직업체험",
+    heroHeadline: "범죄 현장을 과학적으로 분석하는 CSI 체험",
+    heroSubcopy: "실제 사건 현장을 재현하여 과학 수사 방법을 배우고\n논리적 사고력과 문제 해결 능력을 키웁니다",
+    heroChips: ["중학생", "학교 방문형", "실습 중심"],
+    heroProofStats: [
+        { label: "운영 학교", value: "50+" },
+        { label: "참여 학생", value: "3,000+" },
+        { label: "평균 만족도", value: "4.8 / 5.0" },
+    ],
+    heroTheme: "cinematic-dark",
+    tags: ["진로직업체험", "범죄수사관", "과학탐구", "중학생"],
+    status: "학교 출강 운영중",
+    instructor: {
+        name: "DREAMPLEX CSI 전문가",
+        role: "범죄과학 수사 전문가",
+        avatarSrc: "",
+        bio: "국내외 범죄 현장 수사 경험이 풍부한 전문가가 직접 진행하는 체험형 수업입니다. 체계적인 과학 수사 기법을 쉽고 재미있게 전달합니다.",
+        career: [
+            "국립과학수사연구원 수사요원 5년 경력",
+            "범죄학 석사 학위 취득",
+            "청소년 대상 과학수사 교육 3년 운영",
+        ],
+        quote: "과학적 접근으로 진실을 밝히는 것이 진정한 수사의 시작입니다.",
+        interview: [
+            {
+                question: "이 프로그램을 통해 학생들이 얻는 가장 큰 가치는 무엇인가요?",
+                answer: "학생들은 과학적 사고와 증거 기반 논리 전개 능력을 키우며, 실제 범죄 수사관이 하는 일을 체험해 봄으로써 진로 탐색에 도움을 받습니다.",
+            },
+            {
+                question: "수업 중 가장 흥미로운 활동은 어떤 것인가요?",
+                answer: "현장에서 채취한 증거를 분석하고, 용의자를 추적하는 역할 놀이가 학생들에게 가장 큰 호응을 얻고 있습니다.",
+            },
+        ],
+    },
+    meta: {
+        level: "중학생 (체험형)",
+        totalLessons: 2,
+        totalDuration: "90분",
+        language: "한국어",
+        hasResources: true,
+    },
+    price: {
+        original: 35000,
+        discounted: 28000,
+        currency: "원",
+    },
+    programHighlights: [
+        { label: "대상 학년", value: "중학생", icon: "users" },
+        { label: "운영 차시", value: "2차시", icon: "book" },
+        { label: "운영 방식", value: "학교 방문형", icon: "school" },
+        { label: "소요 시간", value: "90분", icon: "clock" },
+    ],
+    targetAudience: [
+        {
+            grade: "중학생",
+            description: "과학 수사에 관심 있고 논리적 문제 해결 능력을 키우고 싶은 학생들에게 적합합니다.",
+            tags: ["과학", "논리력", "탐구"],
+        },
+    ],
+    expectedOutcomes: [
+        {
+            title: "과학적 증거 분석 능력 강화",
+            description: "실제 증거 수집과 분석 과정을 체험하며 과학 수사의 기초를 이해합니다.",
+            iconType: "scale",
+        },
+        {
+            title: "논리적 사고력 향상",
+            description: "수집한 정보를 바탕으로 용의자를 추적하고 사건을 재구성하는 과정을 통해 논리력을 기릅니다.",
+            iconType: "sparkle",
+        },
+        {
+            title: "팀워크와 협력 경험",
+            description: "조별 활동을 통해 협력하며 문제를 해결하는 경험을 쌓습니다.",
+            iconType: "users",
+        },
+        {
+            title: "진로 탐색 기회 제공",
+            description: "범죄수사관을 포함한 관련 직업에 대한 이해와 흥미를 높입니다.",
+            iconType: "briefcase",
+        },
+    ],
+    curriculum: [
+        {
+            id: "ch-1",
+            title: "Chapter 01. 범죄 현장 조사 기본",
+            learningPoint: "범죄 현장에서 증거를 수집하고 분석하는 기초 기술 습득",
+            carouselImages: [],
+            lessons: [
+                { id: "l-1-1", title: "범죄 현장 소개 및 안전 수칙", duration: "20분" },
+                { id: "l-1-2", title: "증거물 채취와 보존 방법", duration: "25분" },
+                { id: "l-1-3", title: "기본 현장 분석 실습", duration: "20분" },
+            ],
+        },
+        {
+            id: "ch-2",
+            title: "Chapter 02. 사건 재구성과 용의자 추적",
+            learningPoint: "수집한 증거를 토대로 사건을 재구성하고 용의자를 추적하는 방법 익히기",
+            carouselImages: [],
+            lessons: [
+                { id: "l-2-1", title: "증거 분석을 통한 사건 추리", duration: "25분" },
+                { id: "l-2-2", title: "용의자 프로파일링 기초", duration: "25분" },
+                { id: "l-2-3", title: "팀별 사건 해결 발표", duration: "20분" },
+            ],
+        },
+    ],
+    introSections: [
+        {
+            subtitle: "CLASS INTRO",
+            title: "범죄 현장을 직접 경험하는 과학 수사 체험",
+            description: "학생들은 가상의 범죄 현장을 방문해 증거를 수집하고 분석하는 과정을 직접 체험합니다. 이 수업은 과학적 사고와 문제 해결 능력을 동시에 키워줍니다.",
+            imageSrc: "/images/products/crime-scene-investigation/class-1.webp",
+        },
+        {
+            subtitle: "EXPERIENCE",
+            title: "실습 중심의 몰입형 학습",
+            description: "실제 범죄 수사관이 사용하는 도구와 기법을 활용해 용의자를 추적하고 사건의 진실을 밝혀내는 역할 놀이를 진행합니다.",
+            imageSrc: "/images/products/crime-scene-investigation/class-2.webp",
+        },
+        {
+            subtitle: "TRANSFORMATION",
+            title: "과학 수사 전문가로 성장하는 첫걸음",
+            description: "학생들은 본 수업을 통해 과학적 탐구력과 협동심을 기르고, 진로에 대한 새로운 시각과 도전을 경험하게 됩니다.",
+            imageSrc: "/images/products/crime-scene-investigation/class-3.webp",
+        },
+    ],
+    requiredTools: [
+        { name: "현미경", description: "섬세한 증거 관찰을 위한 기본 도구", iconSrc: "" },
+        { name: "증거 채취 키트", description: "현장 증거를 안전하게 수집하는 데 필요한 도구 모음", iconSrc: "" },
+    ],
+    notice: {
+        operationGuide: [
+            "전국 학교 어디든 전문 강사진이 직접 방문합니다.",
+            "학급 단위(25~35명) 운영이 기본입니다.",
+            "모든 재료와 도구는 드림플렉스에서 제공합니다.",
+        ],
+        learningPolicy: [
+            "별도 준비물 없음 (모든 재료 제공)",
+            "편안한 복장 착용 권장",
+        ],
+        deviceLimit: [
+            "별도의 디지털 기기는 필요하지 않습니다.",
+        ],
+        intellectualProperty: [
+            "학생 창작물의 저작권은 학생 본인에게 귀속됩니다.",
+        ],
+        coachingInfo: [
+            "수업 후 활동 자료를 제공합니다.",
+        ],
+    },
+    reviews: [
+        {
+            id: "rev-1",
+            rating: 5,
+            title: "범죄 수사 체험이 정말 흥미로웠어요",
+            content: "범죄 현장을 직접 조사하는 것처럼 실습해서 너무 재미있었고, 수사관이 된 기분을 느꼈습니다.",
+            authorName: "서울중학교",
+            authorGrade: "학생",
+            characterId: 1,
+        },
+        {
+            id: "rev-2",
+            rating: 5,
+            title: "과학과 논리를 함께 배울 수 있는 좋은 시간",
+            content: "단순한 이론 수업이 아니라 직접 증거를 찾고 분석하는 활동이 인상 깊었습니다.",
+            authorName: "부산중학교",
+            authorGrade: "학생",
+            characterId: 2,
+        },
+        {
+            id: "rev-3",
+            rating: 5,
+            title: "진로에 대해 생각해보는 계기가 되었어요",
+            content: "범죄수사관이라는 직업에 대해 자세히 알게 되었고, 앞으로의 진로 고민에 많은 도움이 되었습니다.",
+            authorName: "대구중학교",
+            authorGrade: "학생",
+            characterId: 3,
+        },
+    ],
+    curriculumLinks: [
+        "창체 진로탐색 활동",
+        "자유학기제",
+        "2022 개정 교육과정",
+        "창의적 체험활동",
+    ],
+    relatedCourses: [],
+};
+
+export default crimeSceneInvestigationData;

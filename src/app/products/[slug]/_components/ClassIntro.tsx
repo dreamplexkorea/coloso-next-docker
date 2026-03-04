@@ -60,8 +60,8 @@ function SkillIcon({ type }: { type?: string }) {
 /** 프로그램 소개 섹션 — 드림플렉스 브랜드 컬러 + 스토리텔링 */
 export function ClassIntro({ sections, targetAudience, expectedOutcomes }: ClassIntroProps) {
   return (
-    <section id="program-intro" className="py-[80px] lg:py-[120px]">
-      <div className="mx-auto max-w-[1120px]">
+    <section id="program-intro" className="w-full bg-white py-[80px] lg:py-[120px]">
+      <div className="mx-auto max-w-[1120px] px-[20px] sm:px-[24px] lg:px-[32px]">
         {/* 1. 추천 대상 */}
         {targetAudience && targetAudience.length > 0 && (
           <div className="mb-[100px] lg:mb-[160px]">

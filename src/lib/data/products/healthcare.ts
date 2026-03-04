@@ -1,0 +1,195 @@
+import type { CourseDetail } from "@/lib/types";
+
+const healthcareData: CourseDetail = {
+    slug: "healthcare",
+    title: "헬스케어",
+    subtitle: "진로직업체험 | 중학생 이상 | 2차시",
+    heroImageSrc: "/images/products/healthcare/hero.webp",
+    heroEyebrow: "DREAMPLEX · 진로직업체험",
+    heroHeadline: "건강과 생명을 지키는 미래의 헬스케어 전문가 체험",
+    heroSubcopy: "의료 현장의 실제 직무를 경험하고,\n헬스케어 분야 직업 이해도를 높이는 실습 중심 프로그램",
+    heroChips: ["중학생 이상", "학교 방문형", "실습 중심"],
+    heroProofStats: [
+        { label: "운영 학교", value: "50+" },
+        { label: "참여 학생", value: "3,000+" },
+        { label: "평균 만족도", value: "4.8 / 5.0" },
+    ],
+    heroTheme: "cinematic-dark",
+    tags: ["진로직업체험", "헬스케어 전문가", "의료", "중학생 이상"],
+    status: "학교 출강 운영중",
+    instructor: {
+        name: "DREAMPLEX HEALTHCARE",
+        role: "의료 전문가 / 실습 강사",
+        avatarSrc: "",
+        bio: "보건학과 출신으로 다년간 의료 현장과 교육 현장에서 헬스케어 진로교육을 진행해온 전문가입니다.",
+        career: [
+            "국내 유명 병원 헬스케어 코디네이터 경력 5년",
+            "다수 학교 대상 헬스케어 직업 체험 프로그램 강의",
+            "의료 관련 진로 상담 및 커리어 개발 멘토 활동",
+        ],
+        quote: "헬스케어 분야는 사람의 생명과 건강을 직접적으로 다루는 만큼, 현장 경험을 통한 이해가 매우 중요합니다.",
+        interview: [
+            {
+                question: "헬스케어 진로체험을 통해 학생들이 어떤 점을 얻을 수 있나요?",
+                answer: "학생들은 의료 현장의 다양한 직무를 체험하며, 헬스케어 분야에 대한 실질적인 이해와 흥미를 키울 수 있습니다. 이를 통해 진로 선택에 큰 도움을 받습니다.",
+            },
+            {
+                question: "프로그램 진행 시 학생들의 참여를 어떻게 유도하나요?",
+                answer: "실습 위주의 수업과 그룹 활동, 의료 장비 체험 등 다양한 참여형 수업을 진행하여 학생들의 적극적인 참여와 몰입을 유도합니다.",
+            },
+        ],
+    },
+    meta: {
+        level: "중학생 이상 (체험형)",
+        totalLessons: 2,
+        totalDuration: "90분",
+        language: "한국어",
+        hasResources: true,
+    },
+    price: {
+        original: 35000,
+        discounted: 28000,
+        currency: "원",
+    },
+    programHighlights: [
+        { label: "대상 학년", value: "중학생 이상", icon: "users" },
+        { label: "운영 차시", value: "2차시", icon: "book" },
+        { label: "운영 방식", value: "학교 방문형", icon: "school" },
+        { label: "소요 시간", value: "90분", icon: "clock" },
+    ],
+    targetAudience: [
+        {
+            grade: "중학생 이상",
+            description: "의료 및 헬스케어 분야에 관심이 많고, 직접 체험을 통해 진로 탐색을 희망하는 학생",
+            tags: ["의료진로", "과학탐구", "실습중심"],
+        },
+    ],
+    expectedOutcomes: [
+        {
+            title: "헬스케어 직무 이해",
+            description: "의료 분야 다양한 직무와 역할을 체험하고 이해할 수 있습니다.",
+            iconType: "scale",
+        },
+        {
+            title: "실습을 통한 문제 해결력 향상",
+            description: "실제 의료 도구 및 시뮬레이션 실습으로 문제 해결 능력을 키웁니다.",
+            iconType: "sparkle",
+        },
+        {
+            title: "팀워크와 소통 능력 강화",
+            description: "팀 활동을 통해 협업과 의사소통의 중요성을 경험합니다.",
+            iconType: "users",
+        },
+        {
+            title: "진로 탐색 및 자기 이해",
+            description: "헬스케어 분야 진로에 대해 깊이 고민하고 자기 진로 목표를 설정합니다.",
+            iconType: "briefcase",
+        },
+    ],
+    curriculum: [
+        {
+            id: "ch-1",
+            title: "Chapter 01. 헬스케어 분야 이해와 기본 의료 지식",
+            learningPoint: "헬스케어 직무 종류와 기본 의료 지식을 습득합니다.",
+            carouselImages: [],
+            lessons: [
+                { id: "l-1-1", title: "헬스케어 직무 소개", duration: "20분" },
+                { id: "l-1-2", title: "기본 의료 용어 및 도구 이해", duration: "25분" },
+                { id: "l-1-3", title: "응급처치 기본 실습", duration: "20분" },
+            ],
+        },
+        {
+            id: "ch-2",
+            title: "Chapter 02. 헬스케어 현장 실습 및 진로 탐색",
+            learningPoint: "의료 현장 실습과 진로 탐색 활동을 진행합니다.",
+            carouselImages: [],
+            lessons: [
+                { id: "l-2-1", title: "모의 진료 및 환자 응대 실습", duration: "25분" },
+                { id: "l-2-2", title: "헬스케어 관련 직업 인터뷰 및 토론", duration: "25분" },
+                { id: "l-2-3", title: "진로 계획 세우기 및 Q&A", duration: "20분" },
+            ],
+        },
+    ],
+    introSections: [
+        {
+            subtitle: "CLASS INTRO",
+            title: "헬스케어 분야의 미래를 체험하다",
+            description: "의료 현장의 다양한 직무를 직접 경험하며 헬스케어 산업의 중요성과 미래 가능성을 배웁니다.",
+            imageSrc: "/images/products/healthcare/class-1.webp",
+        },
+        {
+            subtitle: "EXPERIENCE",
+            title: "실습 중심의 진로 체험",
+            description: "응급처치 실습, 모의 진료 등 직접 참여하는 활동을 통해 실무 감각을 익힙니다.",
+            imageSrc: "/images/products/healthcare/class-2.webp",
+        },
+        {
+            subtitle: "TRANSFORMATION",
+            title: "진로 목표 수립과 자기 성장",
+            description: "헬스케어 분야에 대한 이해를 바탕으로 자신의 진로 목표를 명확히 하고 성장 방향을 잡습니다.",
+            imageSrc: "/images/products/healthcare/class-3.webp",
+        },
+    ],
+    requiredTools: [
+        { name: "필기구", description: "노트와 펜을 준비해주세요.", iconSrc: "" },
+        { name: "편안한 복장", description: "활동하기 편한 복장을 권장합니다.", iconSrc: "" },
+    ],
+    notice: {
+        operationGuide: [
+            "전국 학교 어디든 전문 강사진이 직접 방문합니다.",
+            "학급 단위(25~35명) 운영이 기본입니다.",
+            "모든 재료와 도구는 드림플렉스에서 제공합니다.",
+        ],
+        learningPolicy: [
+            "별도 준비물 없음 (모든 재료 제공)",
+            "편안한 복장 착용 권장",
+        ],
+        deviceLimit: [
+            "별도의 디지털 기기는 필요하지 않습니다.",
+        ],
+        intellectualProperty: [
+            "학생 창작물의 저작권은 학생 본인에게 귀속됩니다.",
+        ],
+        coachingInfo: [
+            "수업 후 활동 자료를 제공합니다.",
+        ],
+    },
+    reviews: [
+        {
+            id: "rev-1",
+            rating: 5,
+            title: "헬스케어 직무를 쉽게 이해할 수 있었어요",
+            content: "직접 응급처치도 해보고 의료 도구도 다뤄보니 진로에 대해 더 확신이 생겼습니다.",
+            authorName: "서울중학교",
+            authorGrade: "학생",
+            characterId: 1,
+        },
+        {
+            id: "rev-2",
+            rating: 5,
+            title: "재미있고 유익한 시간",
+            content: "진료 모의 실습이 가장 기억에 남고, 진로 선택에 큰 도움이 되었습니다.",
+            authorName: "부산중학교",
+            authorGrade: "학생",
+            characterId: 2,
+        },
+        {
+            id: "rev-3",
+            rating: 5,
+            title: "진로 고민에 많은 도움이 되었어요",
+            content: "헬스케어 분야에 대해 자세히 알게 되고, 앞으로의 진로 계획을 세우는 데 큰 도움이 되었습니다.",
+            authorName: "대전중학교",
+            authorGrade: "학생",
+            characterId: 3,
+        },
+    ],
+    curriculumLinks: [
+        "창체 진로탐색 활동",
+        "자유학기제",
+        "2022 개정 교육과정",
+        "창의적 체험활동",
+    ],
+    relatedCourses: [],
+};
+
+export default healthcareData;

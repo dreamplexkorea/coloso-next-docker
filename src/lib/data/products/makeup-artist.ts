@@ -1,0 +1,195 @@
+import type { CourseDetail } from "@/lib/types";
+
+const makeupArtistData: CourseDetail = {
+    slug: "makeup-artist",
+    title: "메이크업 아티스트",
+    subtitle: "진로직업체험 | 중학생 이상 | 2차시",
+    heroImageSrc: "/images/products/makeup-artist/hero.webp",
+    heroEyebrow: "DREAMPLEX · 진로직업체험",
+    heroHeadline: "나만의 스타일을 완성하는 메이크업 아티스트 체험",
+    heroSubcopy: "메이크업의 기본 원리부터 실습까지,\n전문가와 함께하는 실전 진로 체험 프로그램",
+    heroChips: ["중학생 이상", "학교 방문형", "실습 중심"],
+    heroProofStats: [
+        { label: "운영 학교", value: "50+" },
+        { label: "참여 학생", value: "3,000+" },
+        { label: "평균 만족도", value: "4.8 / 5.0" },
+    ],
+    heroTheme: "cinematic-dark",
+    tags: ["진로직업체험", "메이크업 아티스트", "뷰티", "중학생 이상"],
+    status: "학교 출강 운영중",
+    instructor: {
+        name: "DREAMPLEX MAKEUP ARTIST",
+        role: "프로페셔널 메이크업 아티스트",
+        avatarSrc: "",
+        bio: "10년 경력의 전문 메이크업 아티스트로, 다양한 무대와 방송에서 활동하며 후학 양성에 힘쓰고 있습니다.",
+        career: [
+            "국내 유명 방송 메이크업 아티스트 10년 경력",
+            "뷰티 아카데미 강사 역임",
+            "다수 유명 브랜드 메이크업 콜라보 진행",
+        ],
+        quote: "메이크업은 나를 표현하는 또 다른 언어입니다. 자신만의 색깔을 찾아가길 바랍니다.",
+        interview: [
+            {
+                question: "이 프로그램을 통해 학생들이 어떤 경험을 할 수 있나요?",
+                answer: "기본적인 메이크업 기술부터 피부 톤 분석, 컬러 매칭까지 직접 실습하며 메이크업 아티스트의 역할을 체험할 수 있습니다.",
+            },
+            {
+                question: "학생들이 준비해야 할 것이 있나요?",
+                answer: "모든 재료와 도구는 저희가 제공하니 별도의 준비물 없이 편안한 복장만 챙겨오시면 됩니다.",
+            },
+        ],
+    },
+    meta: {
+        level: "중학생 이상 (체험형)",
+        totalLessons: 2,
+        totalDuration: "90분",
+        language: "한국어",
+        hasResources: true,
+    },
+    price: {
+        original: 35000,
+        discounted: 28000,
+        currency: "원",
+    },
+    programHighlights: [
+        { label: "대상 학년", value: "중학생 이상", icon: "users" },
+        { label: "운영 차시", value: "2차시", icon: "book" },
+        { label: "운영 방식", value: "학교 방문형", icon: "school" },
+        { label: "소요 시간", value: "90분", icon: "clock" },
+    ],
+    targetAudience: [
+        {
+            grade: "중학생 이상",
+            description: "뷰티와 메이크업에 관심이 많고, 창의적인 표현을 배우고 싶은 학생에게 적합합니다.",
+            tags: ["뷰티", "창의성", "진로 탐색"],
+        },
+    ],
+    expectedOutcomes: [
+        {
+            title: "메이크업 기본 원리 이해",
+            description: "피부 톤과 얼굴형에 맞는 메이크업 기초를 배우고 적용할 수 있습니다.",
+            iconType: "scale",
+        },
+        {
+            title: "실습을 통한 기술 습득",
+            description: "전문가의 지도 아래 직접 메이크업을 실습하며 자신감을 키웁니다.",
+            iconType: "sparkle",
+        },
+        {
+            title: "진로 탐색 및 직업 이해",
+            description: "메이크업 아티스트 직업에 대한 이해와 진로 가능성을 탐색합니다.",
+            iconType: "users",
+        },
+        {
+            title: "창의적 자기 표현 능력 향상",
+            description: "메이크업을 통해 자신의 개성과 스타일을 표현하는 방법을 익힙니다.",
+            iconType: "briefcase",
+        },
+    ],
+    curriculum: [
+        {
+            id: "ch-1",
+            title: "Chapter 01. 메이크업의 기초 이해",
+            learningPoint: "피부 톤과 얼굴형 분석, 기본 메이크업 도구 사용법 습득",
+            carouselImages: [],
+            lessons: [
+                { id: "l-1-1", title: "피부 톤과 컬러 분석", duration: "20분" },
+                { id: "l-1-2", title: "기본 메이크업 도구 소개 및 사용법", duration: "25분" },
+                { id: "l-1-3", title: "기초 메이크업 실습", duration: "20분" },
+            ],
+        },
+        {
+            id: "ch-2",
+            title: "Chapter 02. 실전 메이크업 테크닉",
+            learningPoint: "다양한 메이크업 스타일 실습 및 응용, 자기 표현 방법 배우기",
+            carouselImages: [],
+            lessons: [
+                { id: "l-2-1", title: "포인트 메이크업 테크닉", duration: "25분" },
+                { id: "l-2-2", title: "스타일링과 색상 매칭", duration: "25분" },
+                { id: "l-2-3", title: "나만의 메이크업 완성 및 발표", duration: "20분" },
+            ],
+        },
+    ],
+    introSections: [
+        {
+            subtitle: "CLASS INTRO",
+            title: "메이크업 아티스트의 세계에 오신 것을 환영합니다",
+            description: "이 수업에서는 메이크업의 기본 원리부터 시작해 직접 실습을 통해 전문적인 메이크업 기술을 배울 수 있습니다. 메이크업 아티스트라는 직업을 깊이 이해하며 자신만의 스타일을 찾는 시간을 제공합니다.",
+            imageSrc: "/images/products/makeup-artist/class-1.webp",
+        },
+        {
+            subtitle: "EXPERIENCE",
+            title: "실습 중심의 체험 학습",
+            description: "전문 강사의 지도로 피부 분석부터 다양한 메이크업 기법을 직접 경험하며, 진로에 대한 실질적인 이해와 자신감을 키웁니다.",
+            imageSrc: "/images/products/makeup-artist/class-2.webp",
+        },
+        {
+            subtitle: "TRANSFORMATION",
+            title: "나만의 스타일로 변신하기",
+            description: "수업 마지막에는 자신만의 메이크업을 완성하여 발표하며, 창의적인 자기 표현의 즐거움을 느낄 수 있습니다.",
+            imageSrc: "/images/products/makeup-artist/class-3.webp",
+        },
+    ],
+    requiredTools: [
+        { name: "편안한 복장", description: "자유로운 실습을 위한 편안한 옷차림을 권장합니다.", iconSrc: "" },
+        { name: "필기도구", description: "중요한 내용을 기록할 수 있도록 준비해 주세요.", iconSrc: "" },
+    ],
+    notice: {
+        operationGuide: [
+            "전국 학교 어디든 전문 강사진이 직접 방문합니다.",
+            "학급 단위(25~35명) 운영이 기본입니다.",
+            "모든 재료와 도구는 드림플렉스에서 제공합니다.",
+        ],
+        learningPolicy: [
+            "별도 준비물 없음 (모든 재료 제공)",
+            "편안한 복장 착용 권장",
+        ],
+        deviceLimit: [
+            "별도의 디지털 기기는 필요하지 않습니다.",
+        ],
+        intellectualProperty: [
+            "학생 창작물의 저작권은 학생 본인에게 귀속됩니다.",
+        ],
+        coachingInfo: [
+            "수업 후 활동 자료를 제공합니다.",
+        ],
+    },
+    reviews: [
+        {
+            id: "rev-1",
+            rating: 5,
+            title: "재미있고 유익한 수업이었어요",
+            content: "메이크업이 이렇게 다양한 기술이 필요한지 몰랐는데, 직접 해보니까 너무 재미있었고 진로에 대해 더 관심이 생겼어요.",
+            authorName: "서울중학교",
+            authorGrade: "학생",
+            characterId: 1,
+        },
+        {
+            id: "rev-2",
+            rating: 5,
+            title: "전문가와 함께하는 실습이 최고",
+            content: "강사님이 친절하게 알려주셔서 처음 해보는 메이크업도 쉽게 배울 수 있었고, 친구들과 함께 해서 더욱 즐거웠습니다.",
+            authorName: "부산고등학교",
+            authorGrade: "학생",
+            characterId: 2,
+        },
+        {
+            id: "rev-3",
+            rating: 5,
+            title: "진로 고민에 큰 도움 되었어요",
+            content: "메이크업 아티스트라는 직업을 자세히 알게 되었고, 앞으로의 진로 계획을 세우는 데 큰 도움이 되었습니다.",
+            authorName: "대전여자중학교",
+            authorGrade: "학생",
+            characterId: 3,
+        },
+    ],
+    curriculumLinks: [
+        "창체 진로탐색 활동",
+        "자유학기제",
+        "2022 개정 교육과정",
+        "창의적 체험활동",
+    ],
+    relatedCourses: [],
+};
+
+export default makeupArtistData;

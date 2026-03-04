@@ -535,4 +535,6 @@ export interface CourseDetail {
   targetAudience?: TargetAudience[];
   expectedOutcomes?: ExpectedOutcome[];
   reviews?: Review[];
+  /** 교육과정 연계 배지 (예: ["창체 진로탐색", "자유학기제", "2022 개정 교육과정"]) */
+  curriculumLinks?: string[];
 }

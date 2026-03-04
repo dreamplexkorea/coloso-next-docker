@@ -1,0 +1,195 @@
+import type { CourseDetail } from "@/lib/types";
+
+const webtoonCreatorData: CourseDetail = {
+    slug: "webtoon-creator",
+    title: "Webtoon Creator",
+    subtitle: "진로직업체험 | 중학생 이상 | 2차시",
+    heroImageSrc: "/images/products/webtoon-creator/hero.webp",
+    heroEyebrow: "DREAMPLEX · 진로직업체험",
+    heroHeadline: "웹툰 제작의 모든 과정을 체험하며 창의력을 키우다",
+    heroSubcopy: "학생들이 직접 스토리 구상부터 캐릭터 디자인, 디지털 작업까지 경험합니다.\n나만의 웹툰을 완성하며 진로에 대한 이해를 높이는 특별한 시간.",
+    heroChips: ["중학생 이상", "학교 방문형", "실습 중심"],
+    heroProofStats: [
+        { label: "운영 학교", value: "50+" },
+        { label: "참여 학생", value: "3,000+" },
+        { label: "평균 만족도", value: "4.8 / 5.0" },
+    ],
+    heroTheme: "cinematic-dark",
+    tags: ["진로직업체험", "웹툰작가", "창의예술", "중학생 이상"],
+    status: "학교 출강 운영중",
+    instructor: {
+        name: "DREAMPLEX WEBTOON CREATOR",
+        role: "웹툰 작가 및 교육 전문 강사",
+        avatarSrc: "",
+        bio: "현직 웹툰 작가 출신의 전문 강사로, 학생들에게 웹툰 제작의 기초부터 실무까지 체계적으로 지도합니다. 창의력과 표현력을 키우는 교육에 열정을 가지고 있습니다.",
+        career: [
+            "웹툰 작가 5년 활동",
+            "국내 주요 웹툰 플랫폼 연재 경험",
+            "청소년 대상 웹툰 창작 교육 3년 경력",
+        ],
+        quote: "웹툰은 나만의 이야기를 세상과 소통하는 가장 창의적인 방법입니다.",
+        interview: [
+            {
+                question: "이 프로그램이 학생들에게 어떤 도움이 되나요?",
+                answer: "웹툰 제작 전 과정을 직접 체험하며 창의적 사고와 스토리텔링 능력을 키울 수 있습니다. 또한 디지털 도구 활용법도 배우며 미래 진로 탐색에 도움이 됩니다.",
+            },
+            {
+                question: "준비물이 많이 필요한가요?",
+                answer: "모든 재료와 도구는 저희가 제공하므로 별도의 준비물이 필요 없습니다. 학생들은 편안한 마음으로 수업에 집중할 수 있습니다.",
+            },
+        ],
+    },
+    meta: {
+        level: "중학생 이상 (체험형)",
+        totalLessons: 2,
+        totalDuration: "90분",
+        language: "한국어",
+        hasResources: true,
+    },
+    price: {
+        original: 35000,
+        discounted: 28000,
+        currency: "원",
+    },
+    programHighlights: [
+        { label: "대상 학년", value: "중학생 이상", icon: "users" },
+        { label: "운영 차시", value: "2차시", icon: "book" },
+        { label: "운영 방식", value: "학교 방문형", icon: "school" },
+        { label: "소요 시간", value: "90분", icon: "clock" },
+    ],
+    targetAudience: [
+        {
+            grade: "중학생 이상",
+            description: "웹툰과 디지털 콘텐츠 제작에 관심이 있는 학생, 창의적 스토리텔링 능력을 키우고자 하는 학생에게 적합합니다.",
+            tags: ["창의력", "스토리텔링", "디지털아트"],
+        },
+    ],
+    expectedOutcomes: [
+        {
+            title: "스토리텔링 역량 강화",
+            description: "자신만의 이야기를 구성하고 전달하는 능력을 기릅니다.",
+            iconType: "scale",
+        },
+        {
+            title: "디지털 도구 활용 능력 습득",
+            description: "기본적인 웹툰 제작 툴 사용법을 익혀 실습에 적용합니다.",
+            iconType: "sparkle",
+        },
+        {
+            title: "창의적 표현력 신장",
+            description: "캐릭터 디자인과 구성으로 자신만의 창의력을 발휘합니다.",
+            iconType: "users",
+        },
+        {
+            title: "진로 탐색 및 자기 이해",
+            description: "웹툰 작가라는 직업에 대해 이해하고 미래 진로를 탐색합니다.",
+            iconType: "briefcase",
+        },
+    ],
+    curriculum: [
+        {
+            id: "ch-1",
+            title: "Chapter 01. 웹툰의 이해와 스토리 기획",
+            learningPoint: "웹툰의 기본 구성과 스토리 구상 방법 이해하기",
+            carouselImages: [],
+            lessons: [
+                { id: "l-1-1", title: "웹툰이란 무엇인가?", duration: "20분" },
+                { id: "l-1-2", title: "스토리 아이디어 발상법", duration: "25분" },
+                { id: "l-1-3", title: "캐릭터 설정과 콘티 기초", duration: "20분" },
+            ],
+        },
+        {
+            id: "ch-2",
+            title: "Chapter 02. 디지털 웹툰 제작 실습",
+            learningPoint: "디지털 도구를 활용한 웹툰 제작과 완성",
+            carouselImages: [],
+            lessons: [
+                { id: "l-2-1", title: "웹툰 제작 툴 기본 사용법", duration: "25분" },
+                { id: "l-2-2", title: "작품 제작 및 편집", duration: "25분" },
+                { id: "l-2-3", title: "완성 작품 발표 및 피드백", duration: "20분" },
+            ],
+        },
+    ],
+    introSections: [
+        {
+            subtitle: "CLASS INTRO",
+            title: "웹툰 제작의 첫걸음, 창의적인 스토리텔링",
+            description: "웹툰의 기본 개념과 다양한 장르를 소개하고, 학생들이 자신만의 스토리를 구상할 수 있도록 돕습니다.",
+            imageSrc: "/images/products/webtoon-creator/class-1.webp",
+        },
+        {
+            subtitle: "EXPERIENCE",
+            title: "디지털 툴을 활용한 실습 중심 수업",
+            description: "전문 웹툰 작가가 직접 안내하는 디지털 웹툰 제작 실습으로 창의적 표현력을 키웁니다.",
+            imageSrc: "/images/products/webtoon-creator/class-2.webp",
+        },
+        {
+            subtitle: "TRANSFORMATION",
+            title: "완성된 작품으로 자신감과 진로 이해 증진",
+            description: "직접 만든 웹툰을 발표하며 자신감을 키우고, 웹툰 작가 진로에 대해 깊이 이해하게 됩니다.",
+            imageSrc: "/images/products/webtoon-creator/class-3.webp",
+        },
+    ],
+    requiredTools: [
+        { name: "디지털 기기", description: "프로그램에서 제공하는 태블릿 및 소프트웨어 사용", iconSrc: "" },
+        { name: "필기도구", description: "아이디어 스케치 및 메모용", iconSrc: "" },
+    ],
+    notice: {
+        operationGuide: [
+            "전국 학교 어디든 전문 강사진이 직접 방문합니다.",
+            "학급 단위(25~35명) 운영이 기본입니다.",
+            "모든 재료와 도구는 드림플렉스에서 제공합니다.",
+        ],
+        learningPolicy: [
+            "별도 준비물 없음 (모든 재료 제공)",
+            "편안한 복장 착용 권장",
+        ],
+        deviceLimit: [
+            "별도의 디지털 기기는 필요하지 않습니다.",
+        ],
+        intellectualProperty: [
+            "학생 창작물의 저작권은 학생 본인에게 귀속됩니다.",
+        ],
+        coachingInfo: [
+            "수업 후 활동 자료를 제공합니다.",
+        ],
+    },
+    reviews: [
+        {
+            id: "rev-1",
+            rating: 5,
+            title: "나만의 웹툰을 만들 수 있었어요!",
+            content: "처음에는 어렵게 느껴졌지만 강사님이 쉽게 알려주셔서 재밌게 참여할 수 있었습니다.",
+            authorName: "서울중학교",
+            authorGrade: "학생",
+            characterId: 1,
+        },
+        {
+            id: "rev-2",
+            rating: 5,
+            title: "진로에 대해 더 잘 알게 되었어요",
+            content: "웹툰 작가라는 직업에 대해 구체적으로 알게 되어 진로 고민에 큰 도움이 되었습니다.",
+            authorName: "부산고등학교",
+            authorGrade: "학생",
+            characterId: 2,
+        },
+        {
+            id: "rev-3",
+            rating: 5,
+            title: "실습이 많아서 좋았어요",
+            content: "이론보다는 직접 그려보고 만들어보는 시간이 많아 재미있고 유익했습니다.",
+            authorName: "대전중학교",
+            authorGrade: "학생",
+            characterId: 3,
+        },
+    ],
+    curriculumLinks: [
+        "창체 진로탐색 활동",
+        "자유학기제",
+        "2022 개정 교육과정",
+        "창의적 체험활동",
+    ],
+    relatedCourses: [],
+};
+
+export default webtoonCreatorData;

@@ -8,8 +8,8 @@ interface CreatorProfileProps {
 /** 강사 프로필 및 인터뷰 섹션 — 드림플렉스 브랜드 컬러 적용 */
 export function CreatorProfile({ instructor }: CreatorProfileProps) {
   return (
-    <section id="educator" className="py-[80px] lg:py-[120px]">
-      <div className="mx-auto max-w-[1120px]">
+    <section id="educator" className="w-full bg-white py-[80px] lg:py-[120px]">
+      <div className="mx-auto max-w-[1120px] px-[20px] sm:px-[24px] lg:px-[32px]">
         {/* 상단: 마스터 기본 정보 및 철학 */}
         <div className="mb-[80px] flex flex-col items-center gap-[40px] lg:flex-row lg:items-end lg:gap-[80px]">
           {/* 아바타 / 인물 사진 */}

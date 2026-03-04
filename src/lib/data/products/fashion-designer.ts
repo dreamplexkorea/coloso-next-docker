@@ -1,168 +1,286 @@
 import type { CourseDetail } from "@/lib/types";
+import { fashionDesignerImages as img } from "./fashion-designer.images";
 
 const courseDetail: CourseDetail = {
-  slug: "fashion-designer",
-  title: "패션 디자이너 체험: 나만의 브랜드를 만드는 첫 걸음",
-  subtitle: "패션 트렌드 분석부터 의상 스케치·원단 선택까지, 패션 산업의 핵심을 체험하는 프로그램",
-  heroImageSrc: "/images/products/fashion-designer/hero.png",
-  heroEyebrow: "DREAMPLEX · 예술/디자인 진로직업체험",
-  heroHeadline: "옷은 입는 것이 아니라, 설계하는 것이다",
-  heroSubcopy: "현직 패션 디자이너가 학교로 찾아가, 디자인의 프로세스와 브랜딩의 기초를 가르칩니다.",
-  heroChips: ["고등 대상","패션 디자인","브랜딩"],
-  heroProofStats: [
-    { label: "운영 학교", value: "108+" },
-    { label: "참여 학생", value: "2,724+" },
-    { label: "평균 만족도", value: "4.7 / 5.0" },
-  ],
-  heroTheme: "cinematic-dark",
-  tags: ["진로직업체험", "예술/디자인", "고등"],
-  status: "학교 출강 운영중",
-  instructor: {
-    name: "DREAMPLEX DESIGNER",
-    role: "현직 패션 디자이너 & 브랜드 디렉터",
-    avatarSrc: "",
-    bio: "현직 패션 디자이너 & 브랜드 디렉터이(가) 학생 눈높이에 맞춘 전문 교육을 설계하고 진행합니다.",
-    career: [
-      "관련 분야 전문 자격 및 현장 경력 보유",
-      "전국 학교 진로체험 프로그램 다수 운영",
-      "학생 수준별 맞춤형 커리큘럼 설계 전문",
-      "교육부 인정 진로교육 프로그램 참여",
+    slug: "fashion-designer",
+    title: "패션 디자이너: 패브릭으로 완성하는 나만의 스타일",
+    subtitle:
+        "패션 디자이너의 하루를 직접 체험하며, 15가지 원단으로 나만의 의상 디자인을 완성하는 창작 진로 프로그램",
+    heroImageSrc: img.hero,
+    heroEyebrow: "DREAMPLEX · 뷰티 진로직업체험",
+    heroHeadline: "패션으로 나를 말하다",
+    heroSubcopy:
+        "패션은 단순한 옷이 아닙니다. 현직 패션 디자이너가 학교로 직접 찾아가, 패브릭 소재와 콜라주로 나만의 스타일을 완성하는 감성 창작 수업을 운영합니다.",
+    heroChips: ["초등·중·고등 대상", "학교 방문형", "창작 실습"],
+    heroProofStats: [
+        { label: "운영 학교", value: "80+" },
+        { label: "참여 학생", value: "5,200+" },
+        { label: "평균 만족도", value: "4.9 / 5.0" },
     ],
-    quote: "직접 경험해본 것만이 진짜 나의 것이 됩니다. 학생들에게 그 '진짜 경험'을 선물하는 것이 저의 사명입니다.",
-    interview: [
-      {
-        question: "이 프로그램의 가장 큰 차별점은 무엇인가요?",
-        answer: "현직 전문가가 직접 설계하고 운영하기 때문에 교과서에서는 배울 수 없는 현장의 생생한 노하우를 전달합니다. 이론이 아닌 실전, 암기가 아닌 체험에 초점을 맞춥니다.",
-      },
-      {
-        question: "학생들의 수준 차이가 크면 어떡하나요?",
-        answer: "모든 프로그램은 '기초→실습→응용' 3단계로 설계되어 있어, 처음 접하는 학생도 자연스럽게 따라올 수 있습니다. 오히려 기존 경험이 없는 학생일수록 신선한 관점에서 더 큰 영감을 받곤 합니다.",
-      },
-      {
-        question: "체험 후 학생들에게 어떤 변화가 생기나요?",
-        answer: "가장 큰 변화는 '이 직업도 가능하구나'라는 시야의 확장입니다. 막연히 몰랐던 분야를 직접 체험하면, 자신의 적성과 흥미를 구체적으로 발견하게 됩니다.",
-      },
+    heroTheme: "cinematic-dark",
+    tags: ["진로직업체험", "패션디자이너", "뷰티", "창작", "초등", "중등", "고등"],
+    status: "학교 출강 운영중",
+    instructor: {
+        name: "DREAMPLEX FASHION",
+        role: "패션 디자인 전문 강사팀",
+        avatarSrc: "",
+        bio: "다양한 패션 가치관을 가진 현직 패션 디자이너들이 학생들에게 패션에 대한 올바른 시선과 창작의 즐거움을 전합니다.",
+        career: [
+            "패션 디자인 전공 및 현직 디자이너 경력 보유",
+            "초·중·고등학교 진로체험 강의 200회+ 운영",
+            "패브릭 소재를 활용한 창작 교육 프로그램 개발",
+            "전국 학교 방문형 패션 진로체험 운영",
+        ],
+        quote:
+            "자신의 옷장을 열어보면 자신이 어떤 사람인지 가늠할 수 있습니다. 패션은 현대의 중요한 자아표현 수단입니다. 학생들이 패브릭을 통해 자신만의 언어를 찾아가는 과정이 가장 보람찹니다.",
+        interview: [
+            {
+                question: "패션 디자이너 체험, 어떤 학생에게 특히 좋을까요?",
+                answer:
+                    "옷이나 스타일에 관심 있는 학생은 물론, 그림 그리기를 좋아하거나 손으로 무언가 만드는 걸 즐기는 학생 모두에게 잘 맞습니다. 패션 디자인은 예술, 기획, 마케팅이 모두 담긴 종합 직업이거든요.",
+            },
+            {
+                question: "단순한 만들기 체험과 다른 점이 무엇인가요?",
+                answer:
+                    "저희는 패션 디자이너가 실제로 하는 일 — 의상 기획, 소재 선택, 도식화 — 을 그대로 체험합니다. 15가지 이상의 실제 패브릭 원단을 학생들에게 제공하고, 캐릭터 도식화에 직접 붙여 의상을 완성합니다. '만들기'가 아니라 '디자인'입니다.",
+            },
+            {
+                question: "수업 후 학생들에게 남는 것은 무엇인가요?",
+                answer:
+                    "자신이 직접 완성한 의상 디자인 작품과 함께, 패션 디자이너라는 직업에 대한 새로운 시각이 남습니다. 많은 학생들이 수업 후 패션 관련 학과와 진로에 관심을 갖게 됩니다.",
+            },
+        ],
+    },
+    meta: {
+        level: "초등·중·고등학생 (창작 체험형)",
+        totalLessons: 2,
+        totalDuration: "90분",
+        language: "한국어",
+        hasResources: true,
+    },
+    price: {
+        original: 35000,
+        discounted: 28000,
+        currency: "원",
+    },
+    programHighlights: [
+        { label: "대상 학년", value: "초·중·고등학생", icon: "users" },
+        { label: "운영 차시", value: "2차시", icon: "book" },
+        { label: "운영 방식", value: "학교 방문형", icon: "school" },
+        { label: "소요 시간", value: "90분", icon: "clock" },
     ],
-  },
-  meta: {
-    level: "고등학생 (프로젝트형)",
-    totalLessons: 2,
-    totalDuration: "120분",
-    language: "한국어",
-    hasResources: true,
-  },
-  price: {
-    original: 50000,
-    discounted: 39000,
-    currency: "원",
-  },
-  programHighlights: [
-    { label: "대상 학년", value: "고등학생", icon: "users" },
-    { label: "운영 차시", value: "2차시", icon: "book" },
-    { label: "운영 방식", value: "학교 방문형", icon: "school" },
-    { label: "소요 시간", value: "120분", icon: "clock" },
-  ],
-  targetAudience: [
-    {
-      grade: "고등학교 1~2학년",
-      description: "전문가의 세계를 직접 체험하며 관련 분야 진로를 탐색합니다",
-      tags: ["진로탐색", "예술/디자인", "체험학습"],
-    },
-  ],
-  expectedOutcomes: [
-    { title: "전문 지식 기초 습득", description: "관련 분야의 핵심 원리와 기초 기술을 체험으로 학습", iconType: "scale" },
-    { title: "실전 기술 체험", description: "현직 전문가의 도구와 기법을 직접 사용해보는 실습 경험", iconType: "sparkle" },
-    { title: "문제 해결력 향상", description: "실제 과제를 해결하며 창의적·논리적 사고력 훈련", iconType: "users" },
-    { title: "진로 방향 탐색", description: "관련 분야의 다양한 직업군을 발견하고 적성을 확인", iconType: "briefcase" },
-  ],
-  curriculum: [
-    {
-      id: "ch-1",
-      title: "Chapter 01. 전문가의 눈으로 바라보기",
-      learningPoint: "해당 분야의 핵심 원리와 사고방식을 이해합니다",
-      lessons: [
-        { id: "l-1-1", title: "이론 탐구: 핵심 원리와 현장의 이야기", duration: "36분" },
-        { id: "l-1-2", title: "관찰과 분석: 전문가처럼 생각하기", duration: "24분" },
-      ],
-    },
-    {
-      id: "ch-2",
-      title: "Chapter 02. 실전! 나도 전문가 도전",
-      learningPoint: "직접 도구를 다루고 과제를 수행하며 실전 역량을 체험합니다",
-      lessons: [
-        { id: "l-2-1", title: "실습: 핵심 기술 직접 체험하기", duration: "30분" },
-        { id: "l-2-2", title: "프로젝트: 나만의 결과물 완성 & 발표", duration: "30분" },
-      ],
-    },
-  ],
-  introSections: [
-    {
-      subtitle: "CLASS INTRO",
-      title: "교과서 밖의 진짜 세상을 만나다",
-      description: "교실에서 배우는 이론이 실제 현장에서 어떻게 쓰이는지, 현직 전문가가 직접 보여주고 체험하게 합니다. 아는 것과 경험하는 것은 완전히 다릅니다.",
-      imageSrc: "",
-    },
-    {
-      subtitle: "EXPERIENCE",
-      title: "프로의 도구로, 프로의 방식으로",
-      description: "현직 전문가가 실제 현장에서 사용하는 도구와 방법론을 학생 눈높이에 맞춰 전달합니다. 체험의 깊이가 진로 탐색의 깊이를 결정합니다.",
-      imageSrc: "",
-    },
-    {
-      subtitle: "TRANSFORMATION",
-      title: "한 번의 체험이 평생의 방향을 바꾼다",
-      description: "체험 전: '그냥 관심 있는 직업' → 체험 후: '내 적성과 흥미를 확인한 구체적 진로'. 직접 해본 경험만이 진짜 자신감을 줍니다.",
-      imageSrc: "",
-    },
-  ],
-  requiredTools: [
-    { name: "전문 실습 도구", description: "프로그램별 맞춤 장비 및 재료 (드림플렉스 제공)", iconSrc: "" },
-    { name: "활동지 & 워크북", description: "체험 기록 및 진로 탐색 정리용 교재", iconSrc: "" },
-  ],
-  notice: {
-    operationGuide: [
-      "전국 어디든 전문 강사진이 직접 방문합니다.",
-      "학급 단위(25~30명) 운영이 기본이며, 학년 단위 특강도 가능합니다.",
-      "모든 재료와 장비는 드림플렉스에서 준비합니다.",
+    targetAudience: [
+        {
+            grade: "초등학교 전 학년",
+            description: "패브릭 소재를 직접 만지며 패션의 기초와 창작의 즐거움을 체험합니다",
+            tags: ["창의체험", "패션기초", "손으로만들기"],
+        },
+        {
+            grade: "중학교 전 학년",
+            description: "자유학기제 진로탐색 활동으로 패션 디자인 직업 세계를 깊이 탐구합니다",
+            tags: ["자유학기제", "진로탐색", "패션디자인"],
+        },
+        {
+            grade: "고등학교 전 학년",
+            description: "패션 관련 학과 진학을 고려하는 학생들의 실질적인 포트폴리오 체험",
+            tags: ["진로설계", "고교학점제", "패션학과탐색"],
+        },
     ],
-    learningPolicy: [
-      "프로그램은 2차시(120분)로 구성됩니다.",
-      "모든 교육 자료는 사전에 준비되어 제공됩니다.",
-      "수료 기준 충족 시 참여 학생 전원에게 수료증이 발급됩니다.",
+    expectedOutcomes: [
+        {
+            title: "패션 디자이너 직업 이해",
+            description: "상품 기획, 소재 선택, 도식화 등 패션 디자이너의 실제 업무를 체험으로 학습",
+            iconType: "briefcase",
+        },
+        {
+            title: "나만의 의상 디자인 완성",
+            description: "15가지 이상의 패브릭 원단을 활용해 캐릭터 도식화에 나만의 스타일을 완성",
+            iconType: "sparkle",
+        },
+        {
+            title: "패션 가치관 형성",
+            description: "유행을 따르는 패션이 아닌, 자신을 표현하는 개성 있는 패션 감각을 키웁니다",
+            iconType: "scale",
+        },
+        {
+            title: "패션 관련 진로 탐색",
+            description: "패션 디자이너, 스타일리스트, MD, 패션 마케터 등 다양한 진로 가능성 발견",
+            iconType: "users",
+        },
     ],
-    deviceLimit: [
-      "프로그램에 따라 노트북/태블릿이 필요할 수 있습니다.",
-      "사전 안내를 통해 준비 사항을 공유합니다.",
+    curriculum: [
+        {
+            id: "ch-1",
+            title: "Chapter 01. 패션 디자이너의 하루 — 의상 기획과 소재 탐구",
+            learningPoint:
+                "패션 디자이너가 실제로 하는 일과 의상 기획 과정, 다양한 패브릭 소재의 특성을 이해합니다",
+            carouselImages: img.chapter1,
+            lessons: [
+                {
+                    id: "l-1-1",
+                    title: "패션 디자이너의 하루: 기획부터 완성까지의 여정",
+                    duration: "20분",
+                },
+                {
+                    id: "l-1-2",
+                    title: "소재에 대한 이해: 15가지 패브릭 원단 탐구 실습",
+                    duration: "25분",
+                },
+            ],
+        },
+        {
+            id: "ch-2",
+            title: "Chapter 02. 나만의 의상 디자인 완성 — 패브릭 콜라주",
+            learningPoint:
+                "패브릭 소재를 도식화한 캐릭터에 붙여 나만의 디자인을 적용한 의상을 완성합니다",
+            carouselImages: img.chapter2,
+            lessons: [
+                {
+                    id: "l-2-1",
+                    title: "캐릭터 도식화와 패브릭 콜라주 기법 실습",
+                    duration: "25분",
+                },
+                {
+                    id: "l-2-2",
+                    title: "나만의 의상 디자인 완성 & 작품 발표",
+                    duration: "20분",
+                },
+            ],
+        },
     ],
-    intellectualProperty: [
-      "교육 자료의 저작권은 Dreamplex에 있습니다.",
-      "학생 산출물의 저작권은 학생 본인에게 귀속됩니다.",
+    introSections: [
+        {
+            subtitle: "CLASS INTRO",
+            title: "패션은 나를 표현하는 가장 솔직한 언어입니다",
+            description:
+                "오늘은 데이트가 있는 날, 바다로 놀러 가는 날, 중요한 회의가 있는 날 — 누구나 옷장 앞에서 고민해본 적 있지 않나요? 패션은 단순히 몸을 가리는 것이 아닙니다. 자신의 개성, 취향, 가치관을 세상에 보여주는 가장 솔직한 자아표현 수단입니다.",
+            imageSrc: img.intro,
+        },
+        {
+            subtitle: "EXPERIENCE",
+            title: "진짜 원단으로, 진짜 디자이너처럼",
+            description:
+                "드림플렉스는 질 좋은 15가지 이상의 패브릭 원단을 학생들에게 직접 제공합니다. 원단을 만지고 느끼며 소재의 특성을 이해하고, 캐릭터 도식화에 직접 붙여 나만의 의상을 완성합니다. 단순한 만들기가 아닌, 진짜 패션 디자이너의 작업 과정을 경험합니다.",
+            imageSrc: img.experience,
+        },
+        {
+            subtitle: "TRANSFORMATION",
+            title: "획일화된 패션에서 나만의 패션으로",
+            description:
+                "모나미 룩처럼 유행을 따르는 획일화된 패션이 아닌, 진짜 패션으로 자신을 담는 사람들의 이야기. 여러 패션 디자이너들의 이야기로 학생들에게 패션에 대한 올바른 시선을 제공하고, 자신만의 스타일을 찾아가는 여정을 시작합니다.",
+            imageSrc: img.transformation,
+        },
     ],
-    coachingInfo: [
-      "프로그램 종료 후 진로 탐색 자료를 추가 제공합니다.",
+    requiredTools: [
+        {
+            name: "패브릭 원단 키트",
+            description: "15가지 이상의 다양한 소재 원단 (드림플렉스 제공)",
+            iconSrc: "",
+        },
+        {
+            name: "캐릭터 도식화 워크시트",
+            description: "의상 디자인을 위한 전용 도식화 용지 (드림플렉스 제공)",
+            iconSrc: "",
+        },
+        {
+            name: "콜라주 도구",
+            description: "가위, 풀, 마커 등 제작 도구 (드림플렉스 제공)",
+            iconSrc: "",
+        },
     ],
-  },
-  reviews: [
-    {
-      id: "rev-1",
-      rating: 5,
-      title: "정말 재미있고 유익한 체험이었어요!",
-      content: "직접 해볼 수 있어서 너무 좋았어요. 이 분야에 대해 더 알고 싶어졌습니다!",
-      authorName: "학생 A",
-      authorGrade: "고등학교 1학년",
-      characterId: 1,
+    notice: {
+        operationGuide: [
+            "전국 초·중·고등학교 어디든 전문 강사진이 재료와 함께 직접 방문합니다.",
+            "학급 단위(30명 이하) 운영이 기본이며, 학년 단위 특강도 가능합니다.",
+            "강의 신청은 학생 인원에 따른 재료 구비와 강사 배정을 위해 최소 3주 전까지 예약이 필요합니다.",
+            "초등학교, 중학교, 고등학교의 수준에 맞게 강의 난이도를 조절하여 진행합니다.",
+        ],
+        learningPolicy: [
+            "모든 패브릭 원단과 제작 도구는 드림플렉스에서 제공합니다.",
+            "완성된 의상 디자인 작품은 학생이 가져갑니다.",
+            "수업 중 촬영된 사진은 학교 및 드림플렉스 홍보에 활용될 수 있습니다.",
+        ],
+        deviceLimit: [
+            "별도의 디지털 기기는 필요하지 않습니다.",
+            "일반 교실에서 운영 가능합니다.",
+        ],
+        intellectualProperty: [
+            "학생 창작 의상 디자인의 저작권은 학생 본인에게 귀속됩니다.",
+        ],
+        coachingInfo: [
+            "수업 후 패션 관련 학과 및 진로 정보를 담은 안내 자료를 제공합니다.",
+        ],
     },
-    {
-      id: "rev-2",
-      rating: 5,
-      title: "진로 고민에 큰 도움이 됐어요",
-      content: "막연하게만 생각했던 직업을 직접 체험해보니 내 적성에 맞는지 알 수 있었습니다. 감사합니다!",
-      authorName: "학생 B",
-      authorGrade: "고등학교 2학년",
-      characterId: 2,
-    },
-  ],
-  relatedCourses: [],
+    reviews: [
+        {
+            id: "rev-1",
+            rating: 5,
+            title: "패션 디자이너에 대해 새롭게 알게 됐어요",
+            content:
+                "패션 디자이너에 대한 소개를 들으며 패션 디자이너의 종류가 다양하고 옷을 만들기 위해 어떤 일을 하는지와 관련학과를 전공하지 않아도 패션 디자이너가 될 수 있다는 것을 알게 되었다.",
+            authorName: "경주여자중학교 학생",
+            authorGrade: "중학교 2학년",
+            characterId: 1,
+        },
+        {
+            id: "rev-2",
+            rating: 5,
+            title: "내가 직접 옷을 디자인했어요!",
+            content:
+                "무신사에서 옷을 이렇게 만드는지 알게 되었고 내가 사람의 옷을 디자인해서 정말 재미있었다. 그리고 선생님께서 친절하게 설명해주셔서 정말 감사했다. 다음에도 이런 활동을 했으면 정말 좋겠다.",
+            authorName: "모산중학교 학생",
+            authorGrade: "중학교 1학년",
+            characterId: 2,
+        },
+        {
+            id: "rev-3",
+            rating: 5,
+            title: "패션디자이너에 더 관심을 갖게 됐어요",
+            content:
+                "패션디자이너는 옷뿐만이 아니라 가방, 액세서리도 다 디자인 해야 한다는 것을 배웠고 생각보다 어려웠지만, 패션디자이너에 더 관심을 둘 수 있게 된 것 같다.",
+            authorName: "사전중학교 학생",
+            authorGrade: "중학교 2학년",
+            characterId: 3,
+        },
+        {
+            id: "rev-4",
+            rating: 5,
+            title: "직접 만드니까 더 신기하고 좋았어요",
+            content:
+                "평소에 아이돌쇼핑에 하트를 눌러 놓던 옷들이 치수가 안 맞고 입을 상황이 안 되서 못 입었는데 직접 옷 소재로 잘라서 만들고 하니까 더 신기하고 좋았던 것 같다.",
+            authorName: "안동여자중학교 학생",
+            authorGrade: "중학교 3학년",
+            characterId: 4,
+        },
+        {
+            id: "rev-5",
+            rating: 5,
+            title: "학생들 반응이 정말 좋았어요",
+            content:
+                "진로체험 수업 중 학생들이 가장 집중하고 즐거워한 수업이었습니다. 직접 원단을 만지고 디자인하는 과정에서 아이들의 창의성이 정말 빛났어요. 내년에도 꼭 신청할 예정입니다.",
+            authorName: "담임 선생님",
+            authorGrade: "중학교 담임교사",
+            characterId: 5,
+        },
+        {
+            id: "rev-6",
+            rating: 4,
+            title: "시간이 더 있었으면 좋겠어요",
+            content:
+                "90분이 너무 빠르게 지나갔어요. 디자인을 더 꼼꼼하게 완성하고 싶었는데 시간이 조금 부족했습니다. 그래도 내가 만든 작품을 가져올 수 있어서 정말 좋았어요!",
+            authorName: "참여 학생",
+            authorGrade: "중학교 1학년",
+            characterId: 0,
+        },
+    ],
+    curriculumLinks: [
+        "창체 진로탐색 활동",
+        "자유학기제",
+        "2022 개정 교육과정",
+        "고교학점제",
+        "창의적 체험활동",
+    ],
+    relatedCourses: [],
 };
 
 export default courseDetail;

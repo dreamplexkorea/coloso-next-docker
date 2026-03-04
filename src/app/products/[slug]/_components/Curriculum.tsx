@@ -8,8 +8,8 @@ interface CurriculumProps {
 /** 커리큘럼 섹션 — 프리미엄 교육 플랫폼 스타일 */
 export function Curriculum({ chapters }: CurriculumProps) {
   return (
-    <section id="curriculum" className="bg-white py-[80px] lg:py-[120px]">
-      <div className="mx-auto max-w-[1120px]">
+    <section id="curriculum" className="w-full bg-[#F8FAFC] py-[80px] lg:py-[120px]">
+      <div className="mx-auto max-w-[1120px] px-[20px] sm:px-[24px] lg:px-[32px]">
         {/* 상단 헤더 */}
         <div className="mb-[60px] text-center lg:text-left">
           <p className="mb-[12px] text-[1.4rem] font-bold uppercase tracking-[0.3em] text-[#2B6B9A]">
@@ -65,23 +65,18 @@ export function Curriculum({ chapters }: CurriculumProps) {
 
               {/* 콘텐츠 */}
               <div className="flex flex-col lg:flex-row">
-                {/* 이미지 영역 */}
-                {chapter.carouselImages && chapter.carouselImages.length > 0 && (
-                  <div className="w-full bg-[#F8FAFC] p-[32px] lg:w-[45%] lg:p-[40px]">
-                    <CurriculumImageCarousel
-                      images={chapter.carouselImages}
-                      alt={chapter.title}
-                    />
-                  </div>
-                )}
+                {/* 이미지 영역 — 항상 표시 (이미지 없으면 플레이스홀더) */}
+                <div className="w-full bg-[#F8FAFC] p-[28px] lg:w-[45%] lg:p-[36px]">
+                  <CurriculumImageCarousel
+                    images={chapter.carouselImages ?? []}
+                    alt={chapter.title}
+                    sectionIndex={index}
+                  />
+                </div>
 
                 {/* 상세 레슨 리스트 */}
                 {chapter.lessons && chapter.lessons.length > 0 && (
-                  <div className={`flex-1 px-[32px] py-[32px] sm:px-[40px] sm:py-[40px] ${
-                    chapter.carouselImages && chapter.carouselImages.length > 0
-                      ? "lg:border-l lg:border-[#E2E8F0]"
-                      : ""
-                  }`}>
+                  <div className="flex-1 px-[32px] py-[32px] sm:px-[40px] sm:py-[40px] lg:border-l lg:border-[#E2E8F0]">
                     <ul className="divide-y divide-[#F1F5F9]">
                       {chapter.lessons.map((lesson, lessonIdx) => (
                         <li key={lesson.id} className="flex gap-[20px] py-[16px] first:pt-0 last:pb-0 group/item">

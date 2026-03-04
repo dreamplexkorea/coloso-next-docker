@@ -1,0 +1,195 @@
+import type { CourseDetail } from "@/lib/types";
+
+const chocolatierData: CourseDetail = {
+    slug: "chocolatier",
+    title: "쇼콜라티에",
+    subtitle: "진로직업체험 | 중학생 이상 | 2차시",
+    heroImageSrc: "/images/products/chocolatier/hero.webp",
+    heroEyebrow: "DREAMPLEX · 진로직업체험",
+    heroHeadline: "초콜릿의 마법을 만드는 쇼콜라티에의 세계",
+    heroSubcopy: "초콜릿의 역사와 제조 과정을 배우고 직접 실습하며\n창의적 직업 체험의 가치를 경험합니다",
+    heroChips: ["중학생 이상", "학교 방문형", "실습 중심"],
+    heroProofStats: [
+        { label: "운영 학교", value: "50+" },
+        { label: "참여 학생", value: "3,000+" },
+        { label: "평균 만족도", value: "4.8 / 5.0" },
+    ],
+    heroTheme: "cinematic-dark",
+    tags: ["진로직업체험", "쇼콜라티에", "요리/제과", "중학생 이상"],
+    status: "학교 출강 운영중",
+    instructor: {
+        name: "DREAMPLEX CHOCOLATIER",
+        role: "쇼콜라티에 전문가",
+        avatarSrc: "",
+        bio: "초콜릿 제조 및 쇼콜라티에 교육 경력 10년 이상의 전문가로, 학생들에게 창의적 직업 체험을 제공합니다.",
+        career: [
+            "국내 유명 초콜릿 브랜드 쇼콜라티에 경력 7년",
+            "초콜릿 공예 및 제조 워크숍 강사 활동 5년",
+            "교육청 진로체험 프로그램 멘토 위촉",
+        ],
+        quote: "초콜릿은 단순한 간식이 아니라, 사람의 마음을 움직이는 예술입니다.",
+        interview: [
+            {
+                question: "초콜릿 제조 체험이 학생들에게 어떤 도움이 되나요?",
+                answer: "학생들은 직접 재료를 다루고 만들어보면서 창의력과 집중력을 키우고, 진로에 대한 흥미를 자연스럽게 높일 수 있습니다.",
+            },
+            {
+                question: "학교에서 준비해야 할 것이 있나요?",
+                answer: "모든 재료와 도구는 저희가 제공하므로 별도의 준비물이 필요 없습니다. 편안한 복장을 권장합니다.",
+            },
+        ],
+    },
+    meta: {
+        level: "중학생 이상 (체험형)",
+        totalLessons: 2,
+        totalDuration: "90분",
+        language: "한국어",
+        hasResources: true,
+    },
+    price: {
+        original: 35000,
+        discounted: 28000,
+        currency: "원",
+    },
+    programHighlights: [
+        { label: "대상 학년", value: "중학생 이상", icon: "users" },
+        { label: "운영 차시", value: "2차시", icon: "book" },
+        { label: "운영 방식", value: "학교 방문형", icon: "school" },
+        { label: "소요 시간", value: "90분", icon: "clock" },
+    ],
+    targetAudience: [
+        {
+            grade: "중학생 이상",
+            description: "초콜릿과 제과제빵에 관심 있는 학생, 창의적 진로 체험을 원하는 학생에게 적합합니다.",
+            tags: ["창의력", "요리", "진로체험"],
+        },
+    ],
+    expectedOutcomes: [
+        {
+            title: "초콜릿 제조 이해",
+            description: "초콜릿 원료와 제조 과정을 이해하고 실제로 만들어보는 경험을 얻습니다.",
+            iconType: "scale",
+        },
+        {
+            title: "창의적 문제 해결력 증진",
+            description: "직접 실습하며 문제 해결력과 창의적 사고 능력을 키웁니다.",
+            iconType: "sparkle",
+        },
+        {
+            title: "직업 세계 탐색",
+            description: "쇼콜라티에 직업에 대해 깊이 이해하고 진로 탐색의 폭을 넓힙니다.",
+            iconType: "users",
+        },
+        {
+            title: "팀워크와 협업 경험",
+            description: "팀 단위 활동을 통해 협업과 소통 능력을 강화합니다.",
+            iconType: "briefcase",
+        },
+    ],
+    curriculum: [
+        {
+            id: "ch-1",
+            title: "Chapter 01. 초콜릿의 이해와 기본 제조",
+            learningPoint: "초콜릿의 역사와 종류, 기본 제조 과정을 학습합니다.",
+            carouselImages: [],
+            lessons: [
+                { id: "l-1-1", title: "초콜릿의 역사와 문화", duration: "20분" },
+                { id: "l-1-2", title: "초콜릿 원료와 종류 소개", duration: "25분" },
+                { id: "l-1-3", title: "기본 초콜릿 만들기 실습", duration: "20분" },
+            ],
+        },
+        {
+            id: "ch-2",
+            title: "Chapter 02. 초콜릿 공예와 창의적 응용",
+            learningPoint: "초콜릿을 활용한 다양한 공예 기술과 창의적 표현법을 배웁니다.",
+            carouselImages: [],
+            lessons: [
+                { id: "l-2-1", title: "초콜릿 공예 기법 소개", duration: "25분" },
+                { id: "l-2-2", title: "창의적 초콜릿 디자인 실습", duration: "25분" },
+                { id: "l-2-3", title: "완성 작품 발표 및 피드백", duration: "20분" },
+            ],
+        },
+    ],
+    introSections: [
+        {
+            subtitle: "CLASS INTRO",
+            title: "초콜릿의 매력에 빠지다",
+            description: "초콜릿의 역사부터 제조까지 체계적으로 배우며, 직접 만드는 즐거움을 경험합니다.",
+            imageSrc: "/images/products/chocolatier/class-1.webp",
+        },
+        {
+            subtitle: "EXPERIENCE",
+            title: "손으로 만드는 예술, 초콜릿 공예",
+            description: "다양한 초콜릿 공예 기법을 배우고 창의력을 발휘하여 나만의 작품을 완성합니다.",
+            imageSrc: "/images/products/chocolatier/class-2.webp",
+        },
+        {
+            subtitle: "TRANSFORMATION",
+            title: "꿈을 향한 첫걸음",
+            description: "쇼콜라티에 직업을 이해하고 진로에 대한 관심과 열정을 키우는 시간이 됩니다.",
+            imageSrc: "/images/products/chocolatier/class-3.webp",
+        },
+    ],
+    requiredTools: [
+        { name: "편안한 복장", description: "실습에 적합한 편안한 옷차림을 준비해주세요.", iconSrc: "" },
+        { name: "필기도구", description: "노트와 필기도구를 준비하면 학습에 도움이 됩니다.", iconSrc: "" },
+    ],
+    notice: {
+        operationGuide: [
+            "전국 학교 어디든 전문 강사진이 직접 방문합니다.",
+            "학급 단위(25~35명) 운영이 기본입니다.",
+            "모든 재료와 도구는 드림플렉스에서 제공합니다.",
+        ],
+        learningPolicy: [
+            "별도 준비물 없음 (모든 재료 제공)",
+            "편안한 복장 착용 권장",
+        ],
+        deviceLimit: [
+            "별도의 디지털 기기는 필요하지 않습니다.",
+        ],
+        intellectualProperty: [
+            "학생 창작물의 저작권은 학생 본인에게 귀속됩니다.",
+        ],
+        coachingInfo: [
+            "수업 후 활동 자료를 제공합니다.",
+        ],
+    },
+    reviews: [
+        {
+            id: "rev-1",
+            rating: 5,
+            title: "초콜릿 만들기가 정말 재미있었어요",
+            content: "직접 초콜릿을 만들어 보니 너무 신기하고 재미있었어요. 강사님도 친절하게 알려주셔서 좋았습니다.",
+            authorName: "서울중학교",
+            authorGrade: "학생",
+            characterId: 1,
+        },
+        {
+            id: "rev-2",
+            rating: 5,
+            title: "진로에 대해 더 깊이 생각하게 되었어요",
+            content: "쇼콜라티에라는 직업에 대해 알게 되고, 앞으로의 진로를 고민하는 데 많은 도움이 되었습니다.",
+            authorName: "부산고등학교",
+            authorGrade: "학생",
+            characterId: 2,
+        },
+        {
+            id: "rev-3",
+            rating: 5,
+            title: "친구들과 함께 협력하며 즐거운 시간이었어요",
+            content: "팀으로 활동하면서 협동심도 키우고, 초콜릿 공예도 배워서 매우 뜻깊었습니다.",
+            authorName: "대전여자중학교",
+            authorGrade: "학생",
+            characterId: 3,
+        },
+    ],
+    curriculumLinks: [
+        "창체 진로탐색 활동",
+        "자유학기제",
+        "2022 개정 교육과정",
+        "창의적 체험활동",
+    ],
+    relatedCourses: [],
+};
+
+export default chocolatierData;

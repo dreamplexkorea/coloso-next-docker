@@ -1,0 +1,195 @@
+import type { CourseDetail } from "@/lib/types";
+
+const wagashiDesignerData: CourseDetail = {
+    slug: "wagashi-designer",
+    title: "화과자 디자이너",
+    subtitle: "진로직업체험 | 초등 5~6학년 | 2차시",
+    heroImageSrc: "/images/products/wagashi-designer/hero.webp",
+    heroEyebrow: "DREAMPLEX · 전통문화 진로직업체험",
+    heroHeadline: "전통과 예술이 만나는 달콤한 디자인의 세계",
+    heroSubcopy: "화과자의 역사와 디자인 원리를 이해하고\n직접 화과자를 만들어보는 진로 체험 프로그램",
+    heroChips: ["초등 5~6학년", "학교 방문형", "실습 중심"],
+    heroProofStats: [
+        { label: "운영 학교", value: "50+" },
+        { label: "참여 학생", value: "3,000+" },
+        { label: "평균 만족도", value: "4.8 / 5.0" },
+    ],
+    heroTheme: "cinematic-dark",
+    tags: ["진로직업체험", "화과자 디자이너", "전통문화", "초등 5~6학년"],
+    status: "학교 출강 운영중",
+    instructor: {
+        name: "DREAMPLEX WAGASHI DESIGNER",
+        role: "화과자 아티스트 및 전통 디자이너",
+        avatarSrc: "",
+        bio: "전통 화과자 제작과 디자인을 전문으로 하는 강사로, 학생들에게 화과자의 아름다움과 문화적 가치를 전파합니다.",
+        career: [
+            "일본 전통 화과자 공방 5년 근무",
+            "국내외 전통 디저트 디자인 공모전 다수 수상",
+            "교육청 주최 진로 체험 강의 다수 진행",
+        ],
+        quote: "달콤한 화과자 안에 전통과 예술을 담아내는 것이 저의 가장 큰 기쁨입니다.",
+        interview: [
+            {
+                question: "화과자 디자인을 배우면 어떤 점이 특별한가요?",
+                answer: "화과자는 단순한 디저트를 넘어 전통문화와 예술성을 동시에 배울 수 있는 독특한 분야입니다. 디자인 감각과 손재주를 키우기에 최적입니다.",
+            },
+            {
+                question: "학생들이 수업 후 얻을 수 있는 가장 큰 성과는 무엇인가요?",
+                answer: "자신만의 화과자를 디자인하고 만들어봄으로써 창의력과 집중력을 높이고, 전통문화에 대한 자부심과 흥미를 갖게 됩니다.",
+            },
+        ],
+    },
+    meta: {
+        level: "초등 5~6학년 (체험형)",
+        totalLessons: 2,
+        totalDuration: "90분",
+        language: "한국어",
+        hasResources: true,
+    },
+    price: {
+        original: 35000,
+        discounted: 28000,
+        currency: "원",
+    },
+    programHighlights: [
+        { label: "대상 학년", value: "초등 5~6학년", icon: "users" },
+        { label: "운영 차시", value: "2차시", icon: "book" },
+        { label: "운영 방식", value: "학교 방문형", icon: "school" },
+        { label: "소요 시간", value: "90분", icon: "clock" },
+    ],
+    targetAudience: [
+        {
+            grade: "초등 5~6학년",
+            description: "전통문화와 디자인에 관심 있는 학생, 창의적 체험을 원하는 학생에게 적합합니다.",
+            tags: ["전통문화", "디자인", "창의력"],
+        },
+    ],
+    expectedOutcomes: [
+        {
+            title: "전통문화 이해 증진",
+            description: "화과자의 역사와 문화적 의미를 배우고 존중하는 태도를 기릅니다.",
+            iconType: "scale",
+        },
+        {
+            title: "창의적 디자인 능력 향상",
+            description: "자신만의 화과자 디자인을 구상하고 표현하는 능력을 키웁니다.",
+            iconType: "sparkle",
+        },
+        {
+            title: "실습 중심의 손기술 습득",
+            description: "화과자 제작 과정을 통해 세밀한 손기술과 집중력을 기릅니다.",
+            iconType: "users",
+        },
+        {
+            title: "진로 탐색 동기 부여",
+            description: "전통 디자이너라는 직업에 대한 이해와 관심을 높입니다.",
+            iconType: "briefcase",
+        },
+    ],
+    curriculum: [
+        {
+            id: "ch-1",
+            title: "Chapter 01. 화과자의 세계와 디자인 기초",
+            learningPoint: "화과자의 역사 이해와 기본 디자인 원리 학습",
+            carouselImages: [],
+            lessons: [
+                { id: "l-1-1", title: "화과자란 무엇인가?", duration: "20분" },
+                { id: "l-1-2", title: "전통 화과자의 종류와 의미", duration: "25분" },
+                { id: "l-1-3", title: "기본 디자인 요소 배우기", duration: "20분" },
+            ],
+        },
+        {
+            id: "ch-2",
+            title: "Chapter 02. 화과자 디자인 실습과 제작",
+            learningPoint: "직접 화과자를 디자인하고 만드는 실습",
+            carouselImages: [],
+            lessons: [
+                { id: "l-2-1", title: "디자인 스케치 및 아이디어 구상", duration: "25분" },
+                { id: "l-2-2", title: "재료 준비와 기본 성형법", duration: "25분" },
+                { id: "l-2-3", title: "화과자 완성 및 발표", duration: "20분" },
+            ],
+        },
+    ],
+    introSections: [
+        {
+            subtitle: "CLASS INTRO",
+            title: "전통과 현대가 만나는 화과자의 매력",
+            description: "화과자는 일본의 전통 디저트로, 오랜 역사와 함께 다양한 디자인 기법이 발달했습니다. 본 수업에서는 화과자의 기본 개념과 역사부터 시작해 학생들이 직접 디자인하고 만들어보는 체험을 제공합니다.",
+            imageSrc: "/images/products/wagashi-designer/class-1.webp",
+        },
+        {
+            subtitle: "EXPERIENCE",
+            title: "손으로 만드는 창의적 디자인",
+            description: "학생들은 직접 재료를 만지고 빚으며 손기술과 창의력을 발휘할 수 있습니다. 실습 중심의 수업으로 디자인 감각과 집중력을 자연스럽게 향상시킵니다.",
+            imageSrc: "/images/products/wagashi-designer/class-2.webp",
+        },
+        {
+            subtitle: "TRANSFORMATION",
+            title: "진로로서의 화과자 디자이너 탐색",
+            description: "전통문화와 디자인 직업에 대한 이해를 통해 미래 진로 탐색에 도움을 주며, 학생들의 자신감과 흥미를 높입니다.",
+            imageSrc: "/images/products/wagashi-designer/class-3.webp",
+        },
+    ],
+    requiredTools: [
+        { name: "플라스틱 작업 매트", description: "화과자 성형 시 위생과 작업 편의를 위한 매트", iconSrc: "" },
+        { name: "작은 나무 주걱", description: "재료 혼합과 모양 만들기에 사용하는 도구", iconSrc: "" },
+    ],
+    notice: {
+        operationGuide: [
+            "전국 학교 어디든 전문 강사진이 직접 방문합니다.",
+            "학급 단위(25~35명) 운영이 기본입니다.",
+            "모든 재료와 도구는 드림플렉스에서 제공합니다.",
+        ],
+        learningPolicy: [
+            "별도 준비물 없음 (모든 재료 제공)",
+            "편안한 복장 착용 권장",
+        ],
+        deviceLimit: [
+            "별도의 디지털 기기는 필요하지 않습니다.",
+        ],
+        intellectualProperty: [
+            "학생 창작물의 저작권은 학생 본인에게 귀속됩니다.",
+        ],
+        coachingInfo: [
+            "수업 후 활동 자료를 제공합니다.",
+        ],
+    },
+    reviews: [
+        {
+            id: "rev-1",
+            rating: 5,
+            title: "화과자의 신비로운 세계를 경험했어요",
+            content: "화과자가 이렇게 예쁘고 다양할 줄 몰랐어요. 직접 만들어보니 더욱 재미있었고 전통문화에 대해 더 알고 싶어졌습니다.",
+            authorName: "서울초등학교",
+            authorGrade: "학생",
+            characterId: 1,
+        },
+        {
+            id: "rev-2",
+            rating: 5,
+            title: "손으로 만드는 디자인이 정말 즐거웠어요",
+            content: "처음에는 어려웠지만 강사님이 친절히 알려주셔서 멋진 화과자를 완성할 수 있었어요. 친구들과 함께해서 더 좋았습니다.",
+            authorName: "부산초등학교",
+            authorGrade: "학생",
+            characterId: 2,
+        },
+        {
+            id: "rev-3",
+            rating: 5,
+            title: "전통과 진로에 대해 배울 수 있는 좋은 기회",
+            content: "화과자 디자이너라는 직업을 처음 알게 되었고, 미래에 대해 생각해보는 뜻깊은 시간이었습니다.",
+            authorName: "대전초등학교",
+            authorGrade: "학생",
+            characterId: 3,
+        },
+    ],
+    curriculumLinks: [
+        "창체 진로탐색 활동",
+        "자유학기제",
+        "2022 개정 교육과정",
+        "창의적 체험활동",
+    ],
+    relatedCourses: [],
+};
+
+export default wagashiDesignerData;

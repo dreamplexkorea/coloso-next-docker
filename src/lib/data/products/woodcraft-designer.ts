@@ -1,0 +1,195 @@
+import type { CourseDetail } from "@/lib/types";
+
+const woodcraftDesignerData: CourseDetail = {
+    slug: "woodcraft-designer",
+    title: "Woodcraft Designer",
+    subtitle: "진로직업체험 | 초등 4~6학년 | 2차시",
+    heroImageSrc: "/images/products/woodcraft-designer/hero.webp",
+    heroEyebrow: "DREAMPLEX · 진로직업체험",
+    heroHeadline: "자연과 창의력을 담아내는 목공예 디자인 체험",
+    heroSubcopy: "직접 나만의 목공 작품을 디자인하고 제작하며 창의적 문제 해결 능력을 키웁니다.\n실습 중심의 수업으로 진로 탐색과 손기술 향상을 동시에 경험하세요.",
+    heroChips: ["초등 4~6학년", "학교 방문형", "실습 중심"],
+    heroProofStats: [
+        { label: "운영 학교", value: "50+" },
+        { label: "참여 학생", value: "3,000+" },
+        { label: "평균 만족도", value: "4.8 / 5.0" },
+    ],
+    heroTheme: "cinematic-dark",
+    tags: ["진로직업체험", "목공예가", "창의예술", "초등 4~6학년"],
+    status: "학교 출강 운영중",
+    instructor: {
+        name: "DREAMPLEX WOODCRAFT DESIGNER",
+        role: "목공예 전문가 · 창의 교육 강사",
+        avatarSrc: "",
+        bio: "10년간 목공예 디자인과 교육 현장에서 활동하며 아이들의 창의력과 손기술 향상을 돕는 전문 강사입니다. 실습과 이론을 접목한 체험형 수업을 진행합니다.",
+        career: [
+            "국내 유명 공예 전시회 다수 참여",
+            "초등 창의교육 목공예 교재 개발",
+            "다수 학교 진로체험 프로그램 강사 활동",
+        ],
+        quote: "목재는 단순한 재료가 아니라 아이들의 상상력과 손끝에서 피어나는 예술입니다.",
+        interview: [
+            {
+                question: "목공예 체험이 아이들에게 어떤 도움이 되나요?",
+                answer: "목공예는 손과 두뇌를 함께 사용하는 활동으로 집중력, 문제 해결 능력, 창의적 사고를 키우는 데 효과적입니다. 자신만의 작품을 완성하며 성취감도 느낄 수 있습니다.",
+            },
+            {
+                question: "수업을 위해 별도의 준비물이 필요한가요?",
+                answer: "아니요, 모든 재료와 도구는 저희가 제공하며 안전한 수업 진행을 위해 전문 강사진이 직접 방문합니다. 부담 없이 참여하시면 됩니다.",
+            },
+        ],
+    },
+    meta: {
+        level: "초등 4~6학년 (체험형)",
+        totalLessons: 2,
+        totalDuration: "90분",
+        language: "한국어",
+        hasResources: true,
+    },
+    price: {
+        original: 35000,
+        discounted: 28000,
+        currency: "원",
+    },
+    programHighlights: [
+        { label: "대상 학년", value: "초등 4~6학년", icon: "users" },
+        { label: "운영 차시", value: "2차시", icon: "book" },
+        { label: "운영 방식", value: "학교 방문형", icon: "school" },
+        { label: "소요 시간", value: "90분", icon: "clock" },
+    ],
+    targetAudience: [
+        {
+            grade: "초등 4~6학년",
+            description: "창의적 실습활동을 통해 손기술과 디자인 감각을 키우고 싶은 학생",
+            tags: ["창의력", "목공예", "진로탐색"],
+        },
+    ],
+    expectedOutcomes: [
+        {
+            title: "목공예 기초 이해",
+            description: "목재의 특성과 도구 사용법을 익혀 안전하고 정확한 작업이 가능합니다.",
+            iconType: "scale",
+        },
+        {
+            title: "창의적 디자인 능력 함양",
+            description: "자신만의 아이디어를 구상하고 실물로 구현하는 과정을 경험합니다.",
+            iconType: "sparkle",
+        },
+        {
+            title: "협동과 소통 능력 강화",
+            description: "팀워크를 통해 프로젝트를 완성하며 협업의 중요성을 배웁니다.",
+            iconType: "users",
+        },
+        {
+            title: "진로 탐색 동기 부여",
+            description: "목공예가 직업으로서의 매력과 가능성을 이해하고 진로 선택에 도움을 줍니다.",
+            iconType: "briefcase",
+        },
+    ],
+    curriculum: [
+        {
+            id: "ch-1",
+            title: "Chapter 01. 목공예와 디자인 기초",
+            learningPoint: "목재의 종류와 특성 이해 및 기본 도구 사용법 익히기",
+            carouselImages: [],
+            lessons: [
+                { id: "l-1-1", title: "목재와 도구 소개", duration: "20분" },
+                { id: "l-1-2", title: "안전 교육과 작업 준비", duration: "25분" },
+                { id: "l-1-3", title: "기본 디자인 스케치 실습", duration: "20분" },
+            ],
+        },
+        {
+            id: "ch-2",
+            title: "Chapter 02. 나만의 목공 작품 제작",
+            learningPoint: "디자인 구상부터 조립, 마감까지 실습 진행",
+            carouselImages: [],
+            lessons: [
+                { id: "l-2-1", title: "목재 자르기 및 조립 실습", duration: "25분" },
+                { id: "l-2-2", title: "디테일 작업과 마감 처리", duration: "25분" },
+                { id: "l-2-3", title: "완성 작품 발표 및 피드백", duration: "20분" },
+            ],
+        },
+    ],
+    introSections: [
+        {
+            subtitle: "CLASS INTRO",
+            title: "목공예의 매력을 만나보세요",
+            description: "목재를 다루는 기본 기술부터 자신만의 디자인을 구현하는 과정까지, 아이들이 손끝에서 창의성을 발휘하도록 돕는 진로체험 프로그램입니다.",
+            imageSrc: "/images/products/woodcraft-designer/class-1.webp",
+        },
+        {
+            subtitle: "EXPERIENCE",
+            title: "직접 만드는 즐거움",
+            description: "도구 사용법과 안전 교육을 받은 후, 나만의 작품을 설계하고 제작하며 협동심과 문제 해결력을 키웁니다.",
+            imageSrc: "/images/products/woodcraft-designer/class-2.webp",
+        },
+        {
+            subtitle: "TRANSFORMATION",
+            title: "진로와 꿈을 디자인하다",
+            description: "목공예가의 직업 세계를 탐색하며, 창의적 실습을 통해 미래 진로에 대한 동기를 부여합니다.",
+            imageSrc: "/images/products/woodcraft-designer/class-3.webp",
+        },
+    ],
+    requiredTools: [
+        { name: "안전 장갑", description: "작업 시 손 보호를 위한 필수 용품입니다.", iconSrc: "" },
+        { name: "작업복 또는 편한 옷", description: "오염을 방지하고 활동성을 높이기 위한 복장입니다.", iconSrc: "" },
+    ],
+    notice: {
+        operationGuide: [
+            "전국 학교 어디든 전문 강사진이 직접 방문합니다.",
+            "학급 단위(25~35명) 운영이 기본입니다.",
+            "모든 재료와 도구는 드림플렉스에서 제공합니다.",
+        ],
+        learningPolicy: [
+            "별도 준비물 없음 (모든 재료 제공)",
+            "편안한 복장 착용 권장",
+        ],
+        deviceLimit: [
+            "별도의 디지털 기기는 필요하지 않습니다.",
+        ],
+        intellectualProperty: [
+            "학생 창작물의 저작권은 학생 본인에게 귀속됩니다.",
+        ],
+        coachingInfo: [
+            "수업 후 활동 자료를 제공합니다.",
+        ],
+    },
+    reviews: [
+        {
+            id: "rev-1",
+            rating: 5,
+            title: "직접 만져보는 재미가 있어요",
+            content: "평소에 접하기 힘든 목공예를 직접 해보니 정말 재미있고 뿌듯했어요. 선생님도 친절하게 알려주셔서 좋았습니다.",
+            authorName: "서울초등학교",
+            authorGrade: "학생",
+            characterId: 1,
+        },
+        {
+            id: "rev-2",
+            rating: 5,
+            title: "창의력이 쑥쑥 자랐어요",
+            content: "목재를 다루며 디자인하는 과정에서 생각하는 힘이 많이 길러졌어요. 친구들과 협력하는 것도 즐거웠습니다.",
+            authorName: "부산초등학교",
+            authorGrade: "학생",
+            characterId: 2,
+        },
+        {
+            id: "rev-3",
+            rating: 5,
+            title: "진로 탐색에 큰 도움이 되었어요",
+            content: "목공예가 직업이 있다는 걸 알게 되고 직접 해보니 진로 고민에 도움이 되었어요. 다음에도 또 참여하고 싶어요.",
+            authorName: "대구초등학교",
+            authorGrade: "학생",
+            characterId: 3,
+        },
+    ],
+    curriculumLinks: [
+        "창체 진로탐색 활동",
+        "자유학기제",
+        "2022 개정 교육과정",
+        "창의적 체험활동",
+    ],
+    relatedCourses: [],
+};
+
+export default woodcraftDesignerData;

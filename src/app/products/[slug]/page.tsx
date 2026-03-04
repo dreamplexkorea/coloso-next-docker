@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Container } from "@/components/ui/Container";
 import { getCourseDetail } from "@/lib/data/courseDetail";
 
-import { ProductHero } from "./_components/ProductHero";
+import { ProductHeroSplit } from "./_components/ProductHeroSplit";
 import { TabNavigation } from "./_components/TabNavigation";
 import { ClassIntro } from "./_components/ClassIntro";
 import { Curriculum } from "./_components/Curriculum";
 import { CreatorProfile } from "./_components/CreatorProfile";
-import { RequiredTools } from "./_components/RequiredTools";
 import { RelatedCourses } from "./_components/RelatedCourses";
 import { Reviews } from "./_components/Reviews";
 import { NoticeSection } from "./_components/NoticeSection";
 import { StickyBottomSummary } from "./_components/StickyBottomSummary";
 import { TrackCourseView } from "./_components/TrackCourseView";
+import { CurriculumBadges } from "./_components/CurriculumBadges";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -54,43 +53,45 @@ export default async function ProductDetailPage({ params }: PageProps) {
   if (!course) notFound();
 
   return (
-    <main className="min-h-screen bg-[var(--color-background,#FFFFFF)] pb-[80px] text-[var(--color-text-primary,#0f172a)] lg:pb-[56px]">
+    <main className="min-h-screen pb-[80px] lg:pb-[56px]">
       <TrackCourseView slug={slug} />
 
-      {/* 히어로 */}
-      <ProductHero course={course} />
+      {/* 히어로 — Split Screen (full-width) */}
+      <ProductHeroSplit course={course} />
 
-      {/* 탭 네비게이션 */}
+      {/* 탭 네비게이션 (full-width sticky) */}
       <TabNavigation />
 
-      <Container>
-        <ClassIntro
-          sections={course.introSections}
-          targetAudience={course.targetAudience}
-          expectedOutcomes={course.expectedOutcomes}
-        />
+      {/* 교육과정 연계 배지 */}
+      {course.curriculumLinks && course.curriculumLinks.length > 0 && (
+        <CurriculumBadges curriculumLinks={course.curriculumLinks} />
+      )}
 
-        {course.curriculum && course.curriculum.length > 0 && (
-          <Curriculum chapters={course.curriculum} />
-        )}
+      {/* 프로그램 소개 — 흰 배경 (full-width) */}
+      <ClassIntro
+        sections={course.introSections}
+        targetAudience={course.targetAudience}
+        expectedOutcomes={course.expectedOutcomes}
+      />
 
-        <div id="educator">
-          <CreatorProfile instructor={course.instructor} />
-        </div>
+      {/* 커리큘럼 — 연한 회색 배경 (full-width) */}
+      {course.curriculum && course.curriculum.length > 0 && (
+        <Curriculum chapters={course.curriculum} />
+      )}
 
-        {course.reviews && course.reviews.length > 0 && (
-          <div id="reviews">
-            <Reviews reviews={course.reviews} />
-          </div>
-        )}
+      {/* 강사 소개 — 흰 배경 (full-width) */}
+      <CreatorProfile instructor={course.instructor} />
 
-        <div id="notice">
-          <NoticeSection notice={course.notice} />
-        </div>
+      {/* 수강생 후기 — 연한 배경 (full-width) */}
+      {course.reviews && course.reviews.length > 0 && (
+        <Reviews reviews={course.reviews} />
+      )}
 
-        {/* 추천 프로그램 */}
-        <RelatedCourses courses={course.relatedCourses} />
-      </Container>
+      {/* 유의사항 — 흰 배경 (full-width) */}
+      <NoticeSection notice={course.notice} />
+
+      {/* 추천 프로그램 — 흰 배경 (full-width) */}
+      <RelatedCourses courses={course.relatedCourses} />
 
       {/* 하단 프로그램 요약 바 */}
       <StickyBottomSummary meta={course.meta} />

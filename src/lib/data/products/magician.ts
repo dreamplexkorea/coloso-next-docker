@@ -1,0 +1,195 @@
+import type { CourseDetail } from "@/lib/types";
+
+const magicianData: CourseDetail = {
+    slug: "magician",
+    title: "마술사",
+    subtitle: "진로직업체험 | 초등 4~6학년 | 2차시",
+    heroImageSrc: "/images/products/magician/hero.webp",
+    heroEyebrow: "DREAMPLEX · 진로직업체험",
+    heroHeadline: "마술의 신비로움과 창의력을 동시에 경험하세요",
+    heroSubcopy: "실습 중심으로 진행되는 마술 체험 프로그램입니다\n학생들의 상상력과 자신감을 키워줍니다",
+    heroChips: ["초등 4~6학년", "학교 방문형", "실습 중심"],
+    heroProofStats: [
+        { label: "운영 학교", value: "50+" },
+        { label: "참여 학생", value: "3,000+" },
+        { label: "평균 만족도", value: "4.8 / 5.0" },
+    ],
+    heroTheme: "cinematic-dark",
+    tags: ["진로직업체험", "마술사", "예체능", "초등 4~6학년"],
+    status: "학교 출강 운영중",
+    instructor: {
+        name: "DREAMPLEX MAGICIAN",
+        role: "전문 마술사 및 강사",
+        avatarSrc: "",
+        bio: "10년 경력의 현직 마술사로, 다양한 무대와 교육 현장에서 학생들과 소통하며 마술의 즐거움을 전파하고 있습니다.",
+        career: [
+            "국내 다수 마술 대회 수상",
+            "초중고 진로체험 강의 500회 이상 진행",
+            "마술 교육 프로그램 개발 및 운영",
+        ],
+        quote: "마술은 단순한 트릭이 아니라 창의력과 자신감을 키우는 예술입니다.",
+        interview: [
+            {
+                question: "마술 체험을 통해 학생들이 얻는 가장 큰 배움은 무엇인가요?",
+                answer: "학생들은 마술을 배우며 집중력과 문제 해결 능력을 키우고, 무엇보다 자신감을 얻어 다양한 도전에 긍정적으로 임하게 됩니다.",
+            },
+            {
+                question: "학부모님들이 궁금해하는 수업 방식은 어떤가요?",
+                answer: "이론보다 실습 위주로 진행하여 학생들이 직접 손으로 마술을 경험하고, 질문과 토론을 통해 흥미를 높이는 방식입니다.",
+            },
+        ],
+    },
+    meta: {
+        level: "초등 4~6학년 (체험형)",
+        totalLessons: 2,
+        totalDuration: "90분",
+        language: "한국어",
+        hasResources: true,
+    },
+    price: {
+        original: 35000,
+        discounted: 28000,
+        currency: "원",
+    },
+    programHighlights: [
+        { label: "대상 학년", value: "초등 4~6학년", icon: "users" },
+        { label: "운영 차시", value: "2차시", icon: "book" },
+        { label: "운영 방식", value: "학교 방문형", icon: "school" },
+        { label: "소요 시간", value: "90분", icon: "clock" },
+    ],
+    targetAudience: [
+        {
+            grade: "초등 4~6학년",
+            description: "호기심이 많고 창의적인 활동을 통해 자신감을 키우고 싶은 학생",
+            tags: ["창의력", "자신감", "호기심"],
+        },
+    ],
+    expectedOutcomes: [
+        {
+            title: "창의적 문제 해결 능력 향상",
+            description: "마술 원리를 이해하고 응용하며 논리적 사고력을 키웁니다.",
+            iconType: "scale",
+        },
+        {
+            title: "자신감과 발표력 증진",
+            description: "무대에서 마술을 시연하며 자신감과 의사소통 능력을 높입니다.",
+            iconType: "sparkle",
+        },
+        {
+            title: "협동심 및 팀워크 강화",
+            description: "동료와 함께 마술을 연습하며 협력하는 경험을 쌓습니다.",
+            iconType: "users",
+        },
+        {
+            title: "진로 탐색 및 동기 부여",
+            description: "마술사라는 직업을 체험하며 새로운 진로에 대해 생각해봅니다.",
+            iconType: "briefcase",
+        },
+    ],
+    curriculum: [
+        {
+            id: "ch-1",
+            title: "Chapter 01. 마술의 기본 원리 이해",
+            learningPoint: "마술의 기초 원리와 간단한 트릭을 배우고 직접 연습합니다",
+            carouselImages: [],
+            lessons: [
+                { id: "l-1-1", title: "마술의 역사와 종류 소개", duration: "20분" },
+                { id: "l-1-2", title: "기초 카드 마술 배우기", duration: "25분" },
+                { id: "l-1-3", title: "기본 동작과 손기술 연습", duration: "20분" },
+            ],
+        },
+        {
+            id: "ch-2",
+            title: "Chapter 02. 실전 마술 시연과 발표",
+            learningPoint: "배운 마술을 응용해 발표하며 자신감을 기르고 동료들과 피드백을 나눕니다",
+            carouselImages: [],
+            lessons: [
+                { id: "l-2-1", title: "응용 마술 트릭 실습", duration: "25분" },
+                { id: "l-2-2", title: "무대에서의 발표 방법 배우기", duration: "25분" },
+                { id: "l-2-3", title: "마술 시연 및 피드백 시간", duration: "20분" },
+            ],
+        },
+    ],
+    introSections: [
+        {
+            subtitle: "CLASS INTRO",
+            title: "마술로 만나는 신비한 세계",
+            description: "마술사의 눈으로 세상을 바라보며, 마술의 기본 원리를 이해하고 직접 체험해보는 특별한 시간입니다.",
+            imageSrc: "/images/products/magician/class-1.webp",
+        },
+        {
+            subtitle: "EXPERIENCE",
+            title: "손끝에서 펼쳐지는 마법",
+            description: "다양한 마술 도구를 사용하여 실습 중심의 수업을 진행, 학생들이 직접 마술사가 되어보는 경험을 제공합니다.",
+            imageSrc: "/images/products/magician/class-2.webp",
+        },
+        {
+            subtitle: "TRANSFORMATION",
+            title: "자신감과 창의력의 변화",
+            description: "마술을 통해 자신감을 키우고 창의적인 사고를 발전시키며, 진로에 대한 새로운 시각을 발견합니다.",
+            imageSrc: "/images/products/magician/class-3.webp",
+        },
+    ],
+    requiredTools: [
+        { name: "마술 카드 세트", description: "기본 카드 마술에 사용되는 전용 카드", iconSrc: "" },
+        { name: "손수건", description: "간단한 마술 트릭에 활용되는 소도구", iconSrc: "" },
+    ],
+    notice: {
+        operationGuide: [
+            "전국 학교 어디든 전문 강사진이 직접 방문합니다.",
+            "학급 단위(25~35명) 운영이 기본입니다.",
+            "모든 재료와 도구는 드림플렉스에서 제공합니다.",
+        ],
+        learningPolicy: [
+            "별도 준비물 없음 (모든 재료 제공)",
+            "편안한 복장 착용 권장",
+        ],
+        deviceLimit: [
+            "별도의 디지털 기기는 필요하지 않습니다.",
+        ],
+        intellectualProperty: [
+            "학생 창작물의 저작권은 학생 본인에게 귀속됩니다.",
+        ],
+        coachingInfo: [
+            "수업 후 활동 자료를 제공합니다.",
+        ],
+    },
+    reviews: [
+        {
+            id: "rev-1",
+            rating: 5,
+            title: "마술이 이렇게 재미있을 줄 몰랐어요!",
+            content: "처음 해보는 마술이었는데 직접 해보니까 너무 신기하고 재미있었어요. 친구들 앞에서 보여줄 생각에 자신감이 생겼습니다.",
+            authorName: "서울초등학교",
+            authorGrade: "학생",
+            characterId: 1,
+        },
+        {
+            id: "rev-2",
+            rating: 5,
+            title: "아이들이 집중해서 즐겼어요",
+            content: "마술 수업 덕분에 아이들이 평소보다 더 집중하고 적극적으로 참여하는 모습을 볼 수 있었습니다.",
+            authorName: "부산초등학교",
+            authorGrade: "학생",
+            characterId: 2,
+        },
+        {
+            id: "rev-3",
+            rating: 5,
+            title: "진로체험으로도 좋은 프로그램입니다",
+            content: "마술사라는 직업을 직접 체험할 수 있어 아이들의 진로 탐색에 큰 도움이 되었습니다.",
+            authorName: "대구초등학교",
+            authorGrade: "학생",
+            characterId: 3,
+        },
+    ],
+    curriculumLinks: [
+        "창체 진로탐색 활동",
+        "자유학기제",
+        "2022 개정 교육과정",
+        "창의적 체험활동",
+    ],
+    relatedCourses: [],
+};
+
+export default magicianData;

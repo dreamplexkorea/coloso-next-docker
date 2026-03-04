@@ -231,11 +231,14 @@ a:hover {
 }
 
 .hero-overlay-base {
+  /* 하단 집중형 — 이미지 상단은 선명하게, 하단 텍스트 영역만 어둡게 */
   background:
-    linear-gradient(90deg,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.2) 40%,
-      rgba(0, 0, 0, 0) 100%);
+    linear-gradient(to top,
+      rgba(4, 8, 20, 0.88) 0%,
+      rgba(4, 8, 20, 0.60) 22%,
+      rgba(4, 8, 20, 0.22) 48%,
+      rgba(4, 8, 20, 0.04) 72%,
+      rgba(4, 8, 20, 0) 100%);
 }
 
 .hero-overlay-noise {
@@ -258,30 +261,32 @@ a:hover {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(circle at 50% 40%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.45) 100%);
+  /* 비네팅 제거 — 이미지 사방이 선명하게 보이도록 */
+  background: none;
 }
 
 [data-hero-theme="light"] .hero-overlay-focus {
-  background:
-    radial-gradient(circle at 50% 44%, rgba(255, 255, 255, 0.04) 0%, rgba(2, 8, 19, 0.44) 52%),
-    radial-gradient(circle at 50% 40%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.66) 100%);
+  background: none;
 }
 
 [data-hero-theme="mid"] .hero-overlay-base {
   background:
-    linear-gradient(90deg,
-      rgba(10, 14, 30, 0.84) 0%,
-      rgba(12, 18, 36, 0.48) 40%,
-      rgba(7, 10, 18, 0.2) 100%);
+    linear-gradient(to top,
+      rgba(10, 14, 30, 0.90) 0%,
+      rgba(10, 14, 30, 0.58) 22%,
+      rgba(10, 14, 30, 0.20) 48%,
+      rgba(10, 14, 30, 0.04) 72%,
+      rgba(10, 14, 30, 0) 100%);
 }
 
 [data-hero-theme="light"] .hero-overlay-base {
   background:
-    linear-gradient(90deg,
-      rgba(8, 14, 28, 0.74) 0%,
-      rgba(8, 14, 28, 0.38) 35%,
-      rgba(8, 14, 28, 0.12) 100%);
+    linear-gradient(to top,
+      rgba(8, 14, 28, 0.84) 0%,
+      rgba(8, 14, 28, 0.52) 22%,
+      rgba(8, 14, 28, 0.16) 48%,
+      rgba(8, 14, 28, 0.02) 72%,
+      rgba(8, 14, 28, 0) 100%);
 }
 
 [data-hero-theme="light"] .hero-slide-subtitle {
@@ -313,24 +318,27 @@ a:hover {
 }
 
 .home-hero-focus-card {
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: linear-gradient(160deg, rgba(6, 12, 24, 0.58) 0%, rgba(4, 7, 14, 0.26) 100%);
-  box-shadow: 0 40px 88px -52px rgba(0, 0, 0, 0.92);
-  backdrop-filter: blur(14px) saturate(125%);
-  border-radius: 24px;
-  padding: clamp(18px, 3vw, 32px) clamp(16px, 3.5vw, 36px);
-  transform: translateY(26px) scale(0.965);
+  /* 카드 박스 제거 — 텍스트가 이미지와 자연스럽게 연결됨 */
+  border: none;
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  border-radius: 0;
+  padding: 0;
+  transform: translateY(32px);
   opacity: 0;
+  text-align: left;
+  max-width: 680px;
 }
 
 .home-hero-focus-card-active {
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
   opacity: 1;
 }
 
 [data-hero-theme="light"] .home-hero-focus-card {
-  border-color: rgba(255, 255, 255, 0.26);
-  background: linear-gradient(160deg, rgba(10, 18, 34, 0.52) 0%, rgba(6, 11, 22, 0.22) 100%);
+  border-color: transparent;
+  background: none;
 }
 
 .hero-slide-cta {
@@ -752,8 +760,8 @@ a:hover {
 
 @media (max-width: 719px) {
   .home-hero-focus-card {
-    border-radius: 18px;
-    padding: 16px 14px;
+    border-radius: 0;
+    padding: 0;
   }
 
   .product-hero-focus-card {
@@ -778,9 +786,8 @@ a:hover {
   }
 
   .home-hero-focus-card {
-    padding: 16px 14px;
+    padding: 0;
   }
-
   .hero-split-card {
     padding: 20px 18px;
   }
@@ -955,4 +962,80 @@ a:hover {
   background: var(--color-surface);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
+}
+
+/* ── ProductHeroSplit 애니메이션 & 스타일 ── */
+
+/* 텍스트 패널: 아래→위 페이드인 */
+.ph-split-text {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ph-split-text.ph-split-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 이미지 패널: 오른쪽→제자리 페이드인 (0.15s 딜레이) */
+.ph-split-image-panel {
+  opacity: 0;
+  transform: translateX(36px);
+  transition:
+    opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.15s,
+    transform 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+.ph-split-image-panel.ph-split-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 이미지 프레임 hover 리프트 */
+.ph-split-image-frame {
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s ease;
+}
+.ph-split-image-frame:hover {
+  transform: scale(1.018) translateY(-4px);
+  box-shadow: 0 48px 110px -20px rgba(0, 0, 0, 0.9);
+}
+
+/* 액센트 라인: 너비 0→48px 성장 (텍스트 reveal 후 0.3s 딜레이) */
+.ph-split-text.ph-split-revealed .ph-split-accent-line {
+  animation: ph-accent-grow 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+@keyframes ph-accent-grow {
+  from { width: 0; opacity: 0; }
+  to   { width: 48px; opacity: 1; }
+}
+
+/* 플로팅 통계 카드: 아래→위 (0.55s 딜레이) */
+.ph-split-stats-card {
+  animation: ph-stats-float 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+}
+@keyframes ph-stats-float {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 루트 배경 미세 노이즈 텍스처 */
+.ph-split-root {
+  position: relative;
+}
+.ph-split-root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 헤드라인 텍스트 래핑 */
+.ph-split-headline {
+  text-wrap: balance;
 }

@@ -1,0 +1,195 @@
+import type { CourseDetail } from "@/lib/types";
+
+const hairDesignerData: CourseDetail = {
+    slug: "hair-designer",
+    title: "Hair Designer",
+    subtitle: "진로직업체험 | 중학생 대상 | 2차시",
+    heroImageSrc: "/images/products/hair-designer/hero.webp",
+    heroEyebrow: "DREAMPLEX · 진로직업체험",
+    heroHeadline: "미래의 스타일리스트를 위한 창의적 도전",
+    heroSubcopy: "헤어디자인의 기본기를 배우고,\n나만의 스타일을 완성하는 실습 중심 프로그램",
+    heroChips: ["중학생", "학교 방문형", "실습 중심"],
+    heroProofStats: [
+        { label: "운영 학교", value: "50+" },
+        { label: "참여 학생", value: "3,000+" },
+        { label: "평균 만족도", value: "4.8 / 5.0" },
+    ],
+    heroTheme: "cinematic-dark",
+    tags: ["진로직업체험", "헤어디자이너", "미용", "중학생"],
+    status: "학교 출강 운영중",
+    instructor: {
+        name: "DREAMPLEX HAIR DESIGNER",
+        role: "프로페셔널 헤어디자이너",
+        avatarSrc: "",
+        bio: "현장 경험이 풍부한 전문 헤어디자이너가 직접 진행하는 진로체험 수업입니다. 학생들이 창의성과 실습을 통해 헤어디자인의 매력을 느낄 수 있도록 지도합니다.",
+        career: [
+            "국내 유명 미용실 수석 디자이너",
+            "헤어스타일링 경진대회 다수 수상",
+            "미용 관련 전문 교육기관 강사 활동",
+        ],
+        quote: "헤어디자인은 단순한 스타일링이 아닌 자신을 표현하는 예술입니다.",
+        interview: [
+            {
+                question: "이 프로그램이 학생들에게 어떤 도움이 되나요?",
+                answer: "헤어디자인의 기본 기술을 배우면서 창의적 사고와 자신감 향상에 큰 도움을 줍니다. 진로 탐색에도 긍정적인 경험이 됩니다.",
+            },
+            {
+                question: "학생들이 준비해야 할 것이 있나요?",
+                answer: "모든 재료와 도구는 저희가 제공하므로 별도의 준비물은 필요 없습니다. 편안한 복장만 착용하시면 됩니다.",
+            },
+        ],
+    },
+    meta: {
+        level: "중학생 (체험형)",
+        totalLessons: 2,
+        totalDuration: "90분",
+        language: "한국어",
+        hasResources: true,
+    },
+    price: {
+        original: 35000,
+        discounted: 28000,
+        currency: "원",
+    },
+    programHighlights: [
+        { label: "대상 학년", value: "중학생", icon: "users" },
+        { label: "운영 차시", value: "2차시", icon: "book" },
+        { label: "운영 방식", value: "학교 방문형", icon: "school" },
+        { label: "소요 시간", value: "90분", icon: "clock" },
+    ],
+    targetAudience: [
+        {
+            grade: "중학생",
+            description: "창의적인 표현과 손재주를 키우고 싶은 학생, 미용 분야에 관심 있는 학생에게 적합합니다.",
+            tags: ["창의력", "진로탐색", "실습중심"],
+        },
+    ],
+    expectedOutcomes: [
+        {
+            title: "헤어디자인 기초 습득",
+            description: "기본적인 헤어 커팅과 스타일링 기술을 이해하고 실습할 수 있습니다.",
+            iconType: "scale",
+        },
+        {
+            title: "창의적 표현력 강화",
+            description: "나만의 스타일을 구상하고 구현하는 과정을 통해 창의성을 높입니다.",
+            iconType: "sparkle",
+        },
+        {
+            title: "진로 이해 증진",
+            description: "헤어디자이너 직업에 대한 현실적인 이해와 흥미를 갖게 됩니다.",
+            iconType: "users",
+        },
+        {
+            title: "협업과 소통 능력 배양",
+            description: "팀 활동과 피드백을 통해 협력과 소통 능력을 기릅니다.",
+            iconType: "briefcase",
+        },
+    ],
+    curriculum: [
+        {
+            id: "ch-1",
+            title: "Chapter 01. 헤어디자인 기본기 익히기",
+            learningPoint: "기본 커팅과 스타일링 기법 이해 및 실습",
+            carouselImages: [],
+            lessons: [
+                { id: "l-1-1", title: "헤어디자인 개요 및 도구 소개", duration: "20분" },
+                { id: "l-1-2", title: "기본 커팅 기술 실습", duration: "25분" },
+                { id: "l-1-3", title: "기본 스타일링 적용하기", duration: "20분" },
+            ],
+        },
+        {
+            id: "ch-2",
+            title: "Chapter 02. 나만의 스타일 완성하기",
+            learningPoint: "창의적 스타일 디자인과 발표",
+            carouselImages: [],
+            lessons: [
+                { id: "l-2-1", title: "트렌드 분석과 스타일 기획", duration: "25분" },
+                { id: "l-2-2", title: "개인 맞춤 스타일링 실습", duration: "25분" },
+                { id: "l-2-3", title: "스타일 발표 및 피드백", duration: "20분" },
+            ],
+        },
+    ],
+    introSections: [
+        {
+            subtitle: "CLASS INTRO",
+            title: "헤어디자인의 세계에 오신 것을 환영합니다",
+            description: "헤어디자인의 기본 원리와 다양한 스타일링 방법을 배우며, 학생들이 직접 손으로 경험할 수 있는 실습 위주의 수업입니다.",
+            imageSrc: "/images/products/hair-designer/class-1.webp",
+        },
+        {
+            subtitle: "EXPERIENCE",
+            title: "실습을 통해 배우는 진짜 헤어디자인",
+            description: "다양한 커팅과 스타일링 기술을 체험하며, 창의적인 나만의 스타일을 완성하는 과정입니다.",
+            imageSrc: "/images/products/hair-designer/class-2.webp",
+        },
+        {
+            subtitle: "TRANSFORMATION",
+            title: "변화를 경험하는 특별한 시간",
+            description: "헤어디자인을 통해 자신감과 표현력을 키우고, 미래 진로에 대한 비전을 확립합니다.",
+            imageSrc: "/images/products/hair-designer/class-3.webp",
+        },
+    ],
+    requiredTools: [
+        { name: "가위", description: "기본 헤어 커팅용 가위", iconSrc: "" },
+        { name: "헤어브러시", description: "스타일링을 위한 브러시", iconSrc: "" },
+    ],
+    notice: {
+        operationGuide: [
+            "전국 학교 어디든 전문 강사진이 직접 방문합니다.",
+            "학급 단위(25~35명) 운영이 기본입니다.",
+            "모든 재료와 도구는 드림플렉스에서 제공합니다.",
+        ],
+        learningPolicy: [
+            "별도 준비물 없음 (모든 재료 제공)",
+            "편안한 복장 착용 권장",
+        ],
+        deviceLimit: [
+            "별도의 디지털 기기는 필요하지 않습니다.",
+        ],
+        intellectualProperty: [
+            "학생 창작물의 저작권은 학생 본인에게 귀속됩니다.",
+        ],
+        coachingInfo: [
+            "수업 후 활동 자료를 제공합니다.",
+        ],
+    },
+    reviews: [
+        {
+            id: "rev-1",
+            rating: 5,
+            title: "새로운 나를 발견한 시간",
+            content: "헤어디자인을 직접 해보니 정말 재미있었고, 나만의 스타일을 만들 수 있어서 뿌듯했습니다.",
+            authorName: "서울중학교",
+            authorGrade: "학생",
+            characterId: 1,
+        },
+        {
+            id: "rev-2",
+            rating: 5,
+            title: "미용사라는 직업에 관심이 생겼어요",
+            content: "강사님이 친절하게 가르쳐 주셔서 헤어디자이너라는 직업에 대해 더 알고 싶어졌습니다.",
+            authorName: "부산중학교",
+            authorGrade: "학생",
+            characterId: 2,
+        },
+        {
+            id: "rev-3",
+            rating: 5,
+            title: "실습 중심이라 집중하기 좋았어요",
+            content: "이론뿐 아니라 직접 손으로 해보니 훨씬 이해가 잘 되었고 재미있었습니다.",
+            authorName: "대전중학교",
+            authorGrade: "학생",
+            characterId: 3,
+        },
+    ],
+    curriculumLinks: [
+        "창체 진로탐색 활동",
+        "자유학기제",
+        "2022 개정 교육과정",
+        "창의적 체험활동",
+    ],
+    relatedCourses: [],
+};
+
+export default hairDesignerData;
