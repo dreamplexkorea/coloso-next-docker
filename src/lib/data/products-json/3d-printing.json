@@ -1,0 +1,241 @@
+{
+  "slug": "3d-printing",
+  "title": "3D프린터 메이커 체험: 상상을 현실로 만드는 기술",
+  "subtitle": "3D 모델링부터 출력까지, 미래 제조업의 핵심 기술을 직접 체험하는 메이커 프로그램",
+  "heroImageSrc": "/images/products/3d-printing/hero.png",
+  "heroEyebrow": "DREAMPLEX · 과학/기술 진로직업체험",
+  "heroHeadline": "머릿속 아이디어를 손에 쥐는 마법",
+  "heroSubcopy": "3D 모델링 전문가가 학교로 직접 찾아가, 디지털 제조의 원리와 실전을 가르칩니다.",
+  "heroChips": [
+    "초등 대상",
+    "3D 모델링 실습",
+    "굿즈 제작"
+  ],
+  "heroProofStats": [
+    {
+      "label": "운영 학교",
+      "value": "75+"
+    },
+    {
+      "label": "참여 학생",
+      "value": "4,900+"
+    },
+    {
+      "label": "평균 만족도",
+      "value": "4.8 / 5.0"
+    }
+  ],
+  "heroTheme": "cinematic-dark",
+  "tags": [
+    "진로직업체험",
+    "3D프린터",
+    "메이커",
+    "초등"
+  ],
+  "status": "학교 출강 운영중",
+  "instructor": {
+    "name": "DREAMPLEX MAKER",
+    "role": "3D프린팅 전문가 & 메이커 교육 설계팀",
+    "avatarSrc": "",
+    "bio": "산업용 3D프린팅 전문가가 학생들의 창의력을 현실로 만드는 메이커 교육을 진행합니다.",
+    "career": [
+      "산업용 3D프린팅 엔지니어 경력 10년+",
+      "메이커 교육 프로그램 개발 전문",
+      "전국 초등학교 메이커 교육 150회+",
+      "3D 모델링 소프트웨어 교육 강사"
+    ],
+    "quote": "아이들이 자기가 상상한 것을 직접 만들어 손에 쥐는 순간, 그 눈빛의 변화가 교육의 모든 것을 말해줍니다.",
+    "interview": [
+      {
+        "question": "3D프린터 체험은 기다리는 시간이 길지 않나요?",
+        "answer": "사전에 출력 프로세스를 시작해두고, 학생들은 모델링에 집중합니다. 수업 중 실시간으로 출력되는 과정을 관찰하며, 완성품은 수업 종료 시 또는 다음 날 전달합니다."
+      },
+      {
+        "question": "코딩을 몰라도 3D 모델링을 할 수 있나요?",
+        "answer": "틴커캐드(Tinkercad)라는 직관적인 웹 기반 도구를 사용합니다. 블록을 조립하듯 3D 모델을 만들 수 있어 초등학생도 30분이면 자기만의 작품을 설계합니다."
+      },
+      {
+        "question": "어떤 결과물을 가져갈 수 있나요?",
+        "answer": "학생이 직접 설계한 키링, 네임택, 미니 피규어 등을 3D프린터로 출력하여 기념품으로 가져갑니다. 세상에 하나뿐인 나만의 굿즈입니다."
+      }
+    ]
+  },
+  "meta": {
+    "level": "초등학생 (체험형)",
+    "totalLessons": 2,
+    "totalDuration": "90분",
+    "language": "한국어",
+    "hasResources": true
+  },
+  "price": {
+    "original": 40000,
+    "discounted": 32000,
+    "currency": "원"
+  },
+  "programHighlights": [
+    {
+      "label": "대상 학년",
+      "value": "초등학생",
+      "icon": "users"
+    },
+    {
+      "label": "운영 차시",
+      "value": "2차시",
+      "icon": "book"
+    },
+    {
+      "label": "제공 물품",
+      "value": "3D출력 굿즈",
+      "icon": "gift"
+    },
+    {
+      "label": "소요 시간",
+      "value": "90분",
+      "icon": "clock"
+    }
+  ],
+  "targetAudience": [
+    {
+      "grade": "초등학교 3~6학년",
+      "description": "디지털 제조 기술과 창작의 즐거움을 체험합니다",
+      "tags": [
+        "메이커",
+        "STEM",
+        "창의력"
+      ]
+    }
+  ],
+  "expectedOutcomes": [
+    {
+      "title": "3D 모델링 기초",
+      "description": "Tinkercad를 활용한 3D 디자인의 기초 원리 습득",
+      "iconType": "scale"
+    },
+    {
+      "title": "디지털 제조 이해",
+      "description": "3D프린터의 작동 원리(FDM 방식)를 직접 관찰하고 학습",
+      "iconType": "sparkle"
+    },
+    {
+      "title": "창작물 설계 능력",
+      "description": "아이디어를 구체적인 3D 모델로 전환하는 사고력 훈련",
+      "iconType": "users"
+    },
+    {
+      "title": "미래 제조업 진로 탐색",
+      "description": "산업 디자이너, 제품 엔지니어 등 메이커 분야 진로 발견",
+      "iconType": "briefcase"
+    }
+  ],
+  "curriculum": [
+    {
+      "id": "ch-1",
+      "title": "Chapter 01. 3D프린터의 세계: 어떻게 물건이 만들어질까?",
+      "learningPoint": "3D프린팅의 원리와 Tinkercad 모델링 기초를 배웁니다",
+      "lessons": [
+        {
+          "id": "l-1-1",
+          "title": "3D프린터 해부: 층층이 쌓아 만드는 제조 혁명",
+          "duration": "20분"
+        },
+        {
+          "id": "l-1-2",
+          "title": "Tinkercad 입문: 나만의 3D 모델 설계하기",
+          "duration": "25분"
+        }
+      ]
+    },
+    {
+      "id": "ch-2",
+      "title": "Chapter 02. 나만의 굿즈 만들기: 설계에서 출력까지",
+      "learningPoint": "직접 설계한 모델을 3D프린터로 출력하여 완성합니다",
+      "lessons": [
+        {
+          "id": "l-2-1",
+          "title": "모델 최적화: 출력 가능한 형태로 수정하기",
+          "duration": "20분"
+        },
+        {
+          "id": "l-2-2",
+          "title": "출력 관찰 & 마감 처리: 나만의 굿즈 완성",
+          "duration": "25분"
+        }
+      ]
+    }
+  ],
+  "introSections": [
+    {
+      "subtitle": "CLASS INTRO",
+      "title": "상상력이 곧 생산력이 되는 시대",
+      "description": "더 이상 공장이 필요 없습니다. 책상 위 작은 기계가 여러분의 아이디어를 현실로 바꿔줍니다. 미래의 제조업은 '누구나 메이커'인 세상입니다.",
+      "imageSrc": ""
+    },
+    {
+      "subtitle": "EXPERIENCE",
+      "title": "세상에 단 하나, 내가 설계한 굿즈",
+      "description": "키링, 네임택, 미니 피규어 — 학생이 직접 디자인한 것을 3D프린터가 현실로 만들어줍니다. 완성품을 손에 쥐는 순간의 성취감은 말로 표현할 수 없습니다.",
+      "imageSrc": ""
+    },
+    {
+      "subtitle": "TRANSFORMATION",
+      "title": "소비자에서 창작자로, 시야의 전환",
+      "description": "체험 전: '물건은 사는 것' → 체험 후: '물건은 만드는 것'. 기술을 도구로 활용하여 자신의 아이디어를 실현하는 메이커 마인드셋을 장착합니다.",
+      "imageSrc": ""
+    }
+  ],
+  "requiredTools": [
+    {
+      "name": "노트북/태블릿",
+      "description": "Tinkercad 접속용 (학생 1인 1대 권장)",
+      "iconSrc": ""
+    },
+    {
+      "name": "3D프린터",
+      "description": "FDM 방식 교육용 프린터 (드림플렉스 세팅)",
+      "iconSrc": ""
+    }
+  ],
+  "notice": {
+    "operationGuide": [
+      "전국 초등학교 컴퓨터실 또는 멀티미디어실에서 운영합니다.",
+      "학급 단위 운영, 3D프린터 3~5대를 현장에 세팅합니다.",
+      "출력물 완성까지 2~4시간 소요되며, 당일 또는 익일 전달합니다."
+    ],
+    "learningPolicy": [
+      "Tinkercad 계정은 수업 전 일괄 생성하여 안내합니다.",
+      "학생 1인당 1개의 3D출력물을 제공합니다.",
+      "사용된 필라멘트는 PLA 소재(친환경)입니다."
+    ],
+    "deviceLimit": [
+      "학생 1인당 노트북 또는 태블릿 1대가 필요합니다.",
+      "인터넷 접속 환경이 필요합니다."
+    ],
+    "intellectualProperty": [
+      "학생 창작 3D 모델 파일은 학생에게 제공됩니다."
+    ],
+    "coachingInfo": [
+      "가정에서도 Tinkercad로 계속 모델링할 수 있도록 가이드를 제공합니다."
+    ]
+  },
+  "reviews": [
+    {
+      "id": "rev-1",
+      "rating": 5,
+      "title": "내가 만든 키링이 진짜 나왔어요!",
+      "content": "컴퓨터에서 그린 게 기계에서 진짜로 만들어지니까 마법 같았어요. 친구들 것도 다 예뻤어요!",
+      "authorName": "이*현 학생",
+      "authorGrade": "초등학교 4학년",
+      "characterId": 1
+    },
+    {
+      "id": "rev-2",
+      "rating": 5,
+      "title": "미래에 제품 디자이너가 되고 싶어요",
+      "content": "내가 상상한 걸 직접 만들 수 있다는 게 너무 신기했어요. 커서 더 멋진 것들을 만들어보고 싶습니다!",
+      "authorName": "최*진 학생",
+      "authorGrade": "초등학교 5학년",
+      "characterId": 2
+    }
+  ],
+  "relatedCourses": []
+}

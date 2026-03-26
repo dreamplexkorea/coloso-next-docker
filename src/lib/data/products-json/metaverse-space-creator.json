@@ -1,0 +1,261 @@
+{
+  "slug": "metaverse-space-creator",
+  "title": "메타버스 공간 크리에이터",
+  "subtitle": "진로직업체험 | 중학생 | 2차시",
+  "heroImageSrc": "/images/products/metaverse-space-creator/hero.webp",
+  "heroEyebrow": "DREAMPLEX · 진로직업체험",
+  "heroHeadline": "미래의 가상 공간을 직접 설계하고 제작하는 창의적 경험",
+  "heroSubcopy": "메타버스 공간 디자인과 제작을 통해 디지털 혁신 역량을 키웁니다.\n가상 세계 창작의 기초를 실습 중심으로 배워보세요.",
+  "heroChips": [
+    "중학생",
+    "학교 방문형",
+    "실습 중심"
+  ],
+  "heroProofStats": [
+    {
+      "label": "운영 학교",
+      "value": "50+"
+    },
+    {
+      "label": "참여 학생",
+      "value": "3,000+"
+    },
+    {
+      "label": "평균 만족도",
+      "value": "4.8 / 5.0"
+    }
+  ],
+  "heroTheme": "cinematic-dark",
+  "tags": [
+    "진로직업체험",
+    "메타버스 크리에이터",
+    "디지털콘텐츠",
+    "중학생"
+  ],
+  "status": "학교 출강 운영중",
+  "instructor": {
+    "name": "DREAMPLEX METAVERSE CREATOR",
+    "role": "메타버스 콘텐츠 전문가",
+    "avatarSrc": "",
+    "bio": "메타버스 공간 디자인과 가상 환경 구축 분야에서 다년간 경험을 쌓은 전문가입니다. 학생들에게 실습과 창의력을 동시에 키우는 수업을 제공합니다.",
+    "career": [
+      "국내 대형 메타버스 플랫폼 콘텐츠 기획 및 제작",
+      "교육용 디지털 콘텐츠 개발 5년 이상 경력",
+      "메타버스 관련 워크숍 및 강연 다수 진행"
+    ],
+    "quote": "메타버스는 단순한 가상이 아니라, 우리 미래의 새로운 생활 공간입니다. 직접 만들어 보는 경험이 중요합니다.",
+    "interview": [
+      {
+        "question": "이 프로그램을 통해 학생들이 어떤 능력을 키울 수 있나요?",
+        "answer": "학생들은 3D 공간 설계, 디지털 콘텐츠 제작, 협업 능력과 문제 해결력을 키울 수 있습니다. 직접 만드는 과정에서 창의력과 논리적 사고가 함께 성장합니다."
+      },
+      {
+        "question": "학교 현장에서 어떻게 수업이 진행되나요?",
+        "answer": "전문 강사가 학교를 방문하여 실습 중심으로 진행합니다. 학생들은 팀별로 협력하며 메타버스 공간을 설계하고 구현하는 과정을 경험합니다."
+      }
+    ]
+  },
+  "meta": {
+    "level": "중학생 (체험형)",
+    "totalLessons": 2,
+    "totalDuration": "90분",
+    "language": "한국어",
+    "hasResources": true
+  },
+  "price": {
+    "original": 35000,
+    "discounted": 28000,
+    "currency": "원"
+  },
+  "programHighlights": [
+    {
+      "label": "대상 학년",
+      "value": "중학생",
+      "icon": "users"
+    },
+    {
+      "label": "운영 차시",
+      "value": "2차시",
+      "icon": "book"
+    },
+    {
+      "label": "운영 방식",
+      "value": "학교 방문형",
+      "icon": "school"
+    },
+    {
+      "label": "소요 시간",
+      "value": "90분",
+      "icon": "clock"
+    }
+  ],
+  "targetAudience": [
+    {
+      "grade": "중학생",
+      "description": "메타버스와 디지털 콘텐츠 제작에 관심이 많은 학생, 창의적 문제 해결력을 키우고 싶은 학생에게 적합합니다.",
+      "tags": [
+        "메타버스",
+        "디지털창작",
+        "팀워크"
+      ]
+    }
+  ],
+  "expectedOutcomes": [
+    {
+      "title": "메타버스 공간 설계 능력 향상",
+      "description": "가상 공간의 구조와 요소를 이해하고 직접 설계해보는 경험을 제공합니다.",
+      "iconType": "scale"
+    },
+    {
+      "title": "디지털 콘텐츠 제작 실습",
+      "description": "3D 모델링과 인터랙티브 요소를 활용해 메타버스 공간을 제작합니다.",
+      "iconType": "sparkle"
+    },
+    {
+      "title": "협업과 소통 능력 강화",
+      "description": "팀 프로젝트를 통해 의견을 조율하고 협력하는 방법을 배웁니다.",
+      "iconType": "users"
+    },
+    {
+      "title": "진로 탐색 및 미래 역량 개발",
+      "description": "빠르게 성장하는 메타버스 산업 이해와 관련 직업에 대한 인식을 넓힙니다.",
+      "iconType": "briefcase"
+    }
+  ],
+  "curriculum": [
+    {
+      "id": "ch-1",
+      "title": "Chapter 01. 메타버스 이해와 공간 기획",
+      "learningPoint": "메타버스 개념 이해 및 공간 설계의 기본 원리 학습",
+      "carouselImages": [],
+      "lessons": [
+        {
+          "id": "l-1-1",
+          "title": "메타버스란 무엇인가?",
+          "duration": "20분"
+        },
+        {
+          "id": "l-1-2",
+          "title": "가상 공간 사례 탐색",
+          "duration": "25분"
+        },
+        {
+          "id": "l-1-3",
+          "title": "나만의 공간 기획하기",
+          "duration": "20분"
+        }
+      ]
+    },
+    {
+      "id": "ch-2",
+      "title": "Chapter 02. 가상 공간 제작 및 발표",
+      "learningPoint": "디지털 도구를 활용한 공간 제작과 팀별 발표 경험",
+      "carouselImages": [],
+      "lessons": [
+        {
+          "id": "l-2-1",
+          "title": "3D 모델링 기초 실습",
+          "duration": "25분"
+        },
+        {
+          "id": "l-2-2",
+          "title": "인터랙티브 요소 추가하기",
+          "duration": "25분"
+        },
+        {
+          "id": "l-2-3",
+          "title": "완성 공간 발표 및 피드백",
+          "duration": "20분"
+        }
+      ]
+    }
+  ],
+  "introSections": [
+    {
+      "subtitle": "CLASS INTRO",
+      "title": "메타버스 공간을 디자인하는 첫걸음",
+      "description": "가상 세계의 미래를 이끌 메타버스 공간 크리에이터 과정에 초대합니다. 학생들은 메타버스의 기본 개념부터 공간 기획까지 체계적으로 배웁니다.",
+      "imageSrc": "/images/products/metaverse-space-creator/class-1.webp"
+    },
+    {
+      "subtitle": "EXPERIENCE",
+      "title": "실습 중심의 창작 활동",
+      "description": "직접 3D 공간을 설계하고, 디지털 도구를 활용해 가상 공간을 제작하며 창의력과 기술을 동시에 개발합니다.",
+      "imageSrc": "/images/products/metaverse-space-creator/class-2.webp"
+    },
+    {
+      "subtitle": "TRANSFORMATION",
+      "title": "미래 진로 역량 강화",
+      "description": "메타버스 산업에 대한 이해를 넓히고, 관련 직업군 탐색과 진로 설계에 도움을 주는 실질적 경험을 제공합니다.",
+      "imageSrc": "/images/products/metaverse-space-creator/class-3.webp"
+    }
+  ],
+  "requiredTools": [
+    {
+      "name": "노트북 또는 태블릿",
+      "description": "간단한 메모 및 아이디어 스케치를 위한 준비물",
+      "iconSrc": ""
+    },
+    {
+      "name": "편안한 복장",
+      "description": "활동 중 편안한 움직임을 위해 권장",
+      "iconSrc": ""
+    }
+  ],
+  "notice": {
+    "operationGuide": [
+      "전국 학교 어디든 전문 강사진이 직접 방문합니다.",
+      "학급 단위(25~35명) 운영이 기본입니다.",
+      "모든 재료와 도구는 드림플렉스에서 제공합니다."
+    ],
+    "learningPolicy": [
+      "별도 준비물 없음 (모든 재료 제공)",
+      "편안한 복장 착용 권장"
+    ],
+    "deviceLimit": [
+      "별도의 디지털 기기는 필요하지 않습니다."
+    ],
+    "intellectualProperty": [
+      "학생 창작물의 저작권은 학생 본인에게 귀속됩니다."
+    ],
+    "coachingInfo": [
+      "수업 후 활동 자료를 제공합니다."
+    ]
+  },
+  "reviews": [
+    {
+      "id": "rev-1",
+      "rating": 5,
+      "title": "메타버스가 이렇게 재미있을 줄 몰랐어요!",
+      "content": "직접 가상 공간을 만들면서 메타버스가 무엇인지 쉽게 이해할 수 있었고, 친구들과 협력하는 것도 즐거웠습니다.",
+      "authorName": "서울중학교",
+      "authorGrade": "학생",
+      "characterId": 1
+    },
+    {
+      "id": "rev-2",
+      "rating": 5,
+      "title": "선생님 설명이 너무 친절했어요",
+      "content": "강사님이 단계별로 잘 알려주셔서 3D 모델링도 어렵지 않게 배울 수 있었습니다. 다음에도 꼭 듣고 싶어요.",
+      "authorName": "부산중학교",
+      "authorGrade": "학생",
+      "characterId": 2
+    },
+    {
+      "id": "rev-3",
+      "rating": 5,
+      "title": "미래 직업에 대해 생각해보는 좋은 기회",
+      "content": "메타버스 크리에이터라는 직업에 대해 알게 되었고, 앞으로 이런 분야에 도전하고 싶다는 생각이 들었습니다.",
+      "authorName": "대구중학교",
+      "authorGrade": "학생",
+      "characterId": 3
+    }
+  ],
+  "curriculumLinks": [
+    "창체 진로탐색 활동",
+    "자유학기제",
+    "2022 개정 교육과정",
+    "창의적 체험활동"
+  ],
+  "relatedCourses": []
+}
