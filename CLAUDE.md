@@ -61,6 +61,7 @@ npm run test:recently-viewed   # 단일 테스트(node --test)
 - 클로소 아키타입·DNA: `docs/design/coloso-reference-library.md`
 - 라이브 레퍼런스/갭: `docs/design/coloso-live-reference.md`
 - **마케팅 플레이북(포터블)**: `docs/marketing/coloso-marketing-playbook.md`
+- **카피 템플릿 팩(복붙)**: `docs/marketing/coloso-copy-templates.md`
 - 에이전트 팀 블루프린트: `docs/design/agent-team-blueprint.md`
 
 ## 커밋

@@ -9,6 +9,7 @@ model: opus
 
 ## 작업 전 필수 (반드시 먼저 읽기)
 1. `docs/marketing/coloso-marketing-playbook.md` — 특히 §2 카피 공식·템플릿, §4 세그먼트 톤
+   - 복붙용 전체 템플릿: `docs/marketing/coloso-copy-templates.md`(랜딩 13단 스켈레톤·채널 자산·배지/CTA·워크드 예시)
 2. `docs/design/coloso-reference-library.md` — 카피가 들어갈 슬롯(히어로·배지·CTA·증빙)
 3. 대상 프로그램 데이터(`src/lib/data/products/<slug>.ts`)와 타입(`src/lib/types.ts`)
 
