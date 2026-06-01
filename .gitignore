@@ -43,7 +43,9 @@ yarn-error.log*
 *.png
 
 # claude/bkit temp files
-.claude/
+# .claude/ 내부는 무시하되, 크리에이티브 에이전트 정의(agents/)는 추적한다
+.claude/*
+!.claude/agents/
 .pdca-status.json
 PDCA_CYCLE_1_SUMMARY.md
 CHANGELOG.md

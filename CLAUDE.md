@@ -42,9 +42,26 @@ npm run test:recently-viewed   # 단일 테스트(node --test)
 - **컴포넌트**: PascalCase 파일. 새로 만들기 전에 기존 재사용/variant 확장 우선.
 - **모션**: 표준 이징 `cubic-bezier(0.22,1,0.36,1)`, 스프링 `{stiffness:400,damping:15}`, `useReducedMotion` 항상 분기.
 
-## 디자인 에이전트 팀 (계획)
-3-에이전트 디자인팀(Design Director / Design System Engineer / UI Implementer) 청사진은 `docs/design/agent-team-blueprint.md`. **아직 미구현.**
-- 참고: `.gitignore`가 `.claude/`를 통째로 제외 중(46행). 향후 `.claude/agents/`를 커밋하려면 ignore 예외(`!.claude/agents/`) 추가가 필요하다.
+## 크리에이티브 5-에이전트 팀 (`.claude/agents/`)
+"클로소 디자이너+마케터를 고용한 것처럼" 프로그램별 홍보·디자인을 산출하는 팀. **메인 Claude가 오케스트레이션.**
+
+| 에이전트 | 언제 호출 |
+|----------|-----------|
+| `coloso-consultant` | 프로그램 홍보/디자인 전략·상담·실행 브리프 (시작점) |
+| `coloso-marketing-strategist` | 홍보 효과 분석·채널/증빙 전략·플레이북 갱신 |
+| `coloso-copywriter` | 헤드라인·배지·CTA·증빙 카피, 데이터 필드 채움 |
+| `coloso-ui-designer` | 클로소급 UI/페이지 구현(레포 토큰 준수) |
+| `coloso-design-analyst` | 참고 사이트 종합 캡처·아키타입/DNA 추출 |
+
+오케스트레이션·시나리오: `docs/design/agent-team-blueprint.md`.
+- `.gitignore`는 `.claude/`를 제외하되 `!.claude/agents/`로 **에이전트 정의만 추적**(settings 등은 계속 무시).
+
+## 문서 인덱스 (작업 전 참조)
+- 디자인 토큰·규칙: `docs/design/coloso-design-system.md`
+- 클로소 아키타입·DNA: `docs/design/coloso-reference-library.md`
+- 라이브 레퍼런스/갭: `docs/design/coloso-live-reference.md`
+- **마케팅 플레이북(포터블)**: `docs/marketing/coloso-marketing-playbook.md`
+- 에이전트 팀 블루프린트: `docs/design/agent-team-blueprint.md`
 
 ## 커밋
 - 작업 브랜치에서 작업. 명확한 한국어/영문 커밋 메시지.

@@ -133,6 +133,15 @@ variant: primary(bg-primary text-white) · accent(bg-accent text-white) · defau
 ### Container — `src/components/ui/Container.tsx`
 모든 섹션 폭 래핑. §4 참조.
 
+### 상품 상세페이지 13단 아키타입 — `src/app/products/[slug]/page.tsx`
+클로소 전 장르가 공유하는 상세페이지 골격(레퍼런스 라이브러리 §2.3). 새 상세페이지는 이 순서를 기본 틀로 삼는다:
+1. **히어로**(`ProductHero.tsx`): 풀폭 비주얼 + eyebrow + 성과형 headline + 강사 + **증빙지표 3칸**(label 작게/대문자 + value 크게/볼드) + **하이라이트 4칸**(대상·차시·방식·시간) + 듀얼 CTA. 다크는 `heroTheme` cinematic-dark/mid 한정.
+2. 문제/페인 → 3. 가치제안(3카드) → 4. 사회적 증거(지표+후기+비포애프터) → 5. 정보 박스 → 6. 커리큘럼(아코디언, 점층) → 7. 강사 프로필 → 8. Q&A 인터뷰 → 9. 예시 갤러리 → 10. (선택)시리즈 → 11. 유의/환불 → 12. 가격/결제 → 13. **듀얼 CTA 바**(`StickyBottomSummary`: 솔리드 "상담 신청" + 보조 "프로그램 자세히").
+- **증빙지표 블록**: `flex` 3칸, 각 칸 `text-[1.1rem]`(label) + `text-2xl font-bold`(value). 데이터 `heroProofStats`.
+- **듀얼 CTA**: 1차 `bg-primary text-white` 솔리드, 2차 텍스트/보더 링크. 고·저 관여 동시.
+- 데이터 매핑: `CourseDetail`(`heroHeadline`·`heroProofStats`·`programHighlights`·`curriculum`·`expectedOutcomes`·`reviews`·`notice`) — 대부분 이미 존재.
+- 마케팅 카피 채움은 `coloso-copywriter`, 전환 점검은 플레이북 §6 13단 체크리스트.
+
 ---
 
 ## 8. Do / Don't 체크리스트
@@ -163,3 +172,6 @@ variant: primary(bg-primary text-white) · accent(bg-accent text-white) · defau
 - 레이아웃: `src/components/layout/` (Header, Footer, Navigation)
 - 데이터: `src/lib/data/` (hero, courses, navigation, footer …)
 - 라이브 정답지: `docs/design/coloso-live-reference.md`
+- 종합 레퍼런스(아키타입·DNA): `docs/design/coloso-reference-library.md`
+- 마케팅 플레이북: `docs/marketing/coloso-marketing-playbook.md`
+- 에이전트 팀: `.claude/agents/` (디자이너·마케터·카피·분석가·컨설턴트), 블루프린트 `docs/design/agent-team-blueprint.md`
