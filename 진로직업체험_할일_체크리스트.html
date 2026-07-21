@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>진로직업체험 홈페이지 · 할 일 체크리스트</title>
+<style>
+  :root{
+    --bg:#0f1115; --panel:#171a21; --panel2:#1e222b; --line:#2a2f3a;
+    --tx:#e8eaf0; --tx2:#9aa2b1; --tx3:#6b7280;
+    --hi:#ff5a3c; --mid:#f5b13c; --low:#5aa9ff;
+    --ok:#3ecf8e; --accent:#7c5cff; --warn:#ffcf5a;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+    --r:16px;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#f4f5f8; --panel:#ffffff; --panel2:#f7f8fb; --line:#e6e8ee;
+      --tx:#1a1d24; --tx2:#5b6270; --tx3:#8a91a0;
+      --shadow:0 6px 20px rgba(20,25,40,.08);
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--tx);
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:28px 18px 80px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:10;background:linear-gradient(var(--bg) 78%,transparent);
+    padding:8px 0 14px;margin:-8px 0 4px}
+  .eyebrow{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.14em}
+  h1{margin:6px 0 4px;font-size:26px;letter-spacing:-.02em}
+  .sub{color:var(--tx2);font-size:14px;margin:0 0 14px}
+  .barwrap{display:flex;align-items:center;gap:12px}
+  .bar{flex:1;height:12px;background:var(--panel2);border:1px solid var(--line);
+    border-radius:99px;overflow:hidden}
+  .bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--ok));
+    border-radius:99px;transition:width .35s ease}
+  .pct{font-variant-numeric:tabular-nums;font-weight:800;font-size:14px;min-width:118px;text-align:right;color:var(--tx2)}
+
+  /* filters */
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 6px}
+  .filters button{background:var(--panel);border:1px solid var(--line);color:var(--tx2);
+    padding:7px 14px;border-radius:99px;font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
+  .filters button:hover{color:var(--tx)}
+  .filters button.on{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+  .hint{color:var(--tx3);font-size:12px;margin:8px 2px 0}
+
+  /* section */
+  .sec{margin:30px 0 10px}
+  .sec h2{font-size:15px;letter-spacing:.02em;color:var(--tx2);margin:0 2px 2px;
+    display:flex;align-items:center;gap:8px}
+  .sec h2 b{color:var(--tx)}
+  .sec .cnt{margin-left:auto;font-size:12px;color:var(--tx3);font-weight:600}
+
+  /* card */
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+    padding:16px 16px 14px;margin:12px 0;box-shadow:var(--shadow);transition:.2s}
+  .card.done{opacity:.55}
+  .card.hide{display:none}
+  .top{display:flex;align-items:flex-start;gap:12px}
+  .chk{appearance:none;-webkit-appearance:none;flex:none;width:24px;height:24px;margin-top:2px;
+    border:2px solid var(--line);border-radius:8px;cursor:pointer;position:relative;transition:.15s;background:var(--panel2)}
+  .chk:hover{border-color:var(--ok)}
+  .chk:checked{background:var(--ok);border-color:var(--ok)}
+  .chk:checked::after{content:"";position:absolute;left:7px;top:3px;width:6px;height:11px;
+    border:solid #06210f;border-width:0 3px 3px 0;transform:rotate(45deg)}
+  .num{flex:none;font-size:12px;font-weight:800;color:var(--tx3);background:var(--panel2);
+    border:1px solid var(--line);border-radius:7px;padding:2px 7px;margin-top:3px}
+  .ttl{flex:1;font-size:17px;font-weight:700;letter-spacing:-.01em}
+  .card.done .ttl{text-decoration:line-through;text-decoration-color:var(--tx3)}
+  .pri{flex:none;font-size:11px;font-weight:800;padding:4px 9px;border-radius:99px;margin-top:2px;white-space:nowrap}
+  .pri.hi{color:var(--hi);background:color-mix(in srgb,var(--hi) 16%,transparent)}
+  .pri.mid{color:var(--mid);background:color-mix(in srgb,var(--mid) 16%,transparent)}
+  .pri.low{color:var(--low);background:color-mix(in srgb,var(--low) 16%,transparent)}
+
+  .body{margin:12px 0 0 36px}
+  @media(max-width:520px){.body{margin-left:0}}
+  .lbl{font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--tx3);margin:12px 0 6px;text-transform:uppercase}
+  ul.todo{list-style:none;padding:0;margin:0}
+  ul.todo li{display:flex;gap:9px;align-items:flex-start;padding:4px 0;font-size:14px;color:var(--tx)}
+  ul.todo li input{appearance:none;-webkit-appearance:none;flex:none;width:17px;height:17px;margin-top:3px;
+    border:1.5px solid var(--line);border-radius:5px;cursor:pointer;background:var(--panel2);position:relative}
+  ul.todo li input:checked{background:var(--accent);border-color:var(--accent)}
+  ul.todo li input:checked::after{content:"";position:absolute;left:5px;top:1px;width:4px;height:9px;
+    border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  ul.todo li.sdone span{text-decoration:line-through;color:var(--tx3)}
+  .idea{font-size:13.5px;color:var(--tx2);background:var(--panel2);border-radius:10px;
+    padding:9px 12px;margin-top:4px}
+  .idea b{color:var(--tx)}
+  .confirm{font-size:13.5px;color:var(--tx);border-left:3px solid var(--warn);
+    background:color-mix(in srgb,var(--warn) 9%,transparent);border-radius:0 10px 10px 0;
+    padding:9px 12px;margin-top:10px}
+  .confirm .k{font-weight:800;color:var(--warn);font-size:12px;letter-spacing:.03em}
+
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
+    color:var(--tx3);font-size:12.5px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+  footer button{background:none;border:1px solid var(--line);color:var(--tx2);
+    padding:6px 12px;border-radius:8px;font-size:12px;cursor:pointer}
+  .legend{display:flex;gap:12px;flex-wrap:wrap}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .dot{width:9px;height:9px;border-radius:99px;display:inline-block}
+  @media print{header{position:static}.filters,footer button,.chk,ul.todo li input{display:none}
+    .card{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">DREAMPLEX · 진로직업체험</div>
+  <h1>홈페이지 할 일 체크리스트</h1>
+  <p class="sub">15가지 · 카테고리별로 정리 · 체크는 자동 저장돼요(이 브라우저에 기억)</p>
+  <div class="barwrap">
+    <div class="bar"><i id="barfill"></i></div>
+    <div class="pct" id="pcttxt">0 / 15 완료</div>
+  </div>
+  <div class="filters" id="filters">
+    <button data-f="all" class="on">전체</button>
+    <button data-f="hi">🔴 우선순위 높음</button>
+    <button data-f="mid">🟡 중간</button>
+    <button data-f="low">🔵 낮음</button>
+    <button data-f="open">⚠️ 확인 필요만</button>
+  </div>
+  <p class="hint">한 항목을 다 끝내면 왼쪽 큰 네모를 체크 → 흐려지고 진행률이 올라가요.</p>
+</header>
+
+<!-- ===== 그룹 A ===== -->
+<section class="sec">
+  <h2>📄 <b>상세페이지 &amp; 사진·후기 콘텐츠</b><span class="cnt">5가지</span></h2>
+</section>
+
+<article class="card" data-pri="hi">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">01</span>
+    <div class="ttl">진로직업체험 상세페이지 — 사진 작업 + 문서 작업</div>
+    <span class="pri hi">높음</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>체험 현장 사진 갤러리 섹션 추가 (3~6장 그리드, 클릭 시 확대)</span></li>
+      <li><input type="checkbox"><span>프로그램 소개 문서(커리큘럼·진행 순서·준비물)를 카드/아코디언으로 정리</span></li>
+      <li><input type="checkbox"><span>학교·기관 배포용 PDF 안내서 다운로드 버튼</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">기존 카드 컴포넌트를 재활용해 <b>사진 갤러리 ↔ 문서 섹션</b>을 번갈아 배치하면 통일감 유지. 사진은 최적화 로딩.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 현장 사진 실물 보유 여부, 최신 커리큘럼 문서 파일 위치</div>
+  </div>
+</article>
+
+<article class="card" data-pri="hi">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">02</span>
+    <div class="ttl">학생 후기 넣기 — 초등학교 / 중학교 나눠서</div>
+    <span class="pri hi">높음</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>후기 섹션을 '초등 / 중등' 탭 또는 좌우 분리로 구성</span></li>
+      <li><input type="checkbox"><span>후기 카드: 학년·이름(익명 옵션)·한 줄 소감·별점/아이콘</span></li>
+      <li><input type="checkbox"><span>후기 데이터를 별도 파일로 분리해 나중에 추가·수정 쉽게</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">후기를 <b>데이터 목록</b>으로 만들어 두면, 후기가 늘어도 내용만 추가하면 자동으로 카드가 붙음. 탭 전환은 간단하게.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 실제 후기 원문, 이름·얼굴 공개 범위(실명/익명/사진 동의)</div>
+  </div>
+</article>
+
+<article class="card" data-pri="mid">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">05</span>
+    <div class="ttl">드림하이 초등관 상세페이지 — 학년별 추천</div>
+    <span class="pri mid">중간</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>저학년(1~2)/중학년(3~4)/고학년(5~6) 3구간 추천 카드·표</span></li>
+      <li><input type="checkbox"><span>구간별 추천 이유·난이도·추천 활동 1~2줄</span></li>
+      <li><input type="checkbox"><span>학년 클릭 시 관련 프로그램으로 연결(링크 있으면)</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">학년 구간을 <b>탭 또는 3열 카드 + 색상 구분</b>으로 두면 학부모가 자기 아이 학년을 바로 찾음.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 학년별 어떤 프로그램을 추천할지 매칭 기준(교육 기준)</div>
+  </div>
+</article>
+
+<article class="card" data-pri="mid">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">12</span>
+    <div class="ttl">드림하이 초등관 — '어떻게 진행하면 좋을지' 안내 영상</div>
+    <span class="pri mid">중간</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>상세페이지 소개 섹션에 안내 영상 임베드 영역</span></li>
+      <li><input type="checkbox"><span>영상 아래 핵심 포인트 3~4개 텍스트 요약(영상 안 보는 사람 대비)</span></li>
+      <li><input type="checkbox"><span>모바일에서도 안 깨지는 반응형 16:9 처리</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">영상은 <b>유튜브 미등록으로 올려 임베드</b>하면 사이트 부담 없음. 썸네일 클릭 시 재생되게 하면 초기 로딩도 가벼움.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 안내 영상 실물 유무(없으면 촬영·편집 필요), 호스팅 방식</div>
+  </div>
+</article>
+
+<article class="card" data-pri="hi">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">13</span>
+    <div class="ttl">진로체험 상세페이지 — 대표 사진 어떻게 구할지 정하기</div>
+    <span class="pri hi">높음</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일 — 3가지 옵션 중 선택</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span><b>① 직접 촬영</b> — 실제 현장 촬영, 신뢰도 최고 / 단 초상권 동의서 필요</span></li>
+      <li><input type="checkbox"><span><b>② 무료 스톡</b> — Unsplash·Pexels 등 상업적 무료 이미지, 즉시 사용 / 단 '우리 현장' 느낌 약함</span></li>
+      <li><input type="checkbox"><span><b>③ AI 생성</b> — 분위기 컷 생성, 초상권 부담 없음 / 단 진짜 사진만큼 신뢰는 낮음</span></li>
+      <li><input type="checkbox"><span>고른 방식으로 대표 사진 1~2장 확보 → 히어로 영역 배치(텍스트 겹치면 어두운 오버레이)</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">단기엔 <b>무료 스톡/AI로 먼저 채워 페이지 완성</b> → 실촬영본 확보되면 교체하는 2단계 전략 추천.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 실제 체험 촬영본 보유 여부, 학생 얼굴 노출 동의서 가능 여부</div>
+  </div>
+</article>
+
+<!-- ===== 그룹 B ===== -->
+<section class="sec">
+  <h2>🎬 <b>영상 &amp; AI 클래스관</b><span class="cnt">4가지 · 순서 추천: 6 → 11 → 4 · 14</span></h2>
+</section>
+
+<article class="card" data-pri="mid">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">04</span>
+    <div class="ttl">각 커리큘럼에 동영상 홍보 넣기</div>
+    <span class="pri mid">중간</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>커리큘럼 데이터에 '홍보 영상 주소' 항목 추가하고 값 채우기</span></li>
+      <li><input type="checkbox"><span>상세 페이지 소개 영역에 영상 플레이어 배치</span></li>
+      <li><input type="checkbox"><span>영상 없는 커리큘럼은 기존 이미지 그대로 나오게(영상 있을 때만 노출)</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">30~60초 짧은 클립을 유튜브/Vimeo에 올려 링크만 연결. <b>HOT/인기 커리큘럼부터</b> 채우고 나머지는 순차 추가.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 유튜브(무료·광고 붙음) vs Vimeo(유료·깔끔) 중 선택, 첫 배치 우선 커리큘럼 목록</div>
+  </div>
+</article>
+
+<article class="card" data-pri="hi">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">06</span>
+    <div class="ttl">AI 클래스관 — 로드맵 + 단계 클릭 시 상세 커리큘럼</div>
+    <span class="pri hi">높음</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>'입문 → 기초 → 심화 → 실전' 같은 단계형 로드맵을 시각적으로 배치</span></li>
+      <li><input type="checkbox"><span>로드맵 단계 데이터(단계명·설명·연결 커리큘럼) 정리</span></li>
+      <li><input type="checkbox"><span>단계 클릭 시 상세 커리큘럼이 아코디언으로 펼쳐지고 → 상품 페이지로 연결</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea"><b>세로 타임라인 + 아코디언</b>이 모바일에 안정적. 단계별 색·아이콘을 달리해 '내가 지금 어느 수준인지' 직관적으로.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 몇 단계로/어떤 이름으로 나눌지, 각 단계에 어떤 커리큘럼을 넣을지 매핑표</div>
+  </div>
+</article>
+
+<article class="card" data-pri="mid">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">11</span>
+    <div class="ttl">AI 클래스관 — 관 전체 소개 영상</div>
+    <span class="pri mid">중간</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>페이지 최상단(로드맵 위)에 관 전체 소개 대표 영상 1개 배치</span></li>
+      <li><input type="checkbox"><span>진입 시 히어로 영역에 영상이 배경/카드로 바로 보이게</span></li>
+      <li><input type="checkbox"><span>'소개 영상 → 로드맵 → 단계별 상세' 세로 흐름으로 정리</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">1~2분 요약 영상 1개면 충분. 배경은 <b>소리 끈 자동재생 루프</b>, 가운데 재생 버튼 누르면 소리 있는 전체 영상.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 새로 제작할지 / 14번 영상 중 하나를 대표로 쓸지, 완성 전 임시 이미지로 채울지</div>
+  </div>
+</article>
+
+<article class="card" data-pri="low">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">14</span>
+    <div class="ttl">AI 클래스관 — 각 홍보 영상 제작(우리만의 사이트 소개)</div>
+    <span class="pri low">낮음 · 직접 제작 대기</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>소개할 '우리만의 사이트' 목록 확정 (사이트명·한 줄 소개·보여줄 화면 순서)</span></li>
+      <li><input type="checkbox"><span>사이트마다 홍보 영상 1개씩 촬영·편집 → 업로드 후 로드맵/카드에 연결</span></li>
+      <li><input type="checkbox"><span>썸네일·제목 형식 통일해 시리즈처럼 보이게</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">사이트별 <b>30~45초 화면녹화 + 자막</b>이면 촬영 없이 빠르게 양산. 공통 인트로/아웃트로 5초 템플릿으로 통일감 확보. 세로형(9:16)이면 쇼츠 재활용까지.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — '우리만의 사이트들' 구체 목록(필수), 완성 예상 시점 · 영상 없는 동안 '준비 중' 표시 여부</div>
+  </div>
+</article>
+
+<!-- ===== 그룹 C ===== -->
+<section class="sec">
+  <h2>⚙️ <b>기능 · 브랜딩 · 커뮤니티</b><span class="cnt">6가지</span></h2>
+</section>
+
+<article class="card" data-pri="hi">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">03</span>
+    <div class="ttl">견적요청 — 요청 즉시 예상 견적 자동 계산 + 쉬운 UI/UX</div>
+    <span class="pri hi">높음</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>입력 폼: 인원수 · 학년(초/중/고) · 희망 프로그램(다중 선택) · 날짜 · 장소(시설/학교 방문)</span></li>
+      <li><input type="checkbox"><span>선택값에 따라 예상 금액이 실시간으로 바뀌는 자동 계산(단가표 기반)</span></li>
+      <li><input type="checkbox"><span>'이 내용으로 정식 견적 요청' 버튼 → 담당자 알림 + 내역 저장</span></li>
+      <li><input type="checkbox"><span>견적서 PDF 다운로드/요약 카드 제공</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">왼쪽 입력 폼 · 오른쪽에 <b>실시간으로 숫자가 바뀌는 '예상 금액' 고정 카드</b>. 버튼·슬라이더만 눌러도 금액이 보이게.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 프로그램별 1인 단가표, 인원/학년별 할인 기준, 최소 인원, 부가세 포함 여부 (이 숫자가 있어야 자동 계산 가능)</div>
+  </div>
+</article>
+
+<article class="card" data-pri="hi">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">08</span>
+    <div class="ttl">재미있는 체험모험ZIP — 드론·범죄과학수사를 영화처럼</div>
+    <span class="pri hi">높음</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>대표 체험(드론·CSI 등)마다 개별 카드/페이지 — 예고편 느낌 문구 + 현장 사진/영상</span></li>
+      <li><input type="checkbox"><span>CSI는 '사건 현장 → 단서 수집 → 범인 검거', 드론은 '조종 → 미션 비행' 스토리 흐름</span></li>
+      <li><input type="checkbox"><span>목록을 넷플릭스처럼 큰 썸네일 + 호버 시 영상/움직임 갤러리로</span></li>
+      <li><input type="checkbox"><span>각 카드에서 바로 견적요청으로 연결(프로그램 미리 선택된 상태)</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">어두운 배경 + 큰 이미지 + 영화 포스터 톤 카피로 <b>"체험이 아니라 하나의 사건에 참여한다"</b>는 느낌을.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 각 체험 실제 사진·영상 자료, 운영 중인 체험 전체 목록, 대표로 강조할 3~4개</div>
+  </div>
+</article>
+
+<article class="card" data-pri="mid">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">09</span>
+    <div class="ttl">메인페이지 — '스튜디오' 컨셉</div>
+    <span class="pri mid">중간</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>첫 화면을 촬영 스튜디오/제작소 느낌으로 (큰 영상·이미지 + 콘셉트 카피)</span></li>
+      <li><input type="checkbox"><span>각 '관'을 스튜디오의 세트장/공간처럼 나눠 보여주는 섹션</span></li>
+      <li><input type="checkbox"><span>스크롤에 따라 등장하는 애니메이션·전환으로 영상 편집 같은 흐름</span></li>
+      <li><input type="checkbox"><span>색·폰트·여백을 스튜디오 콘셉트로 전체 통일</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">다크 톤 + 필름/카메라·조명 모티프를 은은하게. 각 관을 <b>'촬영장 문을 여는' 느낌의 카드</b>로 진입.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 스튜디오를 어디까지 밀지(은유만 vs 카메라·필름 적극), 브랜드 색·로고·폰트 가이드</div>
+  </div>
+</article>
+
+<article class="card" data-pri="mid">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">10</span>
+    <div class="ttl">드림팀 소개에 '드림플렉스' 소개 넣기</div>
+    <span class="pri mid">중간</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>드림팀 소개 안에 '드림플렉스가 어떤 회사인지'(정체성·미션·하는 일) 섹션 추가</span></li>
+      <li><input type="checkbox"><span>드림팀 ↔ 드림플렉스 관계를 한눈에(상위 브랜드가 누구인지) 정리</span></li>
+      <li><input type="checkbox"><span>연혁·주요 실적·함께한 학교 수 등 신뢰 정보 배치</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">상단에 <b>"드림플렉스는 이런 회사입니다" 요약 블록</b> → 그 아래 드림팀(구성원·팀 소개)으로 자연스럽게 연결.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 드림플렉스와 드림팀의 정확한 관계, 회사 소개 문구·연혁·실적 자료</div>
+  </div>
+</article>
+
+<article class="card" data-pri="mid">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">07</span>
+    <div class="ttl">게시판 만들기 + 홍보 내용 노출</div>
+    <span class="pri mid">중간</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>글 목록/상세/글쓰기가 있는 기본 게시판(제목·작성일·조회수·사진 첨부)</span></li>
+      <li><input type="checkbox"><span>관리자만 글쓰기, 방문자는 보기 위주로 권한 분리</span></li>
+      <li><input type="checkbox"><span>상단에 '공지/홍보' 고정 영역 — 이벤트·모집·프로그램 소개가 항상 위에</span></li>
+      <li><input type="checkbox"><span>새 글 작성 시 메인 '새 소식'에 자동 미리보기</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">홍보/공지 글에 <b>태그를 달아 항상 상단 고정 + 색상 강조 카드</b>로. 15번 학교 블로그와 구조를 공유하면 관리 편함.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 방문자 댓글/문의를 넣을지(스팸 관리 부담), 첫 홍보 글 초안</div>
+  </div>
+</article>
+
+<article class="card" data-pri="mid">
+  <div class="top">
+    <input class="chk" type="checkbox">
+    <span class="num">15</span>
+    <div class="ttl">학교 진행 블로그 — 진행한 학교가 계속 쌓이게</div>
+    <span class="pri mid">중간</span>
+  </div>
+  <div class="body">
+    <div class="lbl">핵심 할 일</div>
+    <ul class="todo">
+      <li><input type="checkbox"><span>'OO초 드론 체험 진행' 같은 기록을 한 건씩 쌓는 목록형 페이지(학교명·날짜·프로그램·사진)</span></li>
+      <li><input type="checkbox"><span>최신순 정렬 + 학교급/프로그램/지역 필터·검색</span></li>
+      <li><input type="checkbox"><span>글 상세에 현장 사진 여러 장 + 짧은 후기</span></li>
+      <li><input type="checkbox"><span>상단에 '지금까지 함께한 학교 OO곳' 누적 카운터</span></li>
+    </ul>
+    <div class="lbl">구현 아이디어</div>
+    <div class="idea">7번 게시판과 <b>같은 구조를 재사용</b>하되 '학교 진행' 전용 분류로 운영하면 관리 부담이 줄어듦.</div>
+    <div class="confirm"><span class="k">⚠️ 확인 필요</span> — 지금까지 진행한 학교 리스트·현장 사진, 학교명·사진 공개 동의 여부</div>
+  </div>
+</article>
+
+<footer>
+  <div class="legend">
+    <span><i class="dot" style="background:var(--hi)"></i>높음</span>
+    <span><i class="dot" style="background:var(--mid)"></i>중간</span>
+    <span><i class="dot" style="background:var(--low)"></i>낮음</span>
+    <span><i class="dot" style="background:var(--warn)"></i>확인 필요 = 사장님 자료·결정 대기</span>
+  </div>
+  <button id="reset">✕ 체크 전체 초기화</button>
+</footer>
+</div>
+
+<script>
+(function(){
+  var KEY='dreamplex_todo_v1';
+  var saved={};
+  try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ saved={}; }
+
+  // stable id per checkbox = index
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  var allChecks=[].slice.call(document.querySelectorAll('input[type=checkbox]'));
+  allChecks.forEach(function(cb,i){
+    cb.dataset.id='c'+i;
+    if(saved['c'+i]) cb.checked=true;
+    cb.addEventListener('change',function(){
+      saved[cb.dataset.id]=cb.checked;
+      localStorage.setItem(KEY,JSON.stringify(saved));
+      render();
+    });
+  });
+
+  function render(){
+    // sub-task strike
+    document.querySelectorAll('ul.todo li').forEach(function(li){
+      var inp=li.querySelector('input');
+      li.classList.toggle('sdone', inp && inp.checked);
+    });
+    // card done state (main checkbox = .chk)
+    var done=0;
+    cards.forEach(function(c){
+      var main=c.querySelector('.chk');
+      var isDone=main && main.checked;
+      c.classList.toggle('done', isDone);
+      if(isDone) done++;
+    });
+    var total=cards.length;
+    var pct=Math.round(done/total*100);
+    document.getElementById('barfill').style.width=pct+'%';
+    document.getElementById('pcttxt').textContent=done+' / '+total+' 완료  ('+pct+'%)';
+  }
+
+  // filters
+  var curr='all';
+  document.getElementById('filters').addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    curr=b.dataset.f;
+    [].slice.call(this.querySelectorAll('button')).forEach(function(x){x.classList.toggle('on',x===b);});
+    applyFilter();
+  });
+  function applyFilter(){
+    cards.forEach(function(c){
+      var show=true;
+      if(curr==='hi'||curr==='mid'||curr==='low') show=(c.dataset.pri===curr);
+      else if(curr==='open') show=!!c.querySelector('.confirm');
+      c.classList.toggle('hide',!show);
+    });
+  }
+
+  document.getElementById('reset').addEventListener('click',function(){
+    if(!confirm('모든 체크를 초기화할까요?')) return;
+    saved={}; localStorage.removeItem(KEY);
+    allChecks.forEach(function(cb){cb.checked=false;});
+    render();
+  });
+
+  render(); applyFilter();
+})();
+</script>
+</body>
+</html>
