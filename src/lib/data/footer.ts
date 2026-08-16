@@ -6,7 +6,7 @@ export const footerLinks: FooterLink[] = [
   { label: "개인정보처리방침", href: "/privacy" },
   { label: "자주 묻는 질문", href: "/faq" },
   { label: "드림팀 소개", href: "/dream-team" },
-  { label: "기업교육", href: "/business" },
+  { label: "기업교육", href: "/partnership" },
   { label: "제휴/협력", href: "/partnership" },
   { label: "강사 지원", href: "/instructor/apply" },
 ];

@@ -78,12 +78,36 @@ interface NavigationClientProps {
   menuItems: PromotionItem[];
 }
 
+/** 뱃지 컴포넌트 - 박스를 제거하고 아이콘만 반환 (초슬림 버전) */
+function CourseBadge({ type }: { type: string }) {
+  const icons: Record<string, string> = {
+    HOT: "🔥",
+    인기: "🔥",
+    NEW: "✨",
+    베스트: "🏆",
+    프리미엄: "👑",
+    빠른마감: "⏰",
+    스타: "⭐",
+    초등전용: "🐥",
+  };
+
+  return (
+    <span className="text-[1.1rem] leading-none" title={type}>
+      {icons[type] || ""}
+    </span>
+  );
+}
+
 /** 카테고리 드롭다운 + 모바일 메뉴 (Client Component) */
 export function NavigationClient({ categories, menuItems }: NavigationClientProps) {
   const shouldReduceMotion = useReducedMotion();
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activePartId, setActivePartId] = useState<string>(categories[0]?.id || "");
+  const [openMobilePart, setOpenMobilePart] = useState<string | null>(null);
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const activeCategory = categories.find(cat => cat.id === activePartId) || categories[0];
 
   const handleMouseEnter = useCallback(() => {
     if (hoverTimeoutRef.current) {
@@ -101,6 +125,7 @@ export function NavigationClient({ categories, menuItems }: NavigationClientProp
 
   const openMenu = useCallback(() => setIsMobileMenuOpen(true), []);
   const closeMenu = useCallback(() => setIsMobileMenuOpen(false), []);
+  const toggleMobilePart = (id: string) => setOpenMobilePart(prev => prev === id ? null : id);
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
@@ -116,11 +141,11 @@ export function NavigationClient({ categories, menuItems }: NavigationClientProp
         onMouseLeave={handleMouseLeave}
       >
         <button
-          className="flex items-center gap-[6px] whitespace-nowrap px-[4px] py-[10px] text-[1.4rem] font-semibold text-text-primary"
+          className="flex items-center gap-[6px] whitespace-nowrap px-[4px] py-[10px] text-[1.3rem] font-semibold text-text-primary transition-colors hover:text-accent"
           aria-expanded={isCategoryOpen}
           aria-haspopup="true"
         >
-          <MenuIcon width={16} height={14} />
+          <MenuIcon width={15} height={13} />
           <span>체험 카테고리</span>
         </button>
       </div>
@@ -134,7 +159,7 @@ export function NavigationClient({ categories, menuItems }: NavigationClientProp
         <MenuIcon />
       </button>
 
-      {/* 데스크톱: 카테고리 드롭다운 패널 */}
+      {/* 데스크톱: 사이드바 스타일 메가 메뉴 */}
       <AnimatePresence>
         {isCategoryOpen && (
           <motion.div
@@ -148,44 +173,107 @@ export function NavigationClient({ categories, menuItems }: NavigationClientProp
             exit="exit"
           >
             <div className="mx-auto max-w-[1120px] px-[16px]">
-              <div className="relative overflow-hidden rounded-[12px] border border-grey-800 bg-white/95 p-[28px] shadow-[0_12px_40px_-8px_rgba(15,30,60,0.12),0_4px_12px_-2px_rgba(15,30,60,0.06)] backdrop-blur-[12px]">
-                {/* 상단 accent 그라디언트 라인 */}
-                <div className="absolute inset-x-[28px] top-0 h-[2px] rounded-full bg-gradient-to-r from-transparent via-accent to-transparent opacity-60" />
+              <div className="flex overflow-hidden rounded-[16px] border border-grey-800 bg-white/98 shadow-[0_32px_64px_-16px_rgba(15,30,60,0.18)] backdrop-blur-[20px]">
+                
+                {/* 좌측 사이드바 (LNB) - 콤팩트 */}
+                <div className="w-[230px] border-r border-grey-800 bg-grey-900/40 p-[6px]">
+                  <nav className="flex flex-col gap-[2px]">
+                    {categories.map((cat) => {
+                      const isActive = activePartId === cat.id;
+                      return (
+                        <button
+                          key={cat.id}
+                          onMouseEnter={() => setActivePartId(cat.id)}
+                          className={`group relative flex items-center gap-[10px] rounded-[8px] px-[14px] py-[9px] text-left transition-all duration-200 ${
+                            isActive 
+                              ? "bg-white shadow-sm ring-1 ring-grey-800" 
+                              : "hover:bg-white/60"
+                          }`}
+                        >
+                          <span 
+                            className={`flex h-[18px] w-[24px] items-center justify-center rounded-[4px] text-[0.75rem] font-black transition-colors ${
+                              isActive ? "" : "bg-grey-800 text-grey-300"
+                            }`}
+                            style={isActive ? { backgroundColor: `${cat.themeColor}15`, color: cat.themeColor } : {}}
+                          >
+                            {cat.partNumber}
+                          </span>
+                          <span className="text-[1.4rem]">{cat.icon}</span>
+                          <span className={`text-[1.2rem] font-bold tracking-tight transition-colors ${
+                            isActive ? "text-text-primary" : "text-grey-300"
+                          }`}>
+                            {cat.label}
+                          </span>
+                          {isActive && (
+                            <motion.div 
+                              layoutId="active-indicator"
+                              className="absolute right-[10px] text-[0.8rem] text-grey-300"
+                            >
+                              ▶
+                            </motion.div>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </nav>
+                </div>
 
-                <div className="grid grid-cols-5 gap-[20px]">
-                  {categories.map((cat) => (
+                {/* 우측 콘텐츠 영역 (Course Grid) - 슬림 */}
+                <div className="flex-1 bg-white p-[28px] pb-[20px]">
+                  <AnimatePresence mode="wait">
                     <motion.div
-                      key={cat.id}
-                      className="min-w-0"
-                      variants={shouldReduceMotion ? undefined : columnVariants}
+                      key={activePartId}
+                      initial={{ opacity: 0, x: 8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -8 }}
+                      transition={{ duration: 0.18, ease: EASE }}
+                      className="flex flex-col"
                     >
-                      <h3 className="mb-[10px] flex items-center gap-[6px] text-[1.4rem] font-bold text-text-primary">
-                        <span className="inline-block h-[6px] w-[6px] rounded-full bg-accent/60" />
-                        {cat.label}
-                      </h3>
-                      <ul className="space-y-[2px]">
-                        {cat.subCategories.map((sub) => (
+                      {/* 파트 헤더 */}
+                      <div className="mb-[18px] flex items-center gap-[10px] border-b border-grey-800 pb-[12px]">
+                        <span className="text-[2rem]">{activeCategory.icon}</span>
+                        <div>
+                          <span className="text-[1rem] font-black tracking-widest text-grey-300 uppercase">Part {activeCategory.partNumber}</span>
+                          <h3 className="text-[1.55rem] font-black text-text-primary leading-tight">
+                            {activeCategory.label}
+                          </h3>
+                        </div>
+                      </div>
+
+                      {/* 수업 그리드 (3열) */}
+                      <ul className="grid grid-cols-3 gap-x-[16px] gap-y-[4px]">
+                        {activeCategory.subCategories.map((sub) => (
                           <li key={sub.id}>
                             <Link
                               href={sub.href}
-                              className="block rounded-[6px] px-[8px] py-[5px] text-[1.3rem] text-grey-300 transition-all duration-200 hover:bg-surface-light hover:pl-[12px] hover:text-text-primary"
+                              className="group flex flex-col items-start gap-[2px] rounded-[6px] p-[8px] transition-all duration-200 hover:bg-surface-light hover:ring-1 hover:ring-grey-800"
                               onClick={() => setIsCategoryOpen(false)}
                             >
-                              {sub.label}
+                              <div className="flex flex-row items-start gap-[4px]">
+                                <span className="text-[1.2rem] font-bold leading-[1.4] text-text-primary group-hover:text-accent">
+                                  {sub.label}
+                                </span>
+                                {sub.badges && sub.badges.length > 0 && (
+                                  <div className="flex shrink-0 gap-[2px] pt-[3px]">
+                                    {sub.badges.map((b) => <CourseBadge key={b} type={b} />)}
+                                  </div>
+                                )}
+                              </div>
                             </Link>
                           </li>
                         ))}
                       </ul>
                     </motion.div>
-                  ))}
+                  </AnimatePresence>
                 </div>
+
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* 모바일: 풀스크린 오버레이 */}
+      {/* 모바일: 풀스크린 오버레이 (초슬림 아코디언) */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -196,44 +284,82 @@ export function NavigationClient({ categories, menuItems }: NavigationClientProp
             animate="visible"
             exit="exit"
           >
-            <div className="flex shrink-0 items-center justify-between px-[16px] py-[12px]">
-              <span className="text-[1.6rem] font-bold text-text-primary">메뉴</span>
+            <div className="flex shrink-0 items-center justify-between px-[16px] py-[12px] border-b border-grey-800 bg-white shadow-sm">
+              <span className="text-[1.5rem] font-black tracking-tight text-text-primary uppercase">Menu</span>
               <button
                 onClick={closeMenu}
                 aria-label="메뉴 닫기"
-                className="p-[8px]"
+                className="rounded-full bg-grey-800 p-[6px]"
               >
-                <CloseIcon />
+                <CloseIcon width={16} height={16} />
               </button>
             </div>
-            <nav className="flex-1 overflow-y-auto px-[16px] py-[16px]">
-              {categories.map((cat) => (
-                <motion.div
-                  key={cat.id}
-                  className="mb-[24px]"
-                  variants={shouldReduceMotion ? undefined : mobileItemVariants}
-                >
-                  <h3 className="mb-[8px] text-[1.5rem] font-bold text-text-primary">
-                    {cat.label}
-                  </h3>
-                  <ul className="space-y-[8px]">
-                    {cat.subCategories.map((sub) => (
-                      <motion.li
-                        key={sub.id}
-                        variants={shouldReduceMotion ? undefined : mobileItemVariants}
+            <nav className="flex-1 overflow-y-auto px-[16px] py-[12px]">
+              {categories.map((cat) => {
+                const isOpen = openMobilePart === cat.id;
+                return (
+                  <motion.div
+                    key={cat.id}
+                    className="mb-[8px] overflow-hidden rounded-[12px] border border-grey-800 bg-white shadow-sm"
+                    variants={shouldReduceMotion ? undefined : mobileItemVariants}
+                  >
+                    <button
+                      className="flex w-full items-center justify-between p-[12px]"
+                      onClick={() => toggleMobilePart(cat.id)}
+                    >
+                      <div className="flex items-center gap-[8px]">
+                        <span className="flex h-[20px] w-[26px] items-center justify-center rounded-[4px] bg-grey-900 text-[0.8rem] font-black text-grey-300">
+                          {cat.partNumber}
+                        </span>
+                        <span className="text-[1.6rem]">{cat.icon}</span>
+                        <h3 className="text-[1.35rem] font-bold text-text-primary">
+                          {cat.label}
+                        </h3>
+                      </div>
+                      <motion.span
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        className="text-[1.1rem] text-grey-300"
                       >
-                        <Link
-                          href={sub.href}
-                          className="block text-[1.4rem] text-grey-300 transition-colors hover:text-text-primary"
-                          onClick={closeMenu}
+                        ▼
+                      </motion.span>
+                    </button>
+                    
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.ul
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25, ease: EASE }}
+                          className="border-t border-grey-800 bg-surface-light px-[12px] py-[4px]"
                         >
-                          {sub.label}
-                        </Link>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
+                          {cat.subCategories.map((sub) => (
+                            <li key={sub.id} className="border-b border-grey-800/50 last:border-none">
+                              <Link
+                                href={sub.href}
+                                className="flex items-center justify-between py-[10px]"
+                                onClick={closeMenu}
+                              >
+                                <div className="flex items-center gap-[5px]">
+                                  <span className="text-[1.25rem] font-semibold text-text-primary">
+                                    {sub.label}
+                                  </span>
+                                  {sub.badges && sub.badges.length > 0 && (
+                                    <div className="flex gap-[3px]">
+                                      {sub.badges.map((b) => <CourseBadge key={b} type={b} />)}
+                                    </div>
+                                  )}
+                                </div>
+                                <span className="text-[1.1rem] text-grey-300">→</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </motion.ul>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
             </nav>
           </motion.div>
         )}
