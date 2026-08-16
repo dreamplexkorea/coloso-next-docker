@@ -64,7 +64,8 @@ function ReviewCard({ review }: { review: Review }) {
         <div className="mb-[20px]">
           <ExpandableText
             text={review.content}
-            className="text-[1.4rem] leading-relaxed text-slate-300 line-clamp-2 group-hover:line-clamp-none transition-all"
+            clampClass="line-clamp-2"
+            className="text-[1.4rem] leading-relaxed text-slate-300 transition-all"
           />
         </div>
 
