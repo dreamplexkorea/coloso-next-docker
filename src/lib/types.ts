@@ -11,6 +11,9 @@ export interface PromotionItem {
 export interface Category {
   id: string;
   label: string;
+  partNumber?: string;
+  icon?: string;
+  themeColor?: string;
   subCategories: SubCategory[];
 }
 
@@ -19,6 +22,7 @@ export interface SubCategory {
   id: string;
   label: string;
   href: string;
+  badges?: string[];
 }
 
 /** 히어로 배너 슬라이드 */
