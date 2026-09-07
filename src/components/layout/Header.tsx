@@ -12,12 +12,12 @@ export function Header() {
       {/* 상단 헤더바 */}
       <section className="mx-auto flex max-w-[1120px] items-center justify-between px-[16px] py-[8px] border-b border-grey-800">
         {/* 로고 */}
-        <h1>
+        <div>
           <span className="a11y">Dreamplex</span>
           <Link href="/" aria-label="Dreamplex" className="logo-shimmer logo-animated inline-block">
-            <Image src="/logo.svg" alt="Dreamplex" height={43} width={144} className="h-[43px] w-auto" />
+            <Image src="/logo.svg" alt="Dreamplex" height={43} width={144} style={{ height: 43, width: "auto" }} />
           </Link>
-        </h1>
+        </div>
 
         {/* 검색 + 액션 */}
         <div className="flex items-center gap-[8px]">

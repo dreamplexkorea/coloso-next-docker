@@ -11,7 +11,7 @@ interface StickyBottomSummaryProps {
   slug: string;
 }
 
-/** 하단 고정 프로그램 요약 바 — glass morphism, 히어로 지나면 항상 노출 */
+/** 히어로 이후 선택한 수업 구성과 견적 진입점을 표시한다. */
 export function StickyBottomSummary({ meta, slug }: StickyBottomSummaryProps) {
   const [visible, setVisible] = useState(false);
   const plan = useCurriculumSelection()?.plan;
@@ -38,7 +38,7 @@ export function StickyBottomSummary({ meta, slug }: StickyBottomSummaryProps) {
   return (
     <div
       inert={!visible}
-      className={`fixed inset-x-0 bottom-0 z-50 border-t border-white/30 bg-white/30 shadow-[0_-8px_32px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-[28px] backdrop-saturate-[1.6] transition-[transform,opacity] duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+      className={`fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] backdrop-blur-md transition-[transform,opacity] duration-300 motion-reduce:transition-none ${
         visible
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-full opacity-0"
@@ -54,12 +54,12 @@ export function StickyBottomSummary({ meta, slug }: StickyBottomSummaryProps) {
           href={href}
           className="rounded-[6px] bg-[var(--color-primary,#2B6B9A)] px-[20px] py-[7px] text-[1.5rem] font-bold text-white transition-opacity hover:opacity-90"
         >
-          견적 요청하기
+          견적 살펴보기
         </Link>
       </div>
 
       {/* 모바일: 두 줄 레이아웃 */}
-      <div className="px-[16px] pb-[12px] pt-[10px] lg:hidden">
+      <div className="px-[16px] pb-[max(12px,env(safe-area-inset-bottom))] pt-[10px] lg:hidden">
         <p className="mb-[8px] text-center text-[1.4rem] text-[var(--color-text-tertiary,#64748b)]">
           {summary}
         </p>
@@ -69,13 +69,7 @@ export function StickyBottomSummary({ meta, slug }: StickyBottomSummaryProps) {
             href={href}
             className="flex flex-1 items-center justify-center rounded-[8px] bg-[var(--color-primary,#2B6B9A)] py-[12px] text-[1.5rem] font-bold text-white transition-opacity hover:opacity-90"
           >
-            견적 요청하기
-          </Link>
-          <Link
-            href={href}
-            className="flex items-center justify-center rounded-[8px] border border-[var(--color-primary,#2B6B9A)] px-[16px] py-[12px] text-[1.5rem] font-bold text-[var(--color-primary,#2B6B9A)] transition-colors hover:bg-[var(--color-primary,#2B6B9A)]/5"
-          >
-            문의
+            견적 살펴보기
           </Link>
         </div>
       </div>

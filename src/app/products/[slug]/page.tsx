@@ -69,7 +69,7 @@ export default async function ProductDetailPage({ params, searchParams }: PagePr
 
   return (
     <CurriculumSelection key={slug} design={design}>
-      <main className={`detail-page detail-template-${template.id} min-h-screen bg-white pb-[80px] text-[#0f172a] lg:pb-[56px]`} data-detail-template={template.id}>
+      <main className={`detail-page detail-template-${template.id} ${preview && query.previewMode === "full" ? "dp-full-preview" : "min-h-screen"} bg-white pb-[80px] text-[#0f172a] lg:pb-[56px]`} data-detail-template={template.id}>
         {!preview && <TrackCourseView slug={slug} />}
         {preview && <aside className="dp-preview-bar" aria-label="템플릿 미리보기 안내">
           <span>템플릿 미리보기 · <strong>{template.name}</strong></span>

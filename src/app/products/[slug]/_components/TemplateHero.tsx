@@ -34,11 +34,11 @@ export function TemplateHero({ course, template }: { course: CourseDetail; templ
   const heading = <>
     <p className="dp-eyebrow">{course.heroChips?.join(" · ") || course.tags.join(" · ")}</p>
     <h1 className="dp-title">{course.title}</h1>
-    <p className="dp-description">{course.subtitle}</p>
+    <p className="dp-description">{plan?.summary ?? course.subtitle}</p>
   </>;
   const outcome = <div className="dp-outcome"><p>{plan?.status === "proposal" ? "이 수업안에서 완성하는 것" : "이 수업에서 배우는 것"}</p><strong>{output}</strong></div>;
 
-  if (template.hero === "cinematic") return <ProductHero course={{ ...course, programHighlights: highlights }} quoteHref={quoteHref} />;
+  if (template.hero === "cinematic") return <ProductHero course={{ ...course, heroSubcopy: plan?.summary ?? course.heroSubcopy, programHighlights: highlights }} quoteHref={quoteHref} />;
 
   return (
     <section className={`product-hero dp-hero dp-hero-${template.hero}`} data-hero-layout={template.hero}>

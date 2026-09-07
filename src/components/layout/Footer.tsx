@@ -12,12 +12,12 @@ export function Footer() {
           <nav className="flex flex-wrap gap-[16px]">
             {footerLinks.map((link) => (
               <Link
-                key={link.href}
+                key={`${link.href}-${link.label}`}
                 href={link.href}
-                className={`text-[1.3rem] ${
+                className={`text-[1.4rem] ${
                   link.label === "개인정보처리방침"
                     ? "font-bold text-text-primary"
-                    : "text-grey-400 hover:text-text-primary"
+                    : "text-text-secondary hover:text-text-primary"
                 } transition-colors`}
               >
                 {link.label}
@@ -27,10 +27,10 @@ export function Footer() {
         </div>
 
         {/* 하단: 회사 정보 */}
-        <div className="mt-[32px] space-y-[4px] text-[1.2rem] leading-[1.8] text-grey-500">
+        <div className="mt-[32px] space-y-[4px] text-[1.4rem] leading-[1.8] text-text-secondary">
           <p>{footerBottomInfo.companyLine}</p>
           <p>{footerBottomInfo.contactLine}</p>
-          <p className="mt-[16px] text-grey-600">{footerBottomInfo.copyrightLine}</p>
+          <p className="mt-[16px] text-text-tertiary">{footerBottomInfo.copyrightLine}</p>
         </div>
       </Container>
     </footer>

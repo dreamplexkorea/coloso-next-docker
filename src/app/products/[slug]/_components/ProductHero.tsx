@@ -42,7 +42,7 @@ export function ProductHero({ course, quoteHref }: ProductHeroProps) {
       {/* 히어로 이미지 영역 */}
       <section
         data-hero-layout="cinematic"
-        className={`product-hero relative flex w-full flex-col justify-center overflow-hidden px-[16px] pb-[60px] pt-[100px] sm:px-[24px] lg:min-h-[680px] lg:px-[32px] lg:pb-[80px] lg:pt-[120px] ${
+        className={`product-hero relative flex w-full flex-col justify-center overflow-hidden px-[16px] pb-[60px] pt-[64px] sm:px-[24px] lg:min-h-[540px] lg:px-[32px] lg:pb-[80px] lg:pt-[80px] ${
           isDark ? "text-white" : "text-[#0F1E2E]"
         }`}
       >
@@ -87,7 +87,7 @@ export function ProductHero({ course, quoteHref }: ProductHeroProps) {
 
             {headline !== title && <p className="mb-[12px] text-[1.6rem] font-semibold leading-[1.6]">{title}</p>}
             <h1
-              className="product-hero-title mb-[20px] text-[3.2rem] font-black leading-[1.1] tracking-[-0.03em] sm:text-[4.8rem] lg:text-[6.4rem]"
+              className="product-hero-title break-keep mb-[20px] text-[3.2rem] font-black leading-[1.1] tracking-[-0.03em] sm:text-[4.8rem] lg:text-[5.6rem]"
             >
               {headline}
             </h1>
@@ -121,20 +121,20 @@ export function ProductHero({ course, quoteHref }: ProductHeroProps) {
 
       {/* 3. 인포 스트립 (Z-20) — 드림플렉스 브랜드 포인트 */}
       <div className={`relative z-30 mx-auto -mt-[40px] w-full max-w-[1120px] px-[16px] sm:px-[24px] lg:px-[32px]`}>
-        <div className={`grid grid-cols-1 gap-0 overflow-hidden rounded-[16px] border shadow-2xl sm:grid-cols-4 ${
+        <div className={`grid grid-cols-2 gap-0 overflow-hidden rounded-[16px] border shadow-2xl sm:grid-cols-4 ${
           isDark ? "border-white/10 bg-[#1A2A3A]" : "border-slate-200 bg-white"
         }`}>
           {highlights.map((item, idx) => (
             <div
               key={item.label}
-              className={`flex flex-col items-start gap-[4px] p-[24px] ${
+              className={`flex flex-col items-start gap-[6px] p-[20px] ${
                 idx < highlights.length - 1 ? (isDark ? "border-b border-white/5 sm:border-b-0 sm:border-r" : "border-b border-slate-100 sm:border-b-0 sm:border-r") : ""
               }`}
             >
-              <span className={`text-[1.1rem] font-bold uppercase tracking-[0.05em] ${isDark ? "text-[#4AADE6]" : "text-[#2B6B9A]"}`}>
+              <span className={`text-[1.3rem] font-bold uppercase tracking-[0.05em] ${isDark ? "text-[#4AADE6]" : "text-[#2B6B9A]"}`}>
                 {item.label}
               </span>
-              <span className={`text-[1.8rem] font-extrabold ${isDark ? "text-white" : "text-[#0F1E2E]"}`}>
+              <span className={`break-keep text-[1.6rem] font-extrabold ${isDark ? "text-white" : "text-[#0F1E2E]"}`}>
                 {item.value}
               </span>
             </div>

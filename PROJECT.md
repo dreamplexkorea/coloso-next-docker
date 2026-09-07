@@ -10,6 +10,8 @@
 
 ## 이번 변경
 
+- [전체 화면 점검](docs/04-report/detail-page-visual-audit.md): 대표 5종의 데스크톱·모바일 검토, 목차 가림·작품형 가로 넘침·가독성·차시 안내 불일치 수정과 남은 개선 과제.
+
 - [상세페이지 템플릿](docs/02-design/detail-page-templates.md): 체험 몰입형·결과물 전시형·프로젝트 로드맵형·학교 운영 안내형·전문가 스토리형을 23개 프로그램에 배정. `/detail-templates`에서 같은 프로그램을 비교한다.
 - [재설계 계획](docs/01-plan/features/dreamplex-curriculum-redesign.plan.md): 정보 구조, 디자인 기준, 관리 구조, 15개 기존 과제의 순서와 완료 조건.
 - [상세 수업 설계안](docs/02-design/dreamplex-curriculum-blueprints.md): AI 2·4·6차시, 마술 2차시, 바리스타 2차시의 활동·시간·산출물·평가·준비 조건.

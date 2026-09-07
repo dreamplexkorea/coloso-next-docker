@@ -8,6 +8,29 @@ export function TabNavigation({ sections }: { sections: DetailSectionId[] }) {
   const [activeTab, setActiveTab] = useState<string>(sections[0] ?? "");
   const isClickScrolling = useRef(false);
   const resetTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const navRef = useRef<HTMLElement>(null);
+  const [headerHeight, setHeaderHeight] = useState(108);
+  const [anchorOffset, setAnchorOffset] = useState(186);
+
+  useEffect(() => {
+    const header = document.querySelector("body > header");
+    const nav = navRef.current;
+    const page = nav?.closest<HTMLElement>(".detail-page");
+    if (!header || !nav || !page) return;
+    const observer = new ResizeObserver(() => {
+      const top = header.getBoundingClientRect().height;
+      const offset = top + nav.getBoundingClientRect().height + 16;
+      setHeaderHeight(top);
+      setAnchorOffset(offset);
+      page.style.setProperty("--dp-anchor-offset", `${offset}px`);
+    });
+    observer.observe(header);
+    observer.observe(nav);
+    return () => {
+      observer.disconnect();
+      page.style.removeProperty("--dp-anchor-offset");
+    };
+  }, []);
 
   useEffect(() => {
     const visible = new Set<string>();
@@ -20,13 +43,13 @@ export function TabNavigation({ sections }: { sections: DetailSectionId[] }) {
         const first = sections.find((id) => visible.has(id));
         if (first) setActiveTab(first);
       }
-    }, { rootMargin: "-120px 0px -60% 0px", threshold: 0 });
+    }, { rootMargin: `-${anchorOffset}px 0px -40% 0px`, threshold: 0 });
     for (const id of sections) {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
     }
     return () => { observer.disconnect(); clearTimeout(resetTimer.current); };
-  }, [sections]);
+  }, [sections, anchorOffset]);
 
   function handleTabClick(event: React.MouseEvent<HTMLAnchorElement>, targetId: string) {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -36,7 +59,7 @@ export function TabNavigation({ sections }: { sections: DetailSectionId[] }) {
     setActiveTab(targetId);
     isClickScrolling.current = true;
     window.scrollTo({
-      top: element.getBoundingClientRect().top + window.scrollY - 140,
+      top: element.getBoundingClientRect().top + window.scrollY - anchorOffset,
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
     });
     clearTimeout(resetTimer.current);
@@ -45,7 +68,7 @@ export function TabNavigation({ sections }: { sections: DetailSectionId[] }) {
 
   if (!sections.length) return null;
   return (
-    <nav aria-label="프로그램 상세 목차" className="sticky top-[56px] z-[50] w-full border-b border-slate-200 bg-white/95 backdrop-blur-md lg:top-[64px]">
+    <nav ref={navRef} aria-label="프로그램 상세 목차" style={{ top: headerHeight }} className="sticky z-40 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-[1120px] items-center overflow-x-auto px-[16px] sm:px-[24px]">
         {sections.map((id) => <a key={id} href={`#${id}`} aria-current={activeTab === id ? "location" : undefined} onClick={(event) => handleTabClick(event, id)}
           className={`relative shrink-0 px-[14px] py-[20px] text-[1.4rem] font-bold focus-visible:outline-2 focus-visible:outline-offset-[-4px] sm:px-[20px] ${activeTab === id ? "text-[#2B6B9A]" : "text-slate-600 hover:text-[#2B6B9A]"}`}>
