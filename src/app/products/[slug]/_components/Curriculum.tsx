@@ -1,122 +1,35 @@
 import type { CurriculumChapter } from "@/lib/types";
+import type { CurriculumLayout } from "@/lib/detailTemplates";
 import { CurriculumImageCarousel } from "./CurriculumImageCarousel";
 
-interface CurriculumProps {
-  chapters: CurriculumChapter[];
-}
-
-/** 커리큘럼 섹션 — 프리미엄 교육 플랫폼 스타일 */
-export function Curriculum({ chapters }: CurriculumProps) {
+/** 기존 수업 데이터도 같은 템플릿의 배치 규칙을 따른다. */
+export function Curriculum({ chapters, layout = "chapters" }: { chapters: CurriculumChapter[]; layout?: CurriculumLayout }) {
   return (
-    <section id="curriculum" className="bg-white py-[80px] lg:py-[120px]">
-      <div className="mx-auto max-w-[1120px]">
-        {/* 상단 헤더 */}
-        <div className="mb-[60px] text-center lg:text-left">
-          <p className="mb-[12px] text-[1.4rem] font-bold uppercase tracking-[0.3em] text-[#2B6B9A]">
-            Class Structure
-          </p>
-          <h2 className="text-[3.2rem] font-black tracking-tight text-[#0F1E2E] sm:text-[4.0rem] lg:text-[4.8rem]">
-            실전에서 즉시 발휘되는<br />
-            프로그램 구성
-          </h2>
-          <div className="mt-[24px] h-[4px] w-[60px] bg-[#2B6B9A] mx-auto lg:mx-0" />
-          <p className="mt-[32px] max-w-[600px] text-[1.6rem] leading-[1.8] text-[#334A62] sm:text-[1.8rem]">
-            프로그램의 주요 주제와 활동 순서를 안내합니다.<br className="hidden lg:block" />
-            학년별 활동과 준비 조건은 상담에서 확인해주세요.
-          </p>
-        </div>
-
-        {/* 챕터 리스트 */}
-        <div className="space-y-[32px]">
-          {chapters.map((chapter, index) => (
-            <article
-              key={chapter.id}
-              className="group overflow-hidden rounded-[16px] border border-[#E2E8F0] bg-white shadow-[0_1px_3px_rgba(15,30,46,0.04),0_4px_12px_rgba(15,30,46,0.03)] transition-all duration-200 ease-out hover:border-[#2B6B9A]/30 hover:shadow-[0_2px_8px_rgba(43,107,154,0.06),0_8px_24px_rgba(43,107,154,0.08)]"
-            >
-              {/* 챕터 헤더 */}
-              <div className="flex flex-col gap-[20px] bg-[#F8FAFC] px-[32px] py-[24px] sm:flex-row sm:items-center sm:px-[40px] sm:py-[32px]">
-                <div className="flex items-center gap-[12px]">
-                  <span className="flex h-[36px] w-[36px] items-center justify-center rounded-[10px] bg-[#2B6B9A] text-[1.3rem] font-bold text-white shadow-[0_2px_4px_rgba(43,107,154,0.2)]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-[1.3rem] font-bold uppercase tracking-widest text-[#64748B]">
-                    Section {index + 1}
-                  </span>
-                </div>
-                <h3 className="text-[2.0rem] font-black text-[#0F1E2E] sm:text-[2.4rem]">
-                  {chapter.title}
-                </h3>
-              </div>
-
-              {/* 학습 포인트 — 좌측 액센트 바 */}
-              {chapter.learningPoint && (
-                <div className="border-l-[3px] border-l-[#2B6B9A] bg-[#F0F7FC] px-[32px] py-[16px] sm:px-[40px]">
-                  <div className="flex items-start gap-[12px]">
-                    <svg className="mt-[3px] h-[18px] w-[18px] flex-shrink-0 text-[#2B6B9A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                      <path d="M9 12l2 2 4-4" />
-                      <circle cx="12" cy="12" r="10" />
-                    </svg>
-                    <p className="text-[1.5rem] font-medium leading-[1.6] text-[#334A62]">
-                      {chapter.learningPoint}
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              {/* 콘텐츠 */}
-              <div className="flex flex-col lg:flex-row">
-                {/* 이미지 영역 */}
-                {chapter.carouselImages && chapter.carouselImages.length > 0 && (
-                  <div className="w-full bg-[#F8FAFC] p-[32px] lg:w-[45%] lg:p-[40px]">
-                    <CurriculumImageCarousel
-                      images={chapter.carouselImages}
-                      alt={chapter.title}
-                    />
-                  </div>
-                )}
-
-                {/* 상세 레슨 리스트 */}
-                {chapter.lessons && chapter.lessons.length > 0 && (
-                  <div className={`flex-1 px-[32px] py-[32px] sm:px-[40px] sm:py-[40px] ${
-                    chapter.carouselImages && chapter.carouselImages.length > 0
-                      ? "lg:border-l lg:border-[#E2E8F0]"
-                      : ""
-                  }`}>
-                    <ul className="divide-y divide-[#F1F5F9]">
-                      {chapter.lessons.map((lesson, lessonIdx) => (
-                        <li key={lesson.id} className="flex gap-[20px] py-[16px] first:pt-0 last:pb-0 group/item">
-                          <span className="mt-[4px] text-[1.4rem] font-black text-[#CBD5E1] transition-colors duration-150 group-hover/item:text-[#4AADE6]">
-                            {String(lessonIdx + 1).padStart(2, "0")}
-                          </span>
-                          <div className="flex-1">
-                            <div className="flex flex-wrap items-center gap-[8px] mb-[6px]">
-                              {lessonIdx === 0 && (
-                                <span className="text-[1.05rem] font-semibold text-[#2B6B9A] bg-[#EDF4F9] px-[8px] py-[2px] rounded-[4px]">핵심 원리</span>
-                              )}
-                              <p className="text-[1.6rem] font-bold leading-[1.5] text-[#0F1E2E] transition-colors duration-150 group-hover/item:text-[#2B6B9A]">
-                                {lesson.title}
-                              </p>
-                            </div>
-                            <div className="flex items-center gap-[12px]">
-                              <span className="text-[1.2rem] font-medium text-[#64748B]">
-                                {lesson.duration}
-                              </span>
-                              <span className="h-[3px] w-[3px] rounded-full bg-[#CBD5E1]" />
-                              <span className="text-[1.2rem] font-medium text-[#64748B]">
-                                활동 구성
-                              </span>
-                            </div>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
+    <section id="curriculum" className={`dp-curriculum dp-curriculum-${layout} dp-legacy-curriculum`} aria-labelledby="curriculum-title">
+      <p className="dp-eyebrow">CLASS STRUCTURE</p>
+      <h2 id="curriculum-title" className="dp-section-title">수업에서 만나는<br />주제와 활동</h2>
+      <p className="dp-section-description">프로그램의 주요 주제와 활동 순서를 안내합니다.<br />학년별 활동과 준비 조건은 상담에서 확인해주세요.</p>
+      <ol className="dp-session-list">
+        {chapters.map((chapter, index) => (
+          <li key={chapter.id} id={`chapter-${chapter.id}`} className="dp-session">
+            <div className="dp-session-number"><span>{String(index + 1).padStart(2, "0")}</span><p>주제 {index + 1}</p></div>
+            <article className="dp-legacy-chapter">
+              <h3>{chapter.title}</h3>
+              {chapter.learningPoint && <p className="dp-learning-point">{chapter.learningPoint}</p>}
+              <details className="dp-session-detail" open={layout !== "compact"}>
+                <summary>활동 자세히 보기</summary>
+                {Boolean(chapter.carouselImages?.length) && <div className="dp-chapter-images"><CurriculumImageCarousel images={chapter.carouselImages!} alt={chapter.title} /></div>}
+                {Boolean(chapter.lessons?.length) && <ul className="dp-lesson-list">
+                  {chapter.lessons!.map((lesson, lessonIndex) => <li key={lesson.id}>
+                    <span>{String(lessonIndex + 1).padStart(2, "0")}</span>
+                    <div><h4>{lesson.title}</h4>{lesson.duration && <p>{lesson.duration}</p>}</div>
+                  </li>)}
+                </ul>}
+              </details>
             </article>
-          ))}
-        </div>
-      </div>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }

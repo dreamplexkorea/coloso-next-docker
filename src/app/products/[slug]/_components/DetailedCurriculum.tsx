@@ -2,15 +2,16 @@
 
 import Link from "next/link";
 import { buildCurriculumQuoteHref, getPlanMinutes, type CurriculumDesign } from "@/lib/curriculum";
+import type { CurriculumLayout } from "@/lib/detailTemplates";
 import { useCurriculumSelection } from "./CurriculumSelection";
 
-export function DetailedCurriculum({ slug, design }: { slug: string; design: CurriculumDesign }) {
+export function DetailedCurriculum({ slug, design, layout = "chapters" }: { slug: string; design: CurriculumDesign; layout?: CurriculumLayout }) {
   const selection = useCurriculumSelection();
   const plan = selection?.plan;
   if (!plan) return null;
 
   return (
-    <section id="curriculum" className="scroll-mt-[150px] border-t border-slate-200 py-[56px] sm:py-[80px]" aria-labelledby="curriculum-title">
+    <section id="curriculum" className={`dp-curriculum dp-curriculum-${layout} scroll-mt-[150px] border-t border-slate-200 py-[56px] sm:py-[80px]`} aria-labelledby="curriculum-title">
       <div className="mb-[32px] grid gap-[24px] lg:grid-cols-[1fr_1fr] lg:items-end">
         <div>
           <p className="mb-[12px] text-[1.4rem] font-bold tracking-[0.14em] text-primary">DREAMPLEX CURRICULUM</p>
@@ -43,16 +44,18 @@ export function DetailedCurriculum({ slug, design }: { slug: string; design: Cur
           </dl>
         </div>
 
-        <ol className="mt-[40px] divide-y divide-slate-200 border-y border-slate-200">
+        <ol className="dp-session-list">
           {plan.sessions.map((session, index) => (
-            <li key={session.id} className="grid gap-[20px] py-[32px] lg:grid-cols-[160px_1fr] lg:gap-[32px] lg:py-[40px]">
-              <div className="flex items-baseline gap-[12px] lg:block">
+            <li key={session.id} id={`session-${session.id}`} className="dp-session">
+              <div className="dp-session-number flex items-baseline gap-[12px] lg:block">
                 <p className="text-[3.6rem] font-extrabold leading-none tracking-[-0.04em] text-primary sm:text-[4.8rem]">{String(index + 1).padStart(2, "0")}</p>
                 <p className="text-[1.4rem] font-semibold text-text-secondary lg:mt-[12px]">{index + 1}차시 · {plan.sessionMinutes}분</p>
               </div>
               <div className="min-w-0">
                 <h4 className="text-[2.2rem] font-bold leading-[1.4] sm:text-[2.6rem]">{session.title}</h4>
                 <p className="mt-[12px] text-[1.6rem] leading-[1.8] text-text-secondary">{session.objective}</p>
+                <details className="dp-session-detail" open={layout !== "compact"}>
+                  <summary>활동·결과물 자세히 보기</summary>
                 <ol className="mt-[24px] space-y-[20px]">
                   {session.activities.map((activity, activityIndex) => (
                     <li key={activityIndex} className="grid grid-cols-[48px_1fr] gap-[12px] sm:grid-cols-[60px_1fr]">
@@ -69,6 +72,7 @@ export function DetailedCurriculum({ slug, design }: { slug: string; design: Cur
                   <summary className="cursor-pointer py-[8px] font-semibold text-primary focus-visible:outline-2 focus-visible:outline-offset-4">진행·참여 안내</summary>
                   <p className="mt-[8px] text-text-secondary">{session.instructorNotes}</p>
                 </details>
+                </details>
               </div>
             </li>
           ))}
@@ -79,16 +83,6 @@ export function DetailedCurriculum({ slug, design }: { slug: string; design: Cur
           <dl className="divide-y divide-slate-200 border-y border-slate-200">
             {plan.adaptations.map((item) => <div key={item.audience} className="grid gap-[8px] py-[20px] sm:grid-cols-[200px_1fr]"><dt className="text-[1.6rem] font-bold">{item.audience}</dt><dd className="text-[1.6rem] leading-[1.8] text-text-secondary">{item.approach}</dd></div>)}
           </dl>
-        </div>
-
-        <div id="preparation" className="mt-[40px] scroll-mt-[150px]">
-          <h3 className="mb-[20px] text-[2.2rem] font-bold">수업 전에 함께 준비할 것</h3>
-          <div className="grid gap-[24px] sm:grid-cols-2">
-            {[{ title: "학교에서", items: plan.preparation.school }, { title: "드림플렉스에서", items: plan.preparation.dreamplex }].map((group) => (
-              <div key={group.title} className="border-t-2 border-[#0F1E2E] pt-[16px]"><h4 className="text-[1.8rem] font-bold">{group.title}</h4><ul className="mt-[12px] list-disc space-y-[10px] pl-[20px] text-[1.6rem] leading-[1.8] text-text-secondary">{group.items.map((item) => <li key={item}>{item}</li>)}</ul></div>
-            ))}
-          </div>
-          <details className="mt-[24px] border-y border-slate-200 py-[16px] text-[1.6rem] leading-[1.8]"><summary className="cursor-pointer py-[8px] font-bold">학교 조건이 다를 때</summary><ul className="mt-[12px] list-disc space-y-[8px] pl-[20px] text-text-secondary">{plan.preparation.alternatives.map((item) => <li key={item}>{item}</li>)}</ul></details>
         </div>
 
         <div className="mt-[32px] flex flex-col gap-[20px] bg-[#0F1E2E] p-[24px] text-white sm:p-[32px] lg:flex-row lg:items-center lg:justify-between">

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { TemplateMedia } from "./TemplateMedia";
 import type { TargetAudience, ExpectedOutcome } from "@/lib/types";
 
 interface IntroSection {
@@ -118,7 +118,7 @@ export function ClassIntro({ sections, targetAudience, expectedOutcomes }: Class
                 Expected Outcomes
               </p>
               <h3 className="text-[2.8rem] font-black tracking-tight text-slate-900 sm:text-[3.6rem]">
-                프로그램 종료 후 학생들에게 생기는<br className="hidden sm:block" /> 확실한 변화 {expectedOutcomes.length}가지
+                프로그램에서 기대하는<br className="hidden sm:block" /> 배움 {expectedOutcomes.length}가지
               </h3>
             </div>
             <div className="grid grid-cols-1 gap-[24px] sm:grid-cols-2 lg:grid-cols-4">
@@ -149,19 +149,13 @@ export function ClassIntro({ sections, targetAudience, expectedOutcomes }: Class
               idx % 2 === 1 ? "lg:flex-row-reverse" : ""
             }`}>
               <div className="relative aspect-[16/10] flex-1 overflow-hidden rounded-[40px] bg-slate-100 shadow-2xl border border-slate-200">
-                {section.imageSrc ? (
-                  <Image
+                  <TemplateMedia
                     src={section.imageSrc}
                     alt={section.title}
-                    fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 560px"
+                    fallback={<div className="absolute inset-0 flex flex-col justify-end bg-[#183747] p-[32px] text-white sm:p-[40px]"><p className="mb-[20px] text-[1.4rem] text-[#b7d7e6]">{section.subtitle || "직접 경험하는 수업"}</p><p className="text-[2.6rem] font-bold leading-[1.4] sm:text-[3.2rem]">{section.title}</p></div>}
                   />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center bg-slate-900 text-[2.4rem] font-black text-white/5">
-                    POINT {String(idx + 1).padStart(2, "0")}
-                  </div>
-                )}
                 <div className="absolute left-[32px] top-[32px] rounded-full bg-white/90 px-[20px] py-[8px] text-[1.3rem] font-black text-[#2B6B9A] shadow-lg backdrop-blur-md">
                   POINT {String(idx + 1).padStart(2, "0")}
                 </div>

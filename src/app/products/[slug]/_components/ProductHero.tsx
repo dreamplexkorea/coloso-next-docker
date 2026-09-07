@@ -1,14 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { CourseDetail } from "@/lib/types";
 import { buildCurriculumQuoteHref } from "@/lib/curriculum";
+import { TemplateMedia } from "./TemplateMedia";
 
 interface ProductHeroProps {
   course: CourseDetail;
+  quoteHref?: string;
 }
 
 /** 상세페이지 히어로 — 드림플렉스 브랜드 컬러 + 콜소 레이아웃 */
-export function ProductHero({ course }: ProductHeroProps) {
+export function ProductHero({ course, quoteHref }: ProductHeroProps) {
   const {
     title,
     heroImageSrc,
@@ -40,6 +41,7 @@ export function ProductHero({ course }: ProductHeroProps) {
     <div className={`product-hero-container ${isDark ? "bg-[#0F1E2E]" : "bg-white"}`}>
       {/* 히어로 이미지 영역 */}
       <section
+        data-hero-layout="cinematic"
         className={`product-hero relative flex w-full flex-col justify-center overflow-hidden px-[16px] pb-[60px] pt-[100px] sm:px-[24px] lg:min-h-[680px] lg:px-[32px] lg:pb-[80px] lg:pt-[120px] ${
           isDark ? "text-white" : "text-[#0F1E2E]"
         }`}
@@ -57,10 +59,9 @@ export function ProductHero({ course }: ProductHeroProps) {
                 : "linear-gradient(to bottom, black 0%, black 60%, transparent 95%)",
             }}
           >
-            <Image
+            <TemplateMedia
               src={heroImageSrc}
               alt={headline}
-              fill
               priority
               className={`object-cover ${isDark ? "opacity-40 grayscale-[0.1]" : "opacity-100"}`}
               sizes="100vw"
@@ -112,7 +113,7 @@ export function ProductHero({ course }: ProductHeroProps) {
             </div>
             <div className="mt-[28px] flex flex-wrap gap-[12px]">
               <a href="#curriculum" className="rounded-[6px] bg-white px-[22px] py-[14px] text-[1.6rem] font-bold text-[#0F1E2E] ring-1 ring-slate-300">상세 커리큘럼 보기</a>
-              <Link href={buildCurriculumQuoteHref(course.slug)} className="rounded-[6px] bg-primary px-[22px] py-[14px] text-[1.6rem] font-bold text-white">우리 학교 견적 살펴보기</Link>
+              <Link href={quoteHref ?? buildCurriculumQuoteHref(course.slug)} className="rounded-[6px] bg-primary px-[22px] py-[14px] text-[1.6rem] font-bold text-white">우리 학교 견적 살펴보기</Link>
             </div>
           </div>
         </div>

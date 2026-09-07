@@ -520,6 +520,7 @@ export interface ExpectedOutcome {
 
 /** 강의 상세 정보 */
 export interface CourseDetail {
+  detailTemplate?: import("./detailTemplates").DetailTemplateId;
   slug: string;
   title: string;
   subtitle: string;
