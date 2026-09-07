@@ -1,90 +1,81 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { detailSectionLabels, type DetailSectionId } from "@/lib/detailTemplates";
 
-const tabs = [
-  { label: "프로그램 소개", targetId: "program-intro" },
-  { label: "커리큘럼", targetId: "curriculum" },
-  { label: "Master", targetId: "educator" },
-  { label: "수강생 후기", targetId: "reviews" },
-  { label: "유의사항", targetId: "notice" },
-];
-
-/** 탭 네비게이션 — 콜소 스타일의 미니멀 하이컨트라스트 디자인 */
-export function TabNavigation() {
-  const [activeTab, setActiveTab] = useState(tabs[0].targetId);
+/** 실제 렌더링되는 섹션의 순서를 그대로 사용한다. */
+export function TabNavigation({ sections }: { sections: DetailSectionId[] }) {
+  const [activeTab, setActiveTab] = useState<string>(sections[0] ?? "");
   const isClickScrolling = useRef(false);
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const navRef = useRef<HTMLElement>(null);
+  const [headerHeight, setHeaderHeight] = useState(108);
+  const [anchorOffset, setAnchorOffset] = useState(186);
 
   useEffect(() => {
-    const sectionEls = tabs
-      .map((tab) => document.getElementById(tab.targetId))
-      .filter(Boolean) as HTMLElement[];
-
-    if (sectionEls.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (isClickScrolling.current) return;
-        // 가장 많이 보이는 섹션을 활성화
-        const visibleEntry = entries.find(e => e.isIntersecting);
-        if (visibleEntry) {
-          setActiveTab(visibleEntry.target.id);
-        }
-      },
-      { rootMargin: "-120px 0px -60% 0px", threshold: 0 },
-    );
-
-    for (const el of sectionEls) observer.observe(el);
-    return () => observer.disconnect();
+    const header = document.querySelector("body > header");
+    const nav = navRef.current;
+    const page = nav?.closest<HTMLElement>(".detail-page");
+    if (!header || !nav || !page) return;
+    const observer = new ResizeObserver(() => {
+      const top = header.getBoundingClientRect().height;
+      const offset = top + nav.getBoundingClientRect().height + 16;
+      setHeaderHeight(top);
+      setAnchorOffset(offset);
+      page.style.setProperty("--dp-anchor-offset", `${offset}px`);
+    });
+    observer.observe(header);
+    observer.observe(nav);
+    return () => {
+      observer.disconnect();
+      page.style.removeProperty("--dp-anchor-offset");
+    };
   }, []);
 
-  function handleTabClick(e: React.MouseEvent<HTMLAnchorElement>, targetId: string) {
-    e.preventDefault();
-    const el = document.getElementById(targetId);
-    if (!el) return;
+  useEffect(() => {
+    const visible = new Set<string>();
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) visible.add(entry.target.id);
+        else visible.delete(entry.target.id);
+      }
+      if (!isClickScrolling.current) {
+        const first = sections.find((id) => visible.has(id));
+        if (first) setActiveTab(first);
+      }
+    }, { rootMargin: `-${anchorOffset}px 0px -40% 0px`, threshold: 0 });
+    for (const id of sections) {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    }
+    return () => { observer.disconnect(); clearTimeout(resetTimer.current); };
+  }, [sections, anchorOffset]);
 
+  function handleTabClick(event: React.MouseEvent<HTMLAnchorElement>, targetId: string) {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const element = document.getElementById(targetId);
+    if (!element) return;
+    event.preventDefault();
     setActiveTab(targetId);
     isClickScrolling.current = true;
-
-    // 헤더 높이를 고려한 오프셋 스크롤
-    const offset = 140; 
-    const elementPosition = el.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - offset;
-
     window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth"
+      top: element.getBoundingClientRect().top + window.scrollY - anchorOffset,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
     });
-
-    const resetScrollFlag = () => { isClickScrolling.current = false; };
-    setTimeout(resetScrollFlag, 1000);
+    clearTimeout(resetTimer.current);
+    resetTimer.current = setTimeout(() => { isClickScrolling.current = false; }, 1000);
   }
 
+  if (!sections.length) return null;
   return (
-    <nav className="sticky top-[56px] z-[50] w-full border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-md lg:top-[64px]">
-      <div className="mx-auto flex max-w-[1120px] items-center justify-start overflow-x-auto px-[16px] scrollbar-hide sm:px-[24px] lg:px-[32px]">
-        {tabs.map((tab) => (
-          <a
-            key={tab.targetId}
-            href={`#${tab.targetId}`}
-            onClick={(e) => handleTabClick(e, tab.targetId)}
-            className={`relative flex shrink-0 items-center px-[12px] py-[20px] text-[1.4rem] font-black uppercase tracking-tight transition-all sm:px-[20px] lg:px-[24px] ${
-              activeTab === tab.targetId
-                ? "text-[#2B6B9A]"
-                : "text-slate-400 hover:text-slate-600"
-            }`}
-          >
-            {tab.label}
-            {/* 활성화 표시 언더라인 */}
-            <span 
-              className={`absolute bottom-0 left-0 h-[3px] w-full bg-[#2B6B9A] transition-transform duration-300 ease-out ${
-                activeTab === tab.targetId ? "scale-x-100" : "scale-x-0"
-              }`}
-            />
-          </a>
-        ))}
+    <nav ref={navRef} aria-label="프로그램 상세 목차" style={{ top: headerHeight }} className="sticky z-40 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md">
+      <div className="mx-auto flex max-w-[1120px] items-center overflow-x-auto px-[16px] sm:px-[24px]">
+        {sections.map((id) => <a key={id} href={`#${id}`} aria-current={activeTab === id ? "location" : undefined} onClick={(event) => handleTabClick(event, id)}
+          className={`relative shrink-0 px-[14px] py-[20px] text-[1.4rem] font-bold focus-visible:outline-2 focus-visible:outline-offset-[-4px] sm:px-[20px] ${activeTab === id ? "text-[#2B6B9A]" : "text-slate-600 hover:text-[#2B6B9A]"}`}>
+          {detailSectionLabels[id]}
+          {activeTab === id && <span className="absolute bottom-0 left-0 h-[3px] w-full bg-[#2B6B9A]" />}
+        </a>)}
       </div>
     </nav>
   );
 }
-

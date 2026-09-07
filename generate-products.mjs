@@ -2,7 +2,7 @@
  * 나머지 상품 데이터 인라인 생성 스크립트
  * 실행: node generate-products.mjs
  */
-import { writeFileSync, mkdirSync } from 'fs';
+import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
 
 const dir = './src/lib/data/products';
@@ -26,6 +26,10 @@ const products = [
 ];
 
 function generateFile(p) {
+    if (existsSync(join(dir, `${p.slug}.ts`))) {
+        console.log(`Skip existing product: ${p.slug}`);
+        return;
+    }
     const content = `import type { CourseDetail } from "@/lib/types";
 
 const courseDetail: CourseDetail = {
@@ -37,11 +41,7 @@ const courseDetail: CourseDetail = {
   heroHeadline: "${p.headline}",
   heroSubcopy: "${p.subcopy}",
   heroChips: ${JSON.stringify(p.chips)},
-  heroProofStats: [
-    { label: "운영 학교", value: "${30 + Math.floor(Math.random() * 100)}+" },
-    { label: "참여 학생", value: "${(2 + Math.floor(Math.random() * 8)).toLocaleString()},${String(Math.floor(Math.random() * 900) + 100).padStart(3, '0')}+" },
-    { label: "평균 만족도", value: "4.${7 + Math.floor(Math.random() * 3)} / 5.0" },
-  ],
+  heroProofStats: [], // 실제 집계 근거를 확인한 뒤 evidence와 함께 입력
   heroTheme: "cinematic-dark",
   tags: ["진로직업체험", "${p.category}", "${p.schoolLevel}"],
   status: "학교 출강 운영중",

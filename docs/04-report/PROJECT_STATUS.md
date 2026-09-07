@@ -1,5 +1,7 @@
 # coloso-next 프로젝트 상태 보고서
 
+> **과거 기록 안내 (2026-09-07 추가):** 아래 점수와 완료 판정은 2026-03-02 당시 코드 개선 보고서다. 현재 드림플렉스 홈페이지의 콘텐츠·디자인·운영 완성도를 뜻하지 않는다. 최신 목표와 미완료 사항은 [PROJECT.md](../../PROJECT.md)를 기준으로 확인한다.
+
 > **Report Date**: 2026-03-02
 > **Project Level**: Dynamic
 > **Overall Progress**: 92.4% Quality Score

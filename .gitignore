@@ -41,6 +41,7 @@ yarn-error.log*
 
 # screenshots & images (temp)
 *.png
+!public/**/*.png
 
 # claude/bkit temp files
 .claude/

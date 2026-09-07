@@ -12,6 +12,22 @@
 
 ## 작업 로그
 
+### 2026-09-07 · 상세페이지 다섯 템플릿
+- **요청:** 프로그램 성격에 맞춰 상세페이지를 다양한 템플릿으로 구성.
+- **변경:** 체험·결과물·프로젝트·학교 운영·전문가 스토리의 다섯 첫 화면과 섹션 순서, 세 가지 소개·네 가지 커리큘럼 배치를 23개 프로그램에 적용.
+- **비교:** `/detail-templates`에서 프로그램·구성·미리보기 너비 선택. 기본 설정 저장 기능은 없으며 제품의 `detailTemplate` 필드로 개별 변경.
+- **연결:** 목차는 표시 섹션과 동일 순서, 첫 화면·준비 조건·하단 견적은 같은 수업 선택을 참조. 기존 데이터와 후기 근거 조건 유지.
+- **검증·문서:** 빌드와 테스트 17개 통과. `docs/02-design/detail-page-templates.md`, `docs/04-report/detail-page-templates-validation.md`.
+- **git 추적:** `git log --oneline --grep="add five program detail page templates"`로 찾는다.
+
+### 2026-09-07 · 드림플렉스 상세 커리큘럼 재설계
+- **최신 목표:** `PROJECT.md`를 먼저 읽는다. 과거 품질 점수는 현재 사업 목표 달성률이 아니다.
+- **변경:** AI 2·4·6차시, 마술·바리스타 각 2차시의 상세 수업안을 새 구조로 작성하고 수업 선택→활동→준비→견적 요청사항을 연결.
+- **원인 수정:** 잘못된 주소의 AI 수업 fallback, 카드 13개 주소, 누락된 준비물 표시, 근거 없는 실적·후기 노출, PNG 무시 규칙, 생성 스크립트 덮어쓰기 및 임의 실적 생성.
+- **문서:** `docs/01-plan/features/dreamplex-curriculum-redesign.plan.md`, `docs/02-design/dreamplex-curriculum-blueprints.md`, `docs/HANDOFF.md`, `docs/OPEN_WORRIES.md`.
+- **열린 내용:** 대표 이미지 23개 복구, 나머지 20개 상세 수업안, 실제 강사·후기 검토, 전용관·실접수·시각적 대조. 이번 수업안은 운영 확인 전 제안이다.
+- **git 추적:** `git log --oneline --grep="redesign Dreamplex curriculum"`로 이 변경의 커밋을 찾는다.
+
 ### 2026-07-21 · 할 일 체크리스트 15개 정리 (인지 부담 줄이기용)
 - **git: `a2ccf4c`** — `docs: 진로직업체험 홈페이지 할 일 체크리스트(15개) 추가`
 - **결과물:** `진로직업체험_할일_체크리스트.html` (브라우저로 열면 체크 가능, 상태 자동 저장)

@@ -1,9 +1,21 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AiQuoteForm } from "./_components/AiQuoteForm";
+import { getCourseDetail } from "@/lib/data/courseDetail";
+import { curriculumDesigns } from "@/lib/data/curriculumPlans";
+import { describeCurriculumSelection, selectCurriculumPlan } from "@/lib/curriculum";
+import type { AiQuoteTabType } from "@/lib/types";
 
 /** AI 견적요청 진입 페이지 (Server Component) */
-export default function AiQuotePage() {
+export default async function AiQuotePage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
+  const query = await searchParams;
+  const course = typeof query.program === "string" ? getCourseDetail(query.program) : null;
+  const design = course && Object.hasOwn(curriculumDesigns, course.slug) ? curriculumDesigns[course.slug] : undefined;
+  const plan = design ? selectCurriculumPlan(design, typeof query.plan === "string" ? query.plan : undefined) : undefined;
+  const tab: AiQuoteTabType = course?.slug === "giants-shoulder-ai-literacy"
+    ? "ai-startup-aptitude-credit"
+    : course?.targetAudience?.[0]?.grade.includes("초등") ? "elementary" : "middle-career";
+  const selection = course ? { title: course.title, message: describeCurriculumSelection(course.title, plan), tab } : undefined;
   return (
     <main className="bg-background py-[40px] md:py-[56px]">
       <Container>
@@ -16,7 +28,7 @@ export default function AiQuotePage() {
           </h1>
           <p className="mt-[12px] max-w-[760px] text-[1.4rem] leading-[1.75] text-text-secondary">
             탭에서 대상 유형을 먼저 선택한 뒤, 필수 정보만 입력하면 예상 견적을 바로 확인할 수
-            있습니다. 접수 후 담당자가 상세 상담을 진행합니다.
+            있습니다. 이 화면은 예상 금액을 계산하며, 상담 접수와 일정 확정은 별도 문의가 필요합니다.
           </p>
           <ol className="mt-[14px] grid gap-[8px] rounded-[12px] border border-grey-800 bg-surface-light p-[12px] text-[1.3rem] leading-[1.65] text-grey-200 md:grid-cols-3">
             <li>1. 분류 탭 선택</li>
@@ -24,7 +36,7 @@ export default function AiQuotePage() {
             <li>3. 예상 견적 확인</li>
           </ol>
 
-          <AiQuoteForm />
+          <AiQuoteForm key={`${course?.slug ?? "none"}-${plan?.id ?? "none"}`} selection={selection} />
 
           <div className="mt-[24px] flex flex-wrap items-center gap-[10px]">
             <Link
@@ -34,7 +46,7 @@ export default function AiQuotePage() {
               홈으로 돌아가기
             </Link>
             <a
-              href="mailto:support@coloso.co.kr"
+              href="mailto:kang_couch@dreamplex.co.kr"
               className="rounded-[10px] border border-grey-700 bg-surface px-[16px] py-[10px] text-[1.3rem] font-semibold text-text-primary transition-colors hover:bg-surface-light"
             >
               이메일로 문의하기

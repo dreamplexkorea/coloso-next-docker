@@ -188,6 +188,8 @@ export interface CoursePrice {
 export interface HeroProofStat {
   label: string;
   value: string;
+  /** 수치의 근거 문서. 없는 수치는 공개 상세페이지에서 표시하지 않는다. */
+  evidence?: string;
 }
 
 /** AI 견적요청 탭 타입 */
@@ -335,6 +337,9 @@ export interface Review {
   authorAvatarSrc?: string;
   characterId?: number;
   photoSrc?: string;
+  /** 이 프로그램의 실제 후기 원문과 공개 확인 기록 */
+  evidence?: string;
+  programSlug?: string;
 }
 
 /** 제휴/협력 공용 카드 */
@@ -515,6 +520,7 @@ export interface ExpectedOutcome {
 
 /** 강의 상세 정보 */
 export interface CourseDetail {
+  detailTemplate?: import("./detailTemplates").DetailTemplateId;
   slug: string;
   title: string;
   subtitle: string;

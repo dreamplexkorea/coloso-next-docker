@@ -20,11 +20,12 @@ import { MiddleCareerFormSection } from "./MiddleCareerFormSection";
 import { AdvancedTrackFormSection } from "./AdvancedTrackFormSection";
 import { QuoteResult } from "./QuoteResult";
 
-export function AiQuoteForm() {
-  const [activeTab, setActiveTab] = useState<AiQuoteTabType>("elementary");
-  const [elementaryForm, setElementaryForm] = useState<ElementaryFormState>(initialElementary);
-  const [middleCareerForm, setMiddleCareerForm] = useState<MiddleCareerFormState>(initialMiddleCareer);
-  const [advancedTrackForm, setAdvancedTrackForm] = useState<AdvancedTrackFormState>(initialAdvanced);
+export function AiQuoteForm({ selection }: { selection?: { title: string; message: string; tab: AiQuoteTabType } }) {
+  const selectionMessage = selection?.message ?? "";
+  const [activeTab, setActiveTab] = useState<AiQuoteTabType>(selection?.tab ?? "elementary");
+  const [elementaryForm, setElementaryForm] = useState<ElementaryFormState>({ ...initialElementary, message: selectionMessage });
+  const [middleCareerForm, setMiddleCareerForm] = useState<MiddleCareerFormState>({ ...initialMiddleCareer, message: selectionMessage });
+  const [advancedTrackForm, setAdvancedTrackForm] = useState<AdvancedTrackFormState>({ ...initialAdvanced, message: selectionMessage });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -61,14 +62,14 @@ export function AiQuoteForm() {
 
   const resetActiveForm = () => {
     if (activeTab === "elementary") {
-      setElementaryForm(initialElementary);
+      setElementaryForm({ ...initialElementary, message: selectionMessage });
       return;
     }
     if (activeTab === "middle-career") {
-      setMiddleCareerForm(initialMiddleCareer);
+      setMiddleCareerForm({ ...initialMiddleCareer, message: selectionMessage });
       return;
     }
-    setAdvancedTrackForm(initialAdvanced);
+    setAdvancedTrackForm({ ...initialAdvanced, message: selectionMessage });
   };
 
   const handleTabChange = (tab: AiQuoteTabType) => {
@@ -142,6 +143,13 @@ export function AiQuoteForm() {
 
   return (
     <div className="mt-[24px] space-y-[18px]">
+      {selection && (
+        <div className="border-l-[4px] border-primary bg-primary/5 p-[20px]">
+          <h2 className="text-[1.8rem] font-bold">선택한 프로그램</h2>
+          <p className="mt-[8px] whitespace-pre-line text-[1.5rem] leading-[1.8] text-text-secondary">{selection.message}</p>
+          <p className="mt-[12px] text-[1.4rem] text-text-secondary">선택한 내용은 요청사항에 담았습니다. 예상 금액은 분류별 기준으로 계산되며, 이 수업안의 확정 견적은 별도 상담이 필요합니다.</p>
+        </div>
+      )}
       <div className="grid gap-[8px] sm:grid-cols-3">
         {(Object.keys(tabLabels) as AiQuoteTabType[]).map((tab) => (
           <button
