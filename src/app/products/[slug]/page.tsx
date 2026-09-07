@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { getCourseDetail } from "@/lib/data/courseDetail";
+import { curriculumDesigns } from "@/lib/data/curriculumPlans";
 
 import { ProductHero } from "./_components/ProductHero";
 import { TabNavigation } from "./_components/TabNavigation";
@@ -14,6 +15,8 @@ import { Reviews } from "./_components/Reviews";
 import { NoticeSection } from "./_components/NoticeSection";
 import { StickyBottomSummary } from "./_components/StickyBottomSummary";
 import { TrackCourseView } from "./_components/TrackCourseView";
+import { CurriculumSelection } from "./_components/CurriculumSelection";
+import { DetailedCurriculum } from "./_components/DetailedCurriculum";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -52,8 +55,11 @@ export default async function ProductDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const course = getCourseDetail(slug);
   if (!course) notFound();
+  const design = Object.hasOwn(curriculumDesigns, slug) ? curriculumDesigns[slug] : undefined;
+  const reviews = (course.reviews ?? []).filter((review) => review.evidence?.trim() && review.programSlug === slug);
 
   return (
+    <CurriculumSelection key={slug} design={design}>
     <main className="min-h-screen bg-[var(--color-background,#FFFFFF)] pb-[80px] text-[var(--color-text-primary,#0f172a)] lg:pb-[56px]">
       <TrackCourseView slug={slug} />
 
@@ -61,7 +67,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
       <ProductHero course={course} />
 
       {/* 탭 네비게이션 */}
-      <TabNavigation />
+      <TabNavigation hasCurriculum={Boolean(design || course.curriculum.length)} hasReviews={reviews.length > 0} />
 
       <Container>
         <ClassIntro
@@ -70,17 +76,19 @@ export default async function ProductDetailPage({ params }: PageProps) {
           expectedOutcomes={course.expectedOutcomes}
         />
 
-        {course.curriculum && course.curriculum.length > 0 && (
+        {design ? <DetailedCurriculum slug={slug} design={design} /> : course.curriculum.length > 0 && (
           <Curriculum chapters={course.curriculum} />
         )}
+
+        {!design && <RequiredTools tools={course.requiredTools} />}
 
         <div id="educator">
           <CreatorProfile instructor={course.instructor} />
         </div>
 
-        {course.reviews && course.reviews.length > 0 && (
+        {reviews.length > 0 && (
           <div id="reviews">
-            <Reviews reviews={course.reviews} />
+            <Reviews reviews={reviews} />
           </div>
         )}
 
@@ -93,7 +101,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
       </Container>
 
       {/* 하단 프로그램 요약 바 */}
-      <StickyBottomSummary meta={course.meta} />
+      <StickyBottomSummary meta={course.meta} slug={slug} />
     </main>
+    </CurriculumSelection>
   );
 }

@@ -30,7 +30,7 @@ import biotechScientist from "./biotech-scientist";
 import newsAnchor from "./news-anchor";
 
 /** slug → CourseDetail 매핑 */
-const productMap: Record<string, CourseDetail> = {};
+const productMap: Record<string, CourseDetail> = Object.create(null);
 
 // 모든 상품 데이터를 slug 기반으로 등록
 const allProducts: CourseDetail[] = [

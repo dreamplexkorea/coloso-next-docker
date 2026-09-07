@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { CourseDetail } from "@/lib/types";
-import { BookOutlineIcon, ClockOutlineIcon, LanguageOutlineIcon } from "@/components/icons";
+import { buildCurriculumQuoteHref } from "@/lib/curriculum";
 
 interface ProductHeroProps {
   course: CourseDetail;
@@ -26,6 +27,7 @@ export function ProductHero({ course }: ProductHeroProps) {
   const headline = heroHeadline ?? title;
   const subcopy = heroSubcopy ?? course.subtitle;
   const category = (heroChips?.length ? heroChips : tags)[0] ?? "";
+  const proofStats = heroProofStats?.filter((stat) => stat.evidence?.trim()) ?? [];
 
   const highlights = programHighlights ?? [
     { label: "대상 학년", value: `${meta.level}` },
@@ -38,7 +40,7 @@ export function ProductHero({ course }: ProductHeroProps) {
     <div className={`product-hero-container ${isDark ? "bg-[#0F1E2E]" : "bg-white"}`}>
       {/* 히어로 이미지 영역 */}
       <section
-        className={`product-hero relative flex w-full flex-col justify-center overflow-hidden px-[16px] pb-[60px] pt-[100px] sm:px-[24px] lg:h-[680px] lg:px-[32px] lg:pb-[80px] lg:pt-[120px] ${
+        className={`product-hero relative flex w-full flex-col justify-center overflow-hidden px-[16px] pb-[60px] pt-[100px] sm:px-[24px] lg:min-h-[680px] lg:px-[32px] lg:pb-[80px] lg:pt-[120px] ${
           isDark ? "text-white" : "text-[#0F1E2E]"
         }`}
       >
@@ -82,6 +84,7 @@ export function ProductHero({ course }: ProductHeroProps) {
               </p>
             )}
 
+            {headline !== title && <p className="mb-[12px] text-[1.6rem] font-semibold leading-[1.6]">{title}</p>}
             <h1
               className="product-hero-title mb-[20px] text-[3.2rem] font-black leading-[1.1] tracking-[-0.03em] sm:text-[4.8rem] lg:text-[6.4rem]"
             >
@@ -106,6 +109,10 @@ export function ProductHero({ course }: ProductHeroProps) {
                   {instructor.role}
                 </span>
               </div>
+            </div>
+            <div className="mt-[28px] flex flex-wrap gap-[12px]">
+              <a href="#curriculum" className="rounded-[6px] bg-white px-[22px] py-[14px] text-[1.6rem] font-bold text-[#0F1E2E] ring-1 ring-slate-300">상세 커리큘럼 보기</a>
+              <Link href={buildCurriculumQuoteHref(course.slug)} className="rounded-[6px] bg-primary px-[22px] py-[14px] text-[1.6rem] font-bold text-white">우리 학교 견적 살펴보기</Link>
             </div>
           </div>
         </div>
@@ -134,11 +141,11 @@ export function ProductHero({ course }: ProductHeroProps) {
         </div>
 
         {/* 4. 신뢰지표 (Proof Stats) */}
-        {heroProofStats && heroProofStats.length > 0 && (
+        {proofStats.length > 0 && (
           <div className={`mt-[24px] flex flex-wrap items-center justify-center gap-x-[40px] gap-y-[16px] rounded-[12px] py-[16px] ${
             isDark ? "bg-[#2B6B9A]/10" : "bg-[#F6F8FB]"
           }`}>
-            {heroProofStats.map((stat) => (
+            {proofStats.map((stat) => (
               <div key={stat.label} className="flex items-baseline gap-[8px]">
                 <span className={`text-[1.2rem] font-medium ${isDark ? "text-slate-400" : "text-slate-500"}`}>
                   {stat.label}

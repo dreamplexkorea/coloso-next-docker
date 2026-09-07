@@ -11,7 +11,7 @@ export function RequiredTools({ tools }: RequiredToolsProps) {
   return (
     <section className="py-[40px]">
       <h2 className="mb-[24px] text-[2rem] font-bold text-[var(--color-text-primary)] sm:text-[2.4rem]">
-        사용 프로그램
+        수업 도구·준비물
       </h2>
 
       <div className="grid grid-cols-2 gap-[12px] sm:grid-cols-3">

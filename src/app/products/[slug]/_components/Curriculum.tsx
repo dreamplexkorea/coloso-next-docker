@@ -17,12 +17,12 @@ export function Curriculum({ chapters }: CurriculumProps) {
           </p>
           <h2 className="text-[3.2rem] font-black tracking-tight text-[#0F1E2E] sm:text-[4.0rem] lg:text-[4.8rem]">
             실전에서 즉시 발휘되는<br />
-            체계적인 커리큘럼
+            프로그램 구성
           </h2>
           <div className="mt-[24px] h-[4px] w-[60px] bg-[#2B6B9A] mx-auto lg:mx-0" />
           <p className="mt-[32px] max-w-[600px] text-[1.6rem] leading-[1.8] text-[#334A62] sm:text-[1.8rem]">
-            단순한 이론 나열이 아닙니다. 입문부터 심화 실전까지,<br className="hidden lg:block" />
-            현장의 노하우를 단계별로 완벽하게 흡수할 수 있도록 설계되었습니다.
+            프로그램의 주요 주제와 활동 순서를 안내합니다.<br className="hidden lg:block" />
+            학년별 활동과 준비 조건은 상담에서 확인해주세요.
           </p>
         </div>
 
@@ -103,7 +103,7 @@ export function Curriculum({ chapters }: CurriculumProps) {
                               </span>
                               <span className="h-[3px] w-[3px] rounded-full bg-[#CBD5E1]" />
                               <span className="text-[1.2rem] font-medium text-[#64748B]">
-                                실습 포함
+                                활동 구성
                               </span>
                             </div>
                           </div>

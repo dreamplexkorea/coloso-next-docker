@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:recently-viewed": "node --experimental-strip-types --test src/lib/personalization/recentlyViewed.test.ts"
+    "test:recently-viewed": "node --experimental-strip-types --test src/lib/personalization/recentlyViewed.test.ts",
+    "test:curriculum": "node --experimental-strip-types --test src/lib/curriculum.test.ts",
+    "docs:curriculum": "node --experimental-strip-types scripts/export-curriculum-plans.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

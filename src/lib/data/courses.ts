@@ -347,7 +347,7 @@ export const categoryCarouselSections: CarouselSection[] = [
     courses: [
       {
         id: "초등-1",
-        slug: "elem-barista",
+        slug: "barista-experience",
         title: "바리스타 직업체험",
         subtitle: "나만의 라떼아트 만들기",
         instructor: "김바리 강사",
@@ -361,7 +361,7 @@ export const categoryCarouselSections: CarouselSection[] = [
       },
       {
         id: "초등-2",
-        slug: "elem-patissier",
+        slug: "patissier",
         title: "파티시에 체험",
         subtitle: "프랑스 디저트 만들기",
         instructor: "한디저트 강사",
@@ -375,7 +375,7 @@ export const categoryCarouselSections: CarouselSection[] = [
       },
       {
         id: "초등-3",
-        slug: "elem-3dprint",
+        slug: "3d-printing",
         title: "3D프린터 메이커 체험",
         subtitle: "나만의 굿즈 만들기",
         instructor: "최메이커 강사",
@@ -388,36 +388,8 @@ export const categoryCarouselSections: CarouselSection[] = [
         category: "과학/기술",
       },
       {
-        id: "초등-4",
-        slug: "elem-florist",
-        title: "플로리스트 체험",
-        subtitle: "꽃으로 말해요",
-        instructor: "서플라워 강사",
-        thumbnailSrc: "",
-        badges: [],
-        keywords: ["진로체험", "초등"],
-        bgColor: sectionColors.초등,
-        duration: "70분",
-        schoolLevel: "초등",
-        category: "예술/디자인",
-      },
-      {
-        id: "초등-5",
-        slug: "elem-scientist",
-        title: "과학자 체험",
-        subtitle: "알록달록 화학실험",
-        instructor: "강실험 강사",
-        thumbnailSrc: "",
-        badges: ["강력 추천"],
-        keywords: ["진로체험", "초등"],
-        bgColor: sectionColors.초등,
-        duration: "80분",
-        schoolLevel: "초등",
-        category: "과학/기술",
-      },
-      {
         id: "초등-6",
-        slug: "elem-drone",
+        slug: "drone-pilot",
         title: "드론 조종사 체험",
         subtitle: "하늘을 나는 직업",
         instructor: "이드론 강사",
@@ -438,7 +410,7 @@ export const categoryCarouselSections: CarouselSection[] = [
     courses: [
       {
         id: "중등-1",
-        slug: "mid-youtube",
+        slug: "youtube-creator",
         title: "유튜브 크리에이터 체험",
         subtitle: "영상 기획부터 편집까지",
         instructor: "박크리 강사",
@@ -452,7 +424,7 @@ export const categoryCarouselSections: CarouselSection[] = [
       },
       {
         id: "중등-2",
-        slug: "mid-forensic",
+        slug: "forensic-science",
         title: "과학수사대 체험",
         subtitle: "CSI가 되어보자",
         instructor: "정수사 강사",
@@ -466,7 +438,7 @@ export const categoryCarouselSections: CarouselSection[] = [
       },
       {
         id: "중등-3",
-        slug: "mid-ai",
+        slug: "ai-programming",
         title: "인공지능 프로그래머 체험",
         subtitle: "AI와 함께하는 코딩",
         instructor: "오코딩 강사",
@@ -480,7 +452,7 @@ export const categoryCarouselSections: CarouselSection[] = [
       },
       {
         id: "중등-4",
-        slug: "mid-robot",
+        slug: "robot-engineer",
         title: "로봇공학자 체험",
         subtitle: "로봇 만들기",
         instructor: "백로봇 강사",
@@ -494,7 +466,7 @@ export const categoryCarouselSections: CarouselSection[] = [
       },
       {
         id: "중등-5",
-        slug: "mid-beauty",
+        slug: "beauty-artist",
         title: "뷰티 아티스트 체험",
         subtitle: "메이크업 & 스타일링",
         instructor: "윤뷰티 강사",
@@ -515,7 +487,7 @@ export const categoryCarouselSections: CarouselSection[] = [
     courses: [
       {
         id: "고등-1",
-        slug: "high-startup",
+        slug: "startup-ceo",
         title: "스타트업 대표 체험",
         subtitle: "사업계획서 작성부터 피칭까지",
         instructor: "강대표 강사",
@@ -529,7 +501,7 @@ export const categoryCarouselSections: CarouselSection[] = [
       },
       {
         id: "고등-2",
-        slug: "high-fashion",
+        slug: "fashion-designer",
         title: "패션 디자이너 체험",
         subtitle: "나만의 브랜드 만들기",
         instructor: "최패션 강사",
@@ -543,7 +515,7 @@ export const categoryCarouselSections: CarouselSection[] = [
       },
       {
         id: "고등-3",
-        slug: "high-profiler",
+        slug: "forensic-psychologist",
         title: "프로파일러 체험",
         subtitle: "범죄심리 분석",
         instructor: "한프로 강사",
@@ -557,7 +529,7 @@ export const categoryCarouselSections: CarouselSection[] = [
       },
       {
         id: "고등-4",
-        slug: "high-biotech",
+        slug: "biotech-scientist",
         title: "생명공학자 체험",
         subtitle: "DNA 추출 실험",
         instructor: "유생명 강사",

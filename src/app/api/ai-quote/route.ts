@@ -62,10 +62,10 @@ export async function POST(request: Request) {
     return NextResponse.json<AiQuoteResponse>(
       {
         ok: true,
-        message: "견적 요청이 접수되었습니다. 분류별 맞춤 예상 견적을 확인해보세요.",
+        message: "분류별 예상 견적을 계산했습니다. 상담 접수와 일정 확정은 별도 문의해주세요.",
         quote,
       },
-      { status: 201 },
+      { status: 200 },
     );
   } catch {
     return NextResponse.json<AiQuoteResponse>(

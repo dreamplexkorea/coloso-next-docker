@@ -2,21 +2,23 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const tabs = [
+const allTabs = [
   { label: "프로그램 소개", targetId: "program-intro" },
   { label: "커리큘럼", targetId: "curriculum" },
-  { label: "Master", targetId: "educator" },
-  { label: "수강생 후기", targetId: "reviews" },
+  { label: "운영 강사진", targetId: "educator" },
+  { label: "학교·학생 후기", targetId: "reviews" },
   { label: "유의사항", targetId: "notice" },
 ];
 
 /** 탭 네비게이션 — 콜소 스타일의 미니멀 하이컨트라스트 디자인 */
-export function TabNavigation() {
+export function TabNavigation({ hasCurriculum = true, hasReviews = true }: { hasCurriculum?: boolean; hasReviews?: boolean }) {
+  const tabs = allTabs.filter((tab) => (tab.targetId !== "reviews" || hasReviews) && (tab.targetId !== "curriculum" || hasCurriculum));
   const [activeTab, setActiveTab] = useState(tabs[0].targetId);
   const isClickScrolling = useRef(false);
 
   useEffect(() => {
-    const sectionEls = tabs
+    const sectionEls = allTabs
+      .filter((tab) => (tab.targetId !== "reviews" || hasReviews) && (tab.targetId !== "curriculum" || hasCurriculum))
       .map((tab) => document.getElementById(tab.targetId))
       .filter(Boolean) as HTMLElement[];
 
@@ -36,7 +38,7 @@ export function TabNavigation() {
 
     for (const el of sectionEls) observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [hasCurriculum, hasReviews]);
 
   function handleTabClick(e: React.MouseEvent<HTMLAnchorElement>, targetId: string) {
     e.preventDefault();
@@ -53,7 +55,7 @@ export function TabNavigation() {
 
     window.scrollTo({
       top: offsetPosition,
-      behavior: "smooth"
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
     });
 
     const resetScrollFlag = () => { isClickScrolling.current = false; };
@@ -67,6 +69,7 @@ export function TabNavigation() {
           <a
             key={tab.targetId}
             href={`#${tab.targetId}`}
+            aria-current={activeTab === tab.targetId ? "location" : undefined}
             onClick={(e) => handleTabClick(e, tab.targetId)}
             className={`relative flex shrink-0 items-center px-[12px] py-[20px] text-[1.4rem] font-black uppercase tracking-tight transition-all sm:px-[20px] lg:px-[24px] ${
               activeTab === tab.targetId
@@ -87,4 +90,3 @@ export function TabNavigation() {
     </nav>
   );
 }
-

@@ -41,7 +41,7 @@ export function QuoteResult({ quoteResult, isResultPanelOpen, setIsResultPanelOp
               <div className="rounded-[12px] border border-grey-800 bg-surface-light p-[12px]">
                 <p className="text-[1.2rem] font-semibold text-grey-400">다음 단계</p>
                 <ol className="mt-[6px] list-decimal space-y-[2px] pl-[18px] text-[1.35rem] text-grey-200">
-                  <li>요청 접수 확인</li>
+                  <li>이메일로 상담 문의</li>
                   <li>담당자 상세 상담</li>
                   <li>최종 운영안 안내</li>
                 </ol>
@@ -58,10 +58,10 @@ export function QuoteResult({ quoteResult, isResultPanelOpen, setIsResultPanelOp
             </div>
           </div>
         ) : (
-          <p className="mt-[10px] text-[1.35rem] leading-[1.7] text-grey-300">견적 요청을 제출하면 이 영역에 결과가 표시됩니다.</p>
+          <p className="mt-[10px] text-[1.35rem] leading-[1.7] text-grey-300">학교 정보를 입력하고 예상 견적을 계산하면 결과가 표시됩니다.</p>
         )
       ) : (
-        <p className="mt-[10px] text-[1.3rem] leading-[1.7] text-grey-300">초기 화면 복잡도를 줄이기 위해 결과 패널을 접어두었습니다.</p>
+        <p className="mt-[10px] text-[1.3rem] leading-[1.7] text-grey-300">계산한 예상 금액과 안내를 확인하려면 패널을 열어주세요.</p>
       )}
     </section>
   );

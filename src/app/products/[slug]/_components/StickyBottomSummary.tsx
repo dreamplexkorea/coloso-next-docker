@@ -3,14 +3,22 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { CourseMeta } from "@/lib/types";
+import { buildCurriculumQuoteHref, getPlanMinutes } from "@/lib/curriculum";
+import { useCurriculumSelection } from "./CurriculumSelection";
 
 interface StickyBottomSummaryProps {
   meta: CourseMeta;
+  slug: string;
 }
 
 /** 하단 고정 프로그램 요약 바 — glass morphism, 히어로 지나면 항상 노출 */
-export function StickyBottomSummary({ meta }: StickyBottomSummaryProps) {
+export function StickyBottomSummary({ meta, slug }: StickyBottomSummaryProps) {
   const [visible, setVisible] = useState(false);
+  const plan = useCurriculumSelection()?.plan;
+  const href = buildCurriculumQuoteHref(slug, plan?.id);
+  const summary = plan
+    ? `${plan.sessions.length}차시 · ${getPlanMinutes(plan)}분${plan.status === "proposal" ? " · 수업 설계안" : ""}`
+    : `${meta.level} · ${meta.totalLessons}차시 · ${meta.totalDuration}`;
 
   // IntersectionObserver — 히어로 영역을 지나면 노출
   useEffect(() => {
@@ -29,6 +37,7 @@ export function StickyBottomSummary({ meta }: StickyBottomSummaryProps) {
 
   return (
     <div
+      inert={!visible}
       className={`fixed inset-x-0 bottom-0 z-50 border-t border-white/30 bg-white/30 shadow-[0_-8px_32px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-[28px] backdrop-saturate-[1.6] transition-[transform,opacity] duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
         visible
           ? "translate-y-0 opacity-100"
@@ -37,17 +46,13 @@ export function StickyBottomSummary({ meta }: StickyBottomSummaryProps) {
     >
       {/* 데스크톱: 한 줄 레이아웃 */}
       <div className="mx-auto hidden h-[48px] max-w-[1120px] items-center justify-between px-[32px] lg:flex">
-        <p className="text-[1.2rem] tracking-[0.01em] text-[var(--color-text-tertiary,#64748b)]">
-          {meta.level}
-          <span className="mx-[8px] opacity-40">&middot;</span>
-          총 {meta.totalLessons}차시
-          <span className="mx-[8px] opacity-40">&middot;</span>
-          {meta.totalDuration}
+        <p className="text-[1.4rem] tracking-[0.01em] text-[var(--color-text-tertiary,#64748b)]">
+          {summary}
         </p>
 
         <Link
-          href="/ai-quote"
-          className="rounded-[6px] bg-[var(--color-primary,#2B6B9A)] px-[20px] py-[7px] text-[1.3rem] font-bold text-white transition-opacity hover:opacity-90"
+          href={href}
+          className="rounded-[6px] bg-[var(--color-primary,#2B6B9A)] px-[20px] py-[7px] text-[1.5rem] font-bold text-white transition-opacity hover:opacity-90"
         >
           견적 요청하기
         </Link>
@@ -55,24 +60,20 @@ export function StickyBottomSummary({ meta }: StickyBottomSummaryProps) {
 
       {/* 모바일: 두 줄 레이아웃 */}
       <div className="px-[16px] pb-[12px] pt-[10px] lg:hidden">
-        <p className="mb-[8px] text-center text-[1.2rem] text-[var(--color-text-tertiary,#64748b)]">
-          {meta.level}
-          <span className="mx-[6px] opacity-40">&middot;</span>
-          {meta.totalLessons}차시
-          <span className="mx-[6px] opacity-40">&middot;</span>
-          {meta.totalDuration}
+        <p className="mb-[8px] text-center text-[1.4rem] text-[var(--color-text-tertiary,#64748b)]">
+          {summary}
         </p>
 
         <div className="flex items-center gap-[8px]">
           <Link
-            href="/ai-quote"
-            className="flex flex-1 items-center justify-center rounded-[8px] bg-[var(--color-primary,#2B6B9A)] py-[12px] text-[1.3rem] font-bold text-white transition-opacity hover:opacity-90"
+            href={href}
+            className="flex flex-1 items-center justify-center rounded-[8px] bg-[var(--color-primary,#2B6B9A)] py-[12px] text-[1.5rem] font-bold text-white transition-opacity hover:opacity-90"
           >
             견적 요청하기
           </Link>
           <Link
-            href="/ai-quote"
-            className="flex items-center justify-center rounded-[8px] border border-[var(--color-primary,#2B6B9A)] px-[16px] py-[12px] text-[1.3rem] font-bold text-[var(--color-primary,#2B6B9A)] transition-colors hover:bg-[var(--color-primary,#2B6B9A)]/5"
+            href={href}
+            className="flex items-center justify-center rounded-[8px] border border-[var(--color-primary,#2B6B9A)] px-[16px] py-[12px] text-[1.5rem] font-bold text-[var(--color-primary,#2B6B9A)] transition-colors hover:bg-[var(--color-primary,#2B6B9A)]/5"
           >
             문의
           </Link>
